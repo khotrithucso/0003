@@ -18,7 +18,10 @@ window.GAME_DATA = {
     { code: "th", name: "ไทย", flag: "🇹🇭" }
   ],
 
-  Topics: [
+
+
+
+  topics: [
   { "id": "top_01", "title": "Daily Conversation", "icon": "💬", "color": "#FF5964" },
   { "id": "top_02", "title": "Travel & Airport", "icon": "✈️", "color": "#35A7FF" },
   { "id": "top_03", "title": "Restaurant & Ordering", "icon": "🍔", "color": "#FFE347" },
