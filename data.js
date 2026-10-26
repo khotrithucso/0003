@@ -18,18 +18,18 @@ window.GAME_DATA = {
     { code: "th", name: "ไทย", flag: "🇹🇭" }
   ],
 
-  topics: [
-    { id: "top_01", title: "Giao Tiếp Hàng Ngày", icon: "💬", color: "#FF5964" },
-    { id: "top_02", title: "Du Lịch & Sân Bay", icon: "✈️", color: "#35A7FF" },
-    { id: "top_03", title: "Nhà Hàng & Gọi Món", icon: "🍔", color: "#FFE347" },
-    { id: "top_04", title: "Mua Sắm & Mua Bán", icon: "🛍️", color: "#38B000" },
-    { id: "top_05", title: "Khách Sạn & Đặt Phòng", icon: "🏨", color: "#9B5DE5" },
-    { id: "top_06", title: "Công Sở & Công Việc", icon: "💼", color: "#F15BB5" },
-    { id: "top_07", title: "Gia Đình & Bạn Bè", icon: "🏡", color: "#00BBF9" },
-    { id: "top_08", title: "Y Tế & Cấp Cứu", icon: "🏥", color: "#FF9F1C" },
-    { id: "top_09", title: "Sở Thích & Thể Thao", icon: "⚽", color: "#2EC4B6" },
-    { id: "top_10", title: "Học Tập & Trường Học", icon: "🎓", color: "#E71D36" }
-  ],
+  Topics: [
+  { "id": "top_01", "title": "Daily Conversation", "icon": "💬", "color": "#FF5964" },
+  { "id": "top_02", "title": "Travel & Airport", "icon": "✈️", "color": "#35A7FF" },
+  { "id": "top_03", "title": "Restaurant & Ordering", "icon": "🍔", "color": "#FFE347" },
+  { "id": "top_04", "title": "Shopping & Buying", "icon": "🛍️", "color": "#38B000" },
+  { "id": "top_05", "title": "Hotel & Booking", "icon": "🏨", "color": "#9B5DE5" },
+  { "id": "top_06", "title": "Office & Work", "icon": "💼", "color": "#F15BB5" },
+  { "id": "top_07", "title": "Family & Friends", "icon": "🏡", "color": "#00BBF9" },
+  { "id": "top_08", "title": "Medical & Emergency", "icon": "🏥", "color": "#FF9F1C" },
+  { "id": "top_09", "title": "Hobbies & Sports", "icon": "⚽", "color": "#2EC4B6" },
+  { "id": "top_10", "title": "Study & School", "icon": "🎓", "color": "#E71D36" }
+],
 
   sentences: {
     // ========================================================================
