@@ -2946,7 +2946,1948 @@ window.GAME_DATA = {
         "th": "ขอให้เป็นวันที่ทำงานได้อย่างมีประสิทธิภาพ"
       }
     }
+  ],
+
+
+
+
+
+
+
+
+
+
+
+  "top_07": [
+    {
+      "id": "s_07_001",
+      "en": "This is my younger brother.",
+      "trans": {
+        "vi": "Đây là em trai của tôi.",
+        "es": "Este es mi hermano menor.",
+        "fr": "C'est mon petit frère.",
+        "de": "Das ist mein jüngerer Bruder.",
+        "ja": "こちらは私の弟です。",
+        "ko": "이 쪽은 제 남동생입니다.",
+        "zh": "这是我的弟弟。",
+        "pt": "Este é o meu irmão mais novo.",
+        "ru": "Это мой младший брат.",
+        "th": "นี่คือน้องชายของฉัน"
+      }
+    },
+    {
+      "id": "s_07_002",
+      "en": "How many people in family?",
+      "trans": {
+        "vi": "Gia đình bạn có bao nhiêu người?",
+        "es": "¿Cuántas personas hay en tu familia?",
+        "fr": "Combien de personnes y a-t-il dans votre famille?",
+        "de": "Wie viele Personen gibt es in deiner Familie?",
+        "ja": "ご家族は何人ですか？",
+        "ko": "가족이 모두 몇 명인가요?",
+        "zh": "你家有多少人？",
+        "pt": "Quantas pessoas há na sua família?",
+        "ru": "Сколько человек в вашей семье?",
+        "th": "ครอบครัวของคุณมีกี่คน?"
+      }
+    },
+    {
+      "id": "s_07_003",
+      "en": "My parents live in Hanoi.",
+      "trans": {
+        "vi": "Bố mẹ tôi sống ở Hà Nội.",
+        "es": "Mis padres viven en Hanói.",
+        "fr": "Mes parents vivent à Hanoi.",
+        "de": "Meine Eltern wohnen in Hanoi.",
+        "ja": "両親はハノイに住んでいます。",
+        "ko": "부모님은 하노이에 살고 계십니다.",
+        "zh": "我的父母住在河内。",
+        "pt": "Meus pais moram em Hanói.",
+        "ru": "Мои родители живут в Ханое.",
+        "th": "พ่อแม่ของฉันอาศัยอยู่ที่ฮานอย"
+      }
+    },
+    {
+      "id": "s_07_004",
+      "en": "She is my best friend.",
+      "trans": {
+        "vi": "Cô ấy là bạn thân nhất của tôi.",
+        "es": "Ella es mi mejor amiga.",
+        "fr": "Elle est ma meilleure amie.",
+        "de": "Sie ist meine beste Freundin.",
+        "ja": "彼女は私の親友です。",
+        "ko": "그녀는 제 가장 친한 친구입니다.",
+        "zh": "她是最好的朋友。",
+        "pt": "Ela é minha melhor amiga.",
+        "ru": "Она моя лучшая подруга.",
+        "th": "เธอเป็นเพื่อนที่ดีที่สุดของฉัน"
+      }
+    },
+    {
+      "id": "s_07_005",
+      "en": "We have known each other long.",
+      "trans": {
+        "vi": "Chúng tôi biết nhau đã lâu.",
+        "es": "Nos conocemos desde hace mucho.",
+        "fr": "Nous nous connaissons depuis longtemps.",
+        "de": "Wir kennen uns schon lange.",
+        "ja": "私達は長い付き合いです。",
+        "ko": "우리는 알고 지낸 지 오래되었습니다.",
+        "zh": "我们认识很久了。",
+        "pt": "Nós nos conhecemos há muito tempo.",
+        "ru": "Мы давно знаем друг друга.",
+        "th": "พวกเรารู้จักกันมานานแล้ว"
+      }
+    },
+    {
+      "id": "s_07_006",
+      "en": "My grandmother turns eighty today.",
+      "trans": {
+        "vi": "Bà nội tôi tròn tám mươi tuổi hôm nay.",
+        "es": "Mi abuela cumple ochenta años hoy.",
+        "fr": "Ma grand-mère fête ses quatre-vingts ans aujourd'hui.",
+        "de": "Meine Großmutter wird heute achtzig Jahre alt.",
+        "ja": "祖母は今日で80歳になります。",
+        "ko": "할머니께서 오늘 여순이 되셨습니다.",
+        "zh": "我奶奶今天八十岁了。",
+        "pt": "Minha avó faz oitenta anos hoje.",
+        "ru": "Моей бабушке сегодня исполняется восемьдесят лет.",
+        "th": "คุณยายของฉันอายุครบแปดสิบปีในวันนี้"
+      }
+    },
+    {
+      "id": "s_07_007",
+      "en": "Do you have any siblings?",
+      "trans": {
+        "vi": "Bạn có anh chị em không?",
+        "es": "¿Tienes hermanos?",
+        "fr": "Avez-vous des frères et sœurs?",
+        "de": "Hast du Geschwister?",
+        "ja": "兄弟姉妹はいますか？",
+        "ko": "형제자매가 있나요?",
+        "zh": "你有兄弟姐妹吗？",
+        "pt": "Você tem irmãos?",
+        "ru": "У вас есть братья или сестры?",
+        "th": "คุณมีพี่น้องไหม?"
+      }
+    },
+    {
+      "id": "s_07_008",
+      "en": "Let us visit my uncle.",
+      "trans": {
+        "vi": "Chúng ta hãy đi thăm chú tôi.",
+        "es": "Visitemos a mi tío.",
+        "fr": "Rendons visite à mon oncle.",
+        "de": "Lass uns meinen Onkel besuchen.",
+        "ja": "伯父のところへ遊びに行きましょう。",
+        "ko": "삼촌 댁에 방문합시다.",
+        "zh": "我们去拜访我的叔叔吧。",
+        "pt": "Vamos visitar o meu tio.",
+        "ru": "Давайте навестим моего дядю.",
+        "th": "ไปเยี่ยมคุณลุงของฉันกันเถอะ"
+      }
+    },
+    {
+      "id": "s_07_009",
+      "en": "My sister loves baking cakes.",
+      "trans": {
+        "vi": "Chị gái tôi thích làm bánh.",
+        "es": "A mi hermana le encanta hornear pasteles.",
+        "fr": "Ma sœur adore faire des gâteaux.",
+        "de": "Meine Schwester liebt es zu backen.",
+        "ja": "姉はケーキを焼くのが大好きです。",
+        "ko": "제 누나는 케이크 굽는 것을 좋아합니다.",
+        "zh": "我姐姐喜欢做糕点。",
+        "pt": "Minha irmã adora fazer bolos.",
+        "ru": "Моя сестра любит печь торты.",
+        "th": "พี่สาวของฉันชอบทำขนมเค้ก"
+      }
+    },
+    {
+      "id": "s_07_010",
+      "en": "They are hanging out tonight.",
+      "trans": {
+        "vi": "Tối nay họ đi chơi với nhau.",
+        "es": "Van a salir juntos esta noche.",
+        "fr": "Ils sortent ensemble ce soir.",
+        "de": "Sie verbringen heute Abend Zeit miteinander.",
+        "ja": "今夜彼らは遊びに行きます。",
+        "ko": "그들은 오늘 밤 어울려 놀 예정입니다.",
+        "zh": "今晚他们一起出去玩。",
+        "pt": "Eles vão sair juntos hoje à noite.",
+        "ru": "Они тусуются вместе сегодня вечером.",
+        "th": "คืนนี้พวกเขานัดเที่ยวกัน"
+      }
+    },
+    {
+      "id": "s_07_011",
+      "en": "My cousin is an engineer.",
+      "trans": {
+        "vi": "Anh họ tôi là một kỹ sư.",
+        "es": "Mi primo es ingeniero.",
+        "fr": "Mon cousin est ingénieur.",
+        "de": "Mein Cousin ist Ingenieur.",
+        "ja": "従兄弟はエンジニアです。",
+        "ko": "사촌은 엔지니어입니다.",
+        "zh": "我的堂兄是一位工程师。",
+        "pt": "Meu primo é engenheiro.",
+        "ru": "Мой двоюродный брат — инженер.",
+        "th": "ลูกพี่ลูกน้องของฉันเป็นวิศวกร"
+      }
+    },
+    {
+      "id": "s_07_012",
+      "en": "We always support each other.",
+      "trans": {
+        "vi": "Chúng tôi luôn luôn hỗ trợ lẫn nhau.",
+        "es": "Siempre nos apoyamos mutuamente.",
+        "fr": "Nous nous soutenons toujours.",
+        "de": "Wir unterstützen uns immer gegenseitig.",
+        "ja": "私達はいつも助け合っています。",
+        "ko": "우리는 항상 서로를 지원합니다.",
+        "zh": "我们总是相互支持。",
+        "pt": "Nós sempre nos apoiamos.",
+        "ru": "Мы всегда поддерживаем друг друга.",
+        "th": "พวกเราช่วยเหลือกันเสมอ"
+      }
+    },
+    {
+      "id": "s_07_013",
+      "en": "Where did you first meet?",
+      "trans": {
+        "vi": "Lần đầu tiên hai bạn gặp nhau ở đâu?",
+        "es": "¿Dónde se conocieron por primera vez?",
+        "fr": "Où vous êtes-vous rencontrés pour la première fois?",
+        "de": "Wo habt ihr euch zuerst getroffen?",
+        "ja": "最初にどこで出会いましたか？",
+        "ko": "처음 만난 곳이 어디인가요?",
+        "zh": "你们是在哪里第一次见面的？",
+        "pt": "Onde vocês se conheceram pela primeira vez?",
+        "ru": "Где вы впервые встретились?",
+        "th": "เจอกันครั้งแรกที่ไหน?"
+      }
+    },
+    {
+      "id": "s_07_014",
+      "en": "My father enjoys gardening daily.",
+      "trans": {
+        "vi": "Bố tôi thích làm vườn mỗi ngày.",
+        "es": "A mi padre le gusta la jardinería a diario.",
+        "fr": "Mon père aime jardiner tous les jours.",
+        "de": "Mein Vater gärtnert täglich gerne.",
+        "ja": "父は毎日ガーデニングを楽しんでいます。",
+        "ko": "아버지는 매일 정원 가꾸기를 즐기십니다.",
+        "zh": "我父亲每天都喜欢做园艺。",
+        "pt": "Meu pai gosta de jardinagem diariamente.",
+        "ru": "Мой отец увлечен садоводством каждый день.",
+        "th": "พ่อของฉันชอบทำสวนทุกวัน"
+      }
+    },
+    {
+      "id": "s_07_015",
+      "en": "Give my regards to parents.",
+      "trans": {
+        "vi": "Cho tôi gửi lời hỏi thăm bố mẹ nhé.",
+        "es": "Dale mis saludos a tus padres.",
+        "fr": "Passez mes salutations à vos parents.",
+        "de": "Richte deinen Eltern meine Grüße aus.",
+        "ja": "ご両親によろしくお伝えください。",
+        "ko": "부모님께 제 안부를 전해 주세요.",
+        "zh": "请向你的父母问好。",
+        "pt": "Mande lembranças aos seus pais.",
+        "ru": "Передавайте привет вашим родителям.",
+        "th": "ฝากสวัสดีพ่อแม่ของคุณด้วยนะ"
+      }
+    },
+    {
+      "id": "s_07_016",
+      "en": "We are planning family reunion.",
+      "trans": {
+        "vi": "Chúng tôi đang lên kế hoạch họp mặt gia đình.",
+        "es": "Estamos planeando una reunión familiar.",
+        "fr": "Nous planifions une réunion de famille.",
+        "de": "Wir planen ein Familientreffen.",
+        "ja": "親族の集まりを計画しています。",
+        "ko": "가족 모임을 계획하고 있습니다.",
+        "zh": "我们正在计划家庭聚会。",
+        "pt": "Estamos planejando uma reunião familiar.",
+        "ru": "Мы планируем семейную встречу.",
+        "th": "พวกเรากำลังวางแผนรวมญาติ"
+      }
+    },
+    {
+      "id": "s_07_017",
+      "en": "My nephew is very energetic.",
+      "trans": {
+        "vi": "Cháu trai tôi rất năng động.",
+        "es": "Mi sobrino es muy enérgico.",
+        "fr": "Mon neveu est très énergique.",
+        "de": "Mein Neffe ist sehr energisch.",
+        "ja": "甥っ子はとても元気いっぱいです。",
+        "ko": "조카는 에너지가 넘칩니다.",
+        "zh": "我的侄子非常精力充沛。",
+        "pt": "Meu sobrinho é muito enérgico.",
+        "ru": "Мой племянник очень энергичен.",
+        "th": "หลานชายของฉันมีพลังมาก"
+      }
+    },
+    {
+      "id": "s_07_018",
+      "en": "I love my family deeply.",
+      "trans": {
+        "vi": "Tôi yêu gia đình mình sâu sắc.",
+        "es": "Amo profundamente a mi familia.",
+        "fr": "J'aime profondément ma famille.",
+        "de": "Ich liebe meine Familie zutiefst.",
+        "ja": "私は家族を心から愛しています。",
+        "ko": "저는 제 가족을 깊이 사랑합니다.",
+        "zh": "我深深地爱着我的家庭。",
+        "pt": "Eu amo profundamente minha família.",
+        "ru": "Я глубоко люблю свою семью.",
+        "th": "ฉันรักครอบครัวของฉันมาก"
+      }
+    },
+    {
+      "id": "s_07_019",
+      "en": "He is like brother to me.",
+      "trans": {
+        "vi": "Anh ấy giống như anh trai tôi.",
+        "es": "Él es como un hermano para mí.",
+        "fr": "Il est comme un frère pour moi.",
+        "de": "Er ist wie ein Bruder für mich.",
+        "ja": "彼とはまるで兄弟のようです。",
+        "ko": "그는 나에게 친형과 같습니다.",
+        "zh": "他对我来说就像亲兄弟一样。",
+        "pt": "Ele é como um irmão para mim.",
+        "ru": "Он мне как брат.",
+        "th": "เขาเหมือนพี่ชายของฉัน"
+      }
+    },
+    {
+      "id": "s_07_020",
+      "en": "Can I invite my friends?",
+      "trans": {
+        "vi": "Tôi có thể mời bạn bè tới không?",
+        "es": "¿Puedo invitar a mis amigos?",
+        "fr": "Puis-je inviter mes amis?",
+        "de": "Kann ich meine Freunde einladen?",
+        "ja": "友達を招待してもいいですか？",
+        "ko": "친구들을 초대해도 될까요?",
+        "zh": "我可以邀请我的朋友吗？",
+        "pt": "Posso convidar meus amigos?",
+        "ru": "Могу я пригласить своих друзей?",
+        "th": "ฉันเชิญเพื่อนมาได้ไหม?"
+      }
+    },
+    {
+      "id": "s_07_021",
+      "en": "My daughter plays piano well.",
+      "trans": {
+        "vi": "Con gái tôi chơi đàn piano rất giỏi.",
+        "es": "Mi hija toca muy bien el piano.",
+        "fr": "Ma fille joue très bien du piano.",
+        "de": "Meine Tochter spielt gut Klavier.",
+        "ja": "娘はピアノの演奏が得意です。",
+        "ko": "제 딸은 피아노를 잘 칩니다.",
+        "zh": "我的女儿钢琴弹得很好。",
+        "pt": "Minha filha toca piano muito bem.",
+        "ru": "Моя дочь хорошо играет на пианино.",
+        "th": "ลูกสาวของฉันเล่นเปียโนเก่งมาก"
+      }
+    },
+    {
+      "id": "s_07_022",
+      "en": "We shared many great memories.",
+      "trans": {
+        "vi": "Chúng tôi chia sẻ nhiều kỷ niệm đẹp.",
+        "es": "Compartimos muchos grandes recuerdos.",
+        "fr": "Nous avons partagé de bons souvenirs.",
+        "de": "Wir haben viele tolle Erinnerungen geteilt.",
+        "ja": "多くの素晴らしい思い出を共有しました。",
+        "ko": "우리는 많은 좋은 추억을 공유했습니다.",
+        "zh": "我们共有许多美好的回忆。",
+        "pt": "Compartilhamos muitas grandes memórias.",
+        "ru": "У нас много общих прекрасных воспоминаний.",
+        "th": "พวกเรามีความทรงจำที่ดีมากมายร่วมกัน"
+      }
+    },
+    {
+      "id": "s_07_023",
+      "en": "His uncle is very funny.",
+      "trans": {
+        "vi": "Chú của anh ấy rất hài hước.",
+        "es": "Su tío es muy divertido.",
+        "fr": "Son oncle est très drôle.",
+        "de": "Sein Onkel ist sehr lustig.",
+        "ja": "彼の伯父さんはとても面白いです。",
+        "ko": "그의 삼촌은 매우 재미있습니다.",
+        "zh": "他的叔叔很有趣。",
+        "pt": "O tio dele é muito engraçado.",
+        "ru": "Его дядя очень смешной.",
+        "th": "คุณลุงของเขาเป็นคนตลกมาก"
+      }
+    },
+    {
+      "id": "s_07_024",
+      "en": "Happy birthday my dear friend.",
+      "trans": {
+        "vi": "Chúc mừng sinh nhật bạn thân yêu.",
+        "es": "Feliz cumpleaños mi querido amigo.",
+        "fr": "Joyeux anniversaire mon cher ami.",
+        "de": "Alles Gute zum Geburtstag mein lieber Freund.",
+        "ja": "親愛なる友よ、お誕生日おめでとう。",
+        "ko": "사랑하는 친구야, 생일 축하해.",
+        "zh": "生日快乐，我的亲爱朋友。",
+        "pt": "Feliz aniversário, meu querido amigo.",
+        "ru": "С днем рождения, мой дорогой друг.",
+        "th": "สุขสันต์วันเกิดนะเพื่อนรัก"
+      }
+    },
+    {
+      "id": "s_07_025",
+      "en": "My aunt lives in Sydney.",
+      "trans": {
+        "vi": "Dì tôi sống ở Sydney.",
+        "es": "Mi tía vive en Sídney.",
+        "fr": "Ma tante vit à Sydney.",
+        "de": "Meine Tante wohnt in Sydney.",
+        "ja": "叔母はシドニーに住んでいます。",
+        "ko": "이모는 시드니에 살고 계십니다.",
+        "zh": "我的阿姨住在悉尼。",
+        "pt": "Minha tia mora em Sydney.",
+        "ru": "Моя тетя живет в Сиднее.",
+        "th": "คุณป้าของฉันอาศัยอยู่ที่ซิดนีย์"
+      }
+    },
+    {
+      "id": "s_07_026",
+      "en": "They look like real twins.",
+      "trans": {
+        "vi": "Họ trông giống như cặp sinh đôi thực sự.",
+        "es": "Parecen gemelos de verdad.",
+        "fr": "Ils ressemblent à de vrais jumeaux.",
+        "de": "Sie sehen aus wie echte Zwillinge.",
+        "ja": "彼らはまるで本当の双子のようです。",
+        "ko": "그들은 진짜 쌍둥이처럼 보입니다.",
+        "zh": "他们看起来就像真正的双胞胎。",
+        "pt": "Eles parecem verdadeiros gêmeos.",
+        "ru": "Они выглядят как настоящие близнецы.",
+        "th": "พวกเขาดูเหมือนฝาแฝดกันจริงๆ"
+      }
+    },
+    {
+      "id": "s_07_027",
+      "en": "I need to call home.",
+      "trans": {
+        "vi": "Tôi cần gọi điện về nhà.",
+        "es": "Necesito llamar a casa.",
+        "fr": "Je dois appeler à la maison.",
+        "de": "Ich muss nach Hause anrufen.",
+        "ja": "家に電話をかける必要があります。",
+        "ko": "집에 전화를 걸어야 해요.",
+        "zh": "我需要给家里打个电话。",
+        "pt": "Preciso ligar para casa.",
+        "ru": "Мне нужно позвонить домой.",
+        "th": "ฉันต้องโทรกลับบ้าน"
+      }
+    },
+    {
+      "id": "s_07_028",
+      "en": "We eat dinner together everyday.",
+      "trans": {
+        "vi": "Chúng tôi ăn tối cùng nhau hàng ngày.",
+        "es": "Cenamos juntos todos los días.",
+        "fr": "Nous dînons ensemble tous les jours.",
+        "de": "Wir essen jeden Tag zusammen zu Abend.",
+        "ja": "私達は毎日一緒に夕食をとります。",
+        "ko": "우리는 매일 함께 저녁을 먹습니다.",
+        "zh": "我们每天一起吃晚饭。",
+        "pt": "Jantamos juntos todos os dias.",
+        "ru": "Мы ужинаем вместе каждый день.",
+        "th": "พวกเราทานอาหารเย็นด้วยกันทุกวัน"
+      }
+    },
+    {
+      "id": "s_07_029",
+      "en": "Thank you for being my friend.",
+      "trans": {
+        "vi": "Cảm ơn vì đã trở thành bạn của tôi.",
+        "es": "Gracias por ser mi amigo.",
+        "fr": "Merci d'être mon ami.",
+        "de": "Danke, dass du mein Freund bist.",
+        "ja": "私の友達でいてくれてありがとう。",
+        "ko": "내 친구가 되어주어서 고마워.",
+        "zh": "谢谢你成为我的朋友。",
+        "pt": "Obrigado por ser meu amigo.",
+        "ru": "Спасибо, что ты мой друг.",
+        "th": "ขอบคุณที่เป็นเพื่อนของฉัน"
+      }
+    },
+    {
+      "id": "s_07_030",
+      "en": "True friends last a lifetime.",
+      "trans": {
+        "vi": "Bạn bè chân chính tồn tại cả đời.",
+        "es": "Los verdaderos amigos duran toda la vida.",
+        "fr": "Les vrais amis durent toute une vie.",
+        "de": "Wahre Freunde halten ein Leben lang.",
+        "ja": "真の友人は一生の宝物です。",
+        "ko": "진정한 친구는 평생 갑니다.",
+        "zh": "真挚的朋友是一辈子的。",
+        "pt": "Amigos verdadeiros duram a vida toda.",
+        "ru": "Настоящие друзья остаются на всю жизнь.",
+        "th": "เพื่อนแท้จะอยู่ด้วยกันตลอดไป"
+      }
+    }
+  ],
+  "top_08": [
+    {
+      "id": "s_08_001",
+      "en": "Call an ambulance right now!",
+      "trans": {
+        "vi": "Gọi xe cấp cứu ngay lập tức!",
+        "es": "¡Llama a una ambulancia ahora mismo!",
+        "fr": "Appelez une ambulance tout de suite!",
+        "de": "Rufen Sie sofort einen Krankenwagen!",
+        "ja": "今すぐ救急車を呼んでください！",
+        "ko": "지금 당장 구급차를 부르세요!",
+        "zh": "快叫救护车！",
+        "pt": "Chame uma ambulância agora mesmo!",
+        "ru": "Вызовите скорую прямо сейчас!",
+        "th": "เรียกรถพยาบาลเดี๋ยวนี้!"
+      }
+    },
+    {
+      "id": "s_08_002",
+      "en": "I have a severe headache.",
+      "trans": {
+        "vi": "Tôi bị đau đầu dữ dội.",
+        "es": "Tengo un dolor de cabeza severo.",
+        "fr": "J'ai un violent mal de tête.",
+        "de": "Ich habe starke Kopfschmerzen.",
+        "ja": "ひどい頭痛がします。",
+        "ko": "심한 두통이 있습니다.",
+        "zh": "我头痛得厉害。",
+        "pt": "Estou com uma dor de cabeça forte.",
+        "ru": "У меня сильная головная боль.",
+        "th": "ฉันปวดหัวอย่างรุนแรง"
+      }
+    },
+    {
+      "id": "s_08_003",
+      "en": "Where is the nearest hospital?",
+      "trans": {
+        "vi": "Bệnh viện gần nhất ở đâu?",
+        "es": "¿Dónde está el hospital más cercano?",
+        "fr": "Où est l'hôpital le plus proche?",
+        "de": "Wo ist das nächste Krankenhaus?",
+        "ja": "一番近い病院はどこですか？",
+        "ko": "가장 가까운 병원이 어디인가요?",
+        "zh": "最近的医院在哪里？",
+        "pt": "Onde fica o hospital mais próximo?",
+        "ru": "Где находится ближайшая больница?",
+        "th": "โรงพยาบาลที่ใกล้ที่สุดอยู่ที่ไหน?"
+      }
+    },
+    {
+      "id": "s_08_004",
+      "en": "I need to see doctor.",
+      "trans": {
+        "vi": "Tôi cần phải đi khám bác sĩ.",
+        "es": "Necesito ver a un médico.",
+        "fr": "J'ai besoin de voir un médecin.",
+        "de": "Ich muss einen Arzt aufsuchen.",
+        "ja": "医者の診察を受ける必要があります。",
+        "ko": "의사의 진찰을 받아야 합니다.",
+        "zh": "我需要看医生。",
+        "pt": "Preciso ver um médico.",
+        "ru": "Мне нужно к врачу.",
+        "th": "ฉันต้องไปพบแพทย์"
+      }
+    },
+    {
+      "id": "s_08_005",
+      "en": "Take this painkiller twice daily.",
+      "trans": {
+        "vi": "Uống thuốc giảm đau này hai lần mỗi ngày.",
+        "es": "Tome este analgésico dos veces al día.",
+        "fr": "Prenez cet analgésique deux fois par jour.",
+        "de": "Nehmen Sie dieses Schmerzmittel zweimal täglich.",
+        "ja": "この鎮痛剤を1日2回服用してください。",
+        "ko": "이 진통제를 하루에 두 번 드세요.",
+        "zh": "这个止痛药每天吃两次。",
+        "pt": "Tome este analgésico duas vezes ao dia.",
+        "ru": "Принимайте это обезболивающее дважды в день.",
+        "th": "ทานยาแก้ปวดนี้วันละสองครั้ง"
+      }
+    },
+    {
+      "id": "s_08_006",
+      "en": "I feel dizzy and weak.",
+      "trans": {
+        "vi": "Tôi cảm thấy chóng mặt và yếu sức.",
+        "es": "Me siento mareado y débil.",
+        "fr": "Je me sens étourdi et faible.",
+        "de": "Mir ist schwindelig und ich fühle mich schwach.",
+        "ja": "めまいがして体がだるいです。",
+        "ko": "어지럽고 기운이 없습니다.",
+        "zh": "我感觉头晕软弱。",
+        "pt": "Sinto tontura e fraqueza.",
+        "ru": "Я чувствую головокружение и слабость.",
+        "th": "ฉันรู้สึกเวียนหัวและอ่อนแรง"
+      }
+    },
+    {
+      "id": "s_08_007",
+      "en": "My leg is bleeding heavily.",
+      "trans": {
+        "vi": "Chân tôi đang chảy máu rất nhiều.",
+        "es": "Mi pierna está sangrando mucho.",
+        "fr": "Ma jambe saigne abondamment.",
+        "de": "Mein Bein blutet stark.",
+        "ja": "足から大量の出血があります。",
+        "ko": "다리에서 피가 많이 납니다.",
+        "zh": "我的腿在大出血。",
+        "pt": "Minha perna está sangrando muito.",
+        "ru": "Моя нога сильно кровоточит.",
+        "th": "ขาของฉันมีเลือดออกมาก"
+      }
+    },
+    {
+      "id": "s_08_008",
+      "en": "Where can I buy medicine?",
+      "trans": {
+        "vi": "Tôi có thể mua thuốc ở đâu?",
+        "es": "¿Dónde puedo comprar medicina?",
+        "fr": "Où puis-je acheter des médicaments?",
+        "de": "Wo kann ich Medizin kaufen?",
+        "ja": "薬はどこで買えますか？",
+        "ko": "약은 어디서 살 수 있나요?",
+        "zh": "哪里可以买到药？",
+        "pt": "Onde posso comprar remédio?",
+        "ru": "Где я могу купить лекарства?",
+        "th": "ฉันจะหาซื้อยาได้ที่ไหน?"
+      }
+    },
+    {
+      "id": "s_08_009",
+      "en": "I caught a bad cold.",
+      "trans": {
+        "vi": "Tôi bị cảm lạnh nặng.",
+        "es": "Me resfrié fuertemente.",
+        "fr": "J'ai attrapé un gros rhum.",
+        "de": "Ich habe mich schwer erkältet.",
+        "ja": "ひどい風邪をひいてしまいました。",
+        "ko": "독감에 걸렸습니다.",
+        "zh": "我得了重感冒。",
+        "pt": "Peguei um resfriado forte.",
+        "ru": "Я сильно простудился.",
+        "th": "ฉันเป็นหวัดอย่างหนัก"
+      }
+    },
+    {
+      "id": "s_08_010",
+      "en": "Is there an English-speaking doctor?",
+      "trans": {
+        "vi": "Có bác sĩ biết nói tiếng Anh không?",
+        "es": "¿Hay algún médico que hable inglés?",
+        "fr": "Y a-t-il un médecin qui parle anglais?",
+        "de": "Gibt es einen Englisch sprechenden Arzt?",
+        "ja": "英語が話せる医師はいますか？",
+        "ko": "영어가 가능한 의사가 있나요?",
+        "zh": "有会说英语的医生吗？",
+        "pt": "Há algum médico que fale inglês?",
+        "ru": "Есть ли англоговорящий врач?",
+        "th": "มีหมอที่พูดภาษาอังกฤษได้ไหม?"
+      }
+    },
+    {
+      "id": "s_08_011",
+      "en": "My stomach hurts so bad.",
+      "trans": {
+        "vi": "Bụng tôi đau khủng khiếp.",
+        "es": "Me duele mucho el estómago.",
+        "fr": "J'ai très mal à l'estomac.",
+        "de": "Mein Bauch tut sehr weh.",
+        "ja": "お腹がとても痛いです。",
+        "ko": "배가 너무 아픕니다.",
+        "zh": "我胃疼得厉害。",
+        "pt": "Estou com muita dor de estômago.",
+        "ru": "У меня очень болит живот.",
+        "th": "ฉันปวดท้องมาก"
+      }
+    },
+    {
+      "id": "s_08_012",
+      "en": "Drink plenty of warm water.",
+      "trans": {
+        "vi": "Uống nhiều nước ấm nhé.",
+        "es": "Bebe mucha agua tibia.",
+        "fr": "Buvez beaucoup d'eau chaude.",
+        "de": "Trinken Sie viel warmes Wasser.",
+        "ja": "白湯をたくさん飲んでください。",
+        "ko": "따뜻한 물을 많이 드세요.",
+        "zh": "多喝点温开水。",
+        "pt": "Beba bastante água morna.",
+        "ru": "Пейте больше теплой воды.",
+        "th": "ดื่มน้ำอุ่นเยอะๆ นะ"
+      }
+    },
+    {
+      "id": "s_08_013",
+      "en": "I need a doctor prescription.",
+      "trans": {
+        "vi": "Tôi cần toa đơn thuốc của bác sĩ.",
+        "es": "Necesito una receta médica.",
+        "fr": "J'ai besoin d'une ordonnance médicale.",
+        "de": "Ich brauche ein ärztliches Rezept.",
+        "ja": "医師の処方箋が必要です。",
+        "ko": "의사의 처방전이 필요합니다.",
+        "zh": "我们需要医生的处方。",
+        "pt": "Preciso de uma receita médica.",
+        "ru": "Мне нужен рецепт врача.",
+        "th": "ฉันต้องการใบสั่งยาจากแพทย์"
+      }
+    },
+    {
+      "id": "s_08_014",
+      "en": "Her temperature is extremely high.",
+      "trans": {
+        "vi": "Nhiệt độ cô ấy cao cực kỳ.",
+        "es": "Su temperatura es extremadamente alta.",
+        "fr": "Sa température est extrêmement élevée.",
+        "de": "Ihre Temperatur ist extrem hoch.",
+        "ja": "彼女の体温は極めて高熱です。",
+        "ko": "그녀의 체온이 매우 높습니다.",
+        "zh": "她的体温非常高。",
+        "pt": "A temperatura dela está extremamente alta.",
+        "ru": "У нее температура чрезвычайно высока.",
+        "th": "อุณหภูมิร่างกายของเธอสูงมาก"
+      }
+    },
+    {
+      "id": "s_08_015",
+      "en": "Please help me I cannot breathe.",
+      "trans": {
+        "vi": "Cứu tôi với, tôi không thở được.",
+        "es": "Por favor ayúdame, no puedo respirar.",
+        "fr": "Aidez-moi s'il vous plaît je ne peux pas respirer.",
+        "de": "Bitte helfen Sie mir, ich kann nicht atmen.",
+        "ja": "助けてください、息ができません。",
+        "ko": "도와주세요, 숨을 쉴 수가 없어요.",
+        "zh": "请帮帮我，我无法呼吸。",
+        "pt": "Por favor me ajude, não consigo respirar.",
+        "ru": "Помогите, пожалуйста, я не могу дышать.",
+        "th": "ช่วยด้วย ฉันหายใจไม่ออก"
+      }
+    },
+    {
+      "id": "s_08_016",
+      "en": "Put some ice on burn.",
+      "trans": {
+        "vi": "Chườm đá lên vết bỏng.",
+        "es": "Pon algo de hielo en la quemadura.",
+        "fr": "Mettez de la glace sur la brûlure.",
+        "de": "Legen Sie etwas Eis auf die Verbrennung.",
+        "ja": "やけどに氷を当ててください。",
+        "ko": "화상 부위에 얼음을 대세요.",
+        "zh": "在烫伤处敷点冰块。",
+        "pt": "Coloque um pouco de gelo na queimadura.",
+        "ru": "Приложите лед к ожогу.",
+        "th": "ประคบน้ำแข็งบริเวณแผลไฟไหม้"
+      }
+    },
+    {
+      "id": "s_08_017",
+      "en": "I think my arm broken.",
+      "trans": {
+        "vi": "Tôi nghĩ tay tôi bị gãy rồi.",
+        "es": "Creo que mi brazo está roto.",
+        "fr": "Je pense que mon bras est cassé.",
+        "de": "Ich glaube, mein Arm ist gebrochen.",
+        "ja": "腕を骨折したようです。",
+        "ko": "팔이 부러진 것 같습니다.",
+        "zh": "我想我的胳膊骨折了。",
+        "pt": "Acho que meu braço está quebrado.",
+        "ru": "Кажется, я сломал руку.",
+        "th": "ฉันคิดว่าแขนของฉันหัก"
+      }
+    },
+    {
+      "id": "s_08_018",
+      "en": "Do you have medical insurance?",
+      "trans": {
+        "vi": "Bạn có bảo hiểm y tế không?",
+        "es": "¿Tienes seguro médico?",
+        "fr": "Avez-vous une assurance médicale?",
+        "de": "Haben Sie eine Krankenversicherung?",
+        "ja": "医療保険には入っていますか？",
+        "ko": "의료 보험이 있으신가요?",
+        "zh": "你有医疗保险吗？",
+        "pt": "Você tem seguro médico?",
+        "ru": "У вас есть медицинская страховка?",
+        "th": "คุณมีประกันสุขภาพไหม?"
+      }
+    },
+    {
+      "id": "s_08_019",
+      "en": "Where is emergency exit?",
+      "trans": {
+        "vi": "Lối thoát hiểm khẩn cấp ở đâu?",
+        "es": "¿Dónde está la salida de emergencia?",
+        "fr": "Où est la sortie d'urgence?",
+        "de": "Wo ist der Notausgang?",
+        "ja": "非常口はどこですか？",
+        "ko": "비상구는 어디인가요?",
+        "zh": "紧急出口在哪里？",
+        "pt": "Onde fica a saída de emergência?",
+        "ru": "Где находится аварийный выход?",
+        "th": "ทางออกฉุกเฉินอยู่ที่ไหน?"
+      }
+    },
+    {
+      "id": "s_08_020",
+      "en": "Get adequate rest every day.",
+      "trans": {
+        "vi": "Nghỉ ngơi đầy đủ mỗi ngày.",
+        "es": "Descansa lo suficiente todos los días.",
+        "fr": "Reposez-vous suffisamment chaque jour.",
+        "de": "Gönnen Sie sich jeden Tag ausreichend Ruhe.",
+        "ja": "毎日十分な nghỉ 睡眠をとってください。",
+        "ko": "매일 충분한 휴식을 취하세요.",
+        "zh": "每天保证充足的休息。",
+        "pt": "Descanse adequadamente todos os dias.",
+        "ru": "Полноценно отдыхайте каждый день.",
+        "th": "พักผ่อนให้เพียงพอทุกวัน"
+      }
+    },
+    {
+      "id": "s_08_021",
+      "en": "I need a clean bandage.",
+      "trans": {
+        "vi": "Tôi cần một cuốn băng gạc sạch.",
+        "es": "Necesito un vendaje limpio.",
+        "fr": "J'ai besoin d'un bandage propre.",
+        "de": "Ich brauche einen sauberen Verband.",
+        "ja": "清潔な包帯が必要です。",
+        "ko": "깨끗한 붕대가 필요합니다.",
+        "zh": "我需要干净的绷带。",
+        "pt": "Preciso de um curativo limpo.",
+        "ru": "Мне нужен чистый бинт.",
+        "th": "ฉันต้องการผ้าพันแผลที่สะอาด"
+      }
+    },
+    {
+      "id": "s_08_022",
+      "en": "Is this allergy medicine safe?",
+      "trans": {
+        "vi": "Thuốc trị dị ứng này có an toàn không?",
+        "es": "¿Es segura esta medicina para la alergia?",
+        "fr": "Ce médicament contre l'allergie est-il sûr?",
+        "de": "Ist dieses Allergiemittel sicher?",
+        "ja": "このアレルギー薬は安全ですか？",
+        "ko": "이 알레르기 약은 안전한가요?",
+        "zh": "这个过敏药安全吗？",
+        "pt": "Este remédio para alergia é seguro?",
+        "ru": "Это лекарство от аллергии безопасно?",
+        "th": "ยาแก้แพ้นี้ปลอดภัยไหม?"
+      }
+    },
+    {
+      "id": "s_08_023",
+      "en": "Press firmly on the wound.",
+      "trans": {
+        "vi": "Ấn chặt tay lên vết thương.",
+        "es": "Presiona firmemente sobre la herida.",
+        "fr": "Appuyez fermement sur la plaie.",
+        "de": "Drücken Sie fest auf die Wunde.",
+        "ja": "傷口をしっかりと押さえてください。",
+        "ko": "상처 부위를 세게 누르세요.",
+        "zh": "按紧伤口止血。",
+        "pt": "Pressione firmemente sobre a ferida.",
+        "ru": "Крепко надавите на рану.",
+        "th": "กดแผลให้แน่น"
+      }
+    },
+    {
+      "id": "s_08_024",
+      "en": "The nurse took my blood pressure.",
+      "trans": {
+        "vi": "Y tá đã đo huyết áp cho tôi.",
+        "es": "La enfermera me tomó la presión.",
+        "fr": "L'infirmière a pris ma tension.",
+        "de": "Die Krankenschwester hat meinen Blutdruck gemessen.",
+        "ja": "看護師さんが血圧を測ってくれました。",
+        "ko": "간호사가 제 혈압을 측정했습니다.",
+        "zh": "护士量了我的血压。",
+        "pt": "A enfermeira mediu minha pressão.",
+        "ru": "Медсестра измерила мне давление.",
+        "th": "พยาบาลวัดความดันโลหิตให้ฉัน"
+      }
+    },
+    {
+      "id": "s_08_025",
+      "en": "Keep this out of reach of children.",
+      "trans": {
+        "vi": "Để cái này xa tầm tay trẻ em.",
+        "es": "Mantén esto fuera del alcance de los niños.",
+        "fr": "Gardez ceci hors de portée des enfants.",
+        "de": "Außerhalb der Reichweite von Kindern aufbewahren.",
+        "ja": "小児の手の届かない場所に保管してください。",
+        "ko": "어린이의 손이 닿지 않는 곳에 보관하세요.",
+        "zh": "请置于儿童接触不到的地方。",
+        "pt": "Mantenha isso fora do alcance de crianças.",
+        "ru": "Храните это в недоступном для детей месте.",
+        "th": "เก็บให้พ้นมือเด็ก"
+      }
+    },
+    {
+      "id": "s_08_026",
+      "en": "I am allergic to penicillin.",
+      "trans": {
+        "vi": "Tôi bị dị ứng với thuốc penicillin.",
+        "es": "Soy alérgico a la penicilina.",
+        "fr": "Je suis allergique à la pénicilline.",
+        "de": "Ich bin allergisch gegen Penicillin.",
+        "ja": "私はペニシリンアレルギーがあります。",
+        "ko": "저는 페니실린 알레르기가 있습니다.",
+        "zh": "我对青霉素过敏。",
+        "pt": "Sou alérgico à penicilina.",
+        "ru": "У меня аллергия на пенициллин.",
+        "th": "ฉันแพ้ยาเพนิซิลลิน"
+      }
+    },
+    {
+      "id": "s_08_027",
+      "en": "The operation was successful.",
+      "trans": {
+        "vi": "Ca phẫu thuật đã thành công.",
+        "es": "La operación fue exitosa.",
+        "fr": "L'opération a été un succès.",
+        "de": "Die Operation war erfolgreich.",
+        "ja": "手術は成功しました。",
+        "ko": "수술은 성공적이었습니다.",
+        "zh": "手术非常成功。",
+        "pt": "A operação foi um sucesso.",
+        "ru": "Операция прошла успешно.",
+        "th": "การผ่าตัดประสบความสำเร็จ"
+      }
+    },
+    {
+      "id": "s_08_028",
+      "en": "Stay calm and do not panic.",
+      "trans": {
+        "vi": "Hãy bình tĩnh và đừng hoảng sợ.",
+        "es": "Mantén la calma y no entres en pánico.",
+        "fr": "Restez calme et ne paniquez pas.",
+        "de": "Bleiben Sie ruhig und geraten Sie nicht in Panik.",
+        "ja": "落ち着いて、パニックにならないでください。",
+        "ko": "침착하시고 당황하지 마세요.",
+        "zh": "保持冷静，不要惊慌。",
+        "pt": "Mantenha a calma e não entre em pânico.",
+        "ru": "Сохраняйте спокойствие и не паникуйте.",
+        "th": "ตั้งสติไว้และอย่าตื่นตกใจ"
+      }
+    },
+    {
+      "id": "s_08_029",
+      "en": "Get well soon my friend.",
+      "trans": {
+        "vi": "Chúc bạn tôi sớm bình phục nhé.",
+        "es": "Recupérate pronto amigo mío.",
+        "fr": "Rétablis-toi vite mon ami.",
+        "de": "Gute Besserung mein Freund.",
+        "ja": "お友達、早く良くなってね。",
+        "ko": "쾌유를 빕니다, 내 친구야.",
+        "zh": "祝你早日康复，我的朋友。",
+        "pt": "Melhore logo, meu amigo.",
+        "ru": "Поправляйся скорее, мой друг.",
+        "th": "ขอให้หายป่วยไวๆ นะเพื่อน"
+      }
+    },
+    {
+      "id": "s_08_030",
+      "en": "Health is the real wealth.",
+      "trans": {
+        "vi": "Sức khỏe chính là tài sản đích thực.",
+        "es": "La salud es la verdadera riqueza.",
+        "fr": "La santé est la vraie richesse.",
+        "de": "Gesundheit ist der wahre Reichtum.",
+        "ja": "健康こそが本当の財産です。",
+        "ko": "건강이 진정한 재산입니다.",
+        "zh": "健康才是真正的财富。",
+        "pt": "Saúde é a verdadeira riqueza.",
+        "ru": "Здоровье — это настоящие богатство.",
+        "th": "การไม่มีโรคเป็นลาภอันประเสริฐ"
+      }
+    }
+  ],
+  "top_09": [
+    {
+      "id": "s_09_001",
+      "en": "I love playing football weekend.",
+      "trans": {
+        "vi": "Tôi thích đá bóng vào cuối tuần.",
+        "es": "Me encanta jugar al fútbol el fin de semana.",
+        "fr": "J'adore jouer au football le week-end.",
+        "de": "Ich spiele am Wochenende gerne Fußball.",
+        "ja": "週末にサッカーをするのが好きです。",
+        "ko": "주말에 축구 하는 것을 좋아합니다.",
+        "zh": "我喜欢在周末踢足球。",
+        "pt": "Adoro jogar futebol no fim de semana.",
+        "ru": "Я люблю играть в футбол по выходным.",
+        "th": "ฉันชอบเล่นฟุตบอลในวันหยุดสุดสัปดาห์"
+      }
+    },
+    {
+      "id": "s_09_002",
+      "en": "Do you enjoy swimming?",
+      "trans": {
+        "vi": "Bạn có thích bơi lội không?",
+        "es": "¿Te gusta nadar?",
+        "fr": "Aimez-vous nager?",
+        "de": "Schwimmst du gerne?",
+        "ja": "水泳は好きですか？",
+        "ko": "수영하는 것을 좋아하시나요?",
+        "zh": "你喜欢游泳吗？",
+        "pt": "Você gosta de nadar?",
+        "ru": "Вам нравится плавать?",
+        "th": "คุณชอบว่ายน้ำไหม?"
+      }
+    },
+    {
+      "id": "s_09_003",
+      "en": "My hobby is taking photographs.",
+      "trans": {
+        "vi": "Sở thích của tôi là chụp ảnh.",
+        "es": "Mi pasatiempo es tomar fotografías.",
+        "fr": "Mon passe-temps est de prendre des photos.",
+        "de": "Mein Hobby ist Fotografieren.",
+        "ja": "私の趣味は写真を撮ることです。",
+        "ko": "제 취미는 사진 찍기입니다.",
+        "zh": "我的爱好是摄影。",
+        "pt": "Meu hobby é tirar fotos.",
+        "ru": "Мое хобби — фотографировать.",
+        "th": "งานอดิเรกของฉันคือการถ่ายภาพ"
+      }
+    },
+    {
+      "id": "s_09_004",
+      "en": "She plays tennis very well.",
+      "trans": {
+        "vi": "Cô ấy chơi quần vợt rất giỏi.",
+        "es": "Ella juega al tenis muy bien.",
+        "fr": "Elle joue très bien au tennis.",
+        "de": "Sie spielt sehr gut Tennis.",
+        "ja": "彼女はテニスがとても上手です。",
+        "ko": "그녀는 테니스를 아주 잘 칩니다.",
+        "zh": "她网球打得很好。",
+        "pt": "Ela joga tênis muito bem.",
+        "ru": "Она очень хорошо играет в теннис.",
+        "th": "เธอเล่นเทนนิสเก่งมาก"
+      }
+    },
+    {
+      "id": "s_09_005",
+      "en": "Let us go hiking tomorrow.",
+      "trans": {
+        "vi": "Ngày mai chúng ta đi leo núi nhé.",
+        "es": "Vayamos de excursión mañana.",
+        "fr": "Allons faire de la randonnée demain.",
+        "de": "Gehen wir morgen wandern.",
+        "ja": "明日ハイキングに行きましょう。",
+        "ko": "내일 등산 가자.",
+        "zh": "明天我们去徒步吧。",
+        "pt": "Vamos fazer uma caminhada amanhã.",
+        "ru": "Пойдем завтра в походы.",
+        "th": "พรุ่งนี้ไปเดินป่ากันเถอะ"
+      }
+    },
+    {
+      "id": "s_09_006",
+      "en": "What team are you supporting?",
+      "trans": {
+        "vi": "Bạn đang cổ vũ cho đội nào?",
+        "es": "¿A qué equipo apoyas?",
+        "fr": "Quelle équipe soutenez-vous?",
+        "de": "Welches Team unterstützt du?",
+        "ja": "どのチームを応援していますか？",
+        "ko": "어느 팀을 응원하시나요?",
+        "zh": "你支持哪支球队？",
+        "pt": "Qual time você torce?",
+        "ru": "За какую команду вы болеете?",
+        "th": "คุณเชียร์ทีมไหนอยู่?"
+      }
+    },
+    {
+      "id": "s_09_007",
+      "en": "I like reading fantasy novels.",
+      "trans": {
+        "vi": "Tôi thích đọc tiểu thuyết kỳ ảo.",
+        "es": "Me gusta leer novelas de fantasía.",
+        "fr": "J'aime lire des romans fantastiques.",
+        "de": "Ich lese gerne Fantasy-Romane.",
+        "ja": "ファンタジー小説を読むのが好きです。",
+        "ko": "판타지 소설 읽는 것을 좋아합니다.",
+        "zh": "我喜欢读奇幻小说。",
+        "pt": "Gosto de ler romances de fantasia.",
+        "ru": "Мне нравится читать фэнтези.",
+        "th": "ฉันชอบอ่านนิยายนวนิยายแฟนตาซี"
+      }
+    },
+    {
+      "id": "s_09_008",
+      "en": "He goes jogging every morning.",
+      "trans": {
+        "vi": "Anh ấy đi chạy bộ mỗi sáng.",
+        "es": "Él va a trotar todas las mañanas.",
+        "fr": "Il fait du jogging tous les matins.",
+        "de": "Er geht jeden Morgen joggen.",
+        "ja": "彼は毎朝ジョギングに行きます。",
+        "ko": "그는 매일 아침 조깅을 합니다.",
+        "zh": "他每天早上都去跑步。",
+        "pt": "Ele vai correr todas as manhãs.",
+        "ru": "Он бегает каждое утро.",
+        "th": "เขาไปวิ่งจ็อกกิ้งทุกเช้า"
+      }
+    },
+    {
+      "id": "s_09_009",
+      "en": "Playing guitar relaxes my mind.",
+      "trans": {
+        "vi": "Chơi guitar giúp đầu óc tôi thư giãn.",
+        "es": "Tocar la guitarra me relaja la mente.",
+        "fr": "Jouer de la guitare me détend l'esprit.",
+        "de": "Gitarre spielen entspannt meinen Geist.",
+        "ja": "ギターを弾くと心がリラックスします。",
+        "ko": "기타 연주는 제 마음을 편안하게 해줍니다.",
+        "zh": "弹吉他能放松我的心情。",
+        "pt": "Tocar violão relaxa minha mente.",
+        "ru": "Игра на гитаре расслабляет мой ум.",
+        "th": "การเล่นกีตาร์ช่วย cho ฉันผ่อนคลาย"
+      }
+    },
+    {
+      "id": "s_09_010",
+      "en": "Who won the final match?",
+      "trans": {
+        "vi": "Ai đã thắng trận chung kết?",
+        "es": "¿Quién ganó el partido final?",
+        "fr": "Qui a gagné le match final?",
+        "de": "Wer hat das Finale gewonnen?",
+        "ja": "決勝戦で勝ったのは誰ですか？",
+        "ko": "결승전에서 누가 이겼나요?",
+        "zh": "谁赢了决赛？",
+        "pt": "Quem ganhou a partida final?",
+        "ru": "Кто выиграл финальный матч?",
+        "th": "ใครชนะในนัดชิงชนะเลิศ?"
+      }
+    },
+    {
+      "id": "s_09_011",
+      "en": "I practice yoga twice a week.",
+      "trans": {
+        "vi": "Tôi tập yoga hai lần một tuần.",
+        "es": "Practico yoga dos veces por semana.",
+        "fr": "Je pratique le yoga deux fois par semaine.",
+        "de": "Ich mache zweimal die Woche Yoga.",
+        "ja": "週に2回ヨガをやっています。",
+        "ko": "일주일에 두 번 요가를 합니다.",
+        "zh": "我一周练两次瑜伽。",
+        "pt": "Prático ioga duas vezes por semana.",
+        "ru": "Я занимаюсь йогой дважды в неделю.",
+        "th": "ฉันเล่นโยคะสัปดาห์ละสองครั้ง"
+      }
+    },
+    {
+      "id": "s_09_012",
+      "en": "Camping in forest is exciting.",
+      "trans": {
+        "vi": "Cắm trại trong rừng thật thú vị.",
+        "es": "Acampar en el bosque es emocionante.",
+        "fr": "Camper dans la forêt est excitant.",
+        "de": "Im Wald zu campen ist aufregend.",
+        "ja": "森でのキャンプはワクワクします。",
+        "ko": "숲속에서 캠핑하는 것은 흥미진진합니다.",
+        "zh": "在森林里野营真令人兴奋。",
+        "pt": "Acampar na floresta é emocionante.",
+        "ru": "Кемпинг в лесу — это захватывающе.",
+        "th": "การตั้งแคมป์ในป่าน่าตื่นเต้นมาก"
+      }
+    },
+    {
+      "id": "s_09_013",
+      "en": "My brother plays chess well.",
+      "trans": {
+        "vi": "Anh trai tôi chơi cờ vua giỏi.",
+        "es": "Mi hermano juega bien al ajedrez.",
+        "fr": "Mon frère joue bien aux échecs.",
+        "de": "Mein Bruder spielt gut Schach.",
+        "ja": "兄はチェスが得意です。",
+        "ko": "제 형은 체스를 잘 둡니다.",
+        "zh": "我的哥哥下象棋很厉害。",
+        "pt": "Meu irmão joga xadrez bem.",
+        "ru": "Мой брат хорошо играет в шахматы.",
+        "th": "พี่ชายของฉันเล่นหมากรุกเก่ง"
+      }
+    },
+    {
+      "id": "s_09_014",
+      "en": "I joined badminton club recently.",
+      "trans": {
+        "vi": "Gần đây tôi đã tham gia câu lạc bộ cầu lông.",
+        "es": "Me uní al club de bádminton recientemente.",
+        "fr": "J'ai rejoint le club de badminton récemment.",
+        "de": "Ich bin kürzlich dem Badminton-Club beigetreten.",
+        "ja": "最近バドミントンクラブに入りました。",
+        "ko": "최근에 배드민턴 클럽에 가입했습니다.",
+        "zh": "我最近加入了羽毛球俱乐部。",
+        "pt": "Entrei no clube de badminton recentemente.",
+        "ru": "Недавно я вступил в клуб бадминтона.",
+        "th": "ฉันเพิ่งเข้าร่วมชมรมแบดมินตันเมื่อไม่นานมานี้"
+      }
+    },
+    {
+      "id": "s_09_015",
+      "en": "Cooking new recipes is fun.",
+      "trans": {
+        "vi": "Nấu các công thức món ăn mới rất vui.",
+        "es": "Cocinar nuevas recetas es divertido.",
+        "fr": "Cuisiner de nouvelles recettes est amusant.",
+        "de": "Neue Rezepte zu kochen macht Spaß.",
+        "ja": "新しいレシピで料理をするのは楽しいです。",
+        "ko": "새로운 레시피로 요리하는 것은 재미있습니다.",
+        "zh": "尝试新食谱做饭很具有乐趣。",
+        "pt": "Cozinhar novas receitas é divertido.",
+        "ru": "Готовить по новым рецептам весело.",
+        "th": "การทำอาหารสูตรใหม่สนุกมาก"
+      }
+    },
+    {
+      "id": "s_09_016",
+      "en": "Are you interested in painting?",
+      "trans": {
+        "vi": "Bạn có hứng thú với hội họa không?",
+        "es": "¿Te interesa la pintura?",
+        "fr": "Êtes-vous intéressé par la peinture?",
+        "de": "Interessierst du dich für Malerei?",
+        "ja": "絵を描くことに興味はありますか？",
+        "ko": "그림 그리기에 관심이 있으신가요?",
+        "zh": "你对绘画感兴趣吗？",
+        "pt": "Você se interessa por pintura?",
+        "ru": "Вы интересуетесь живописью?",
+        "th": "คุณสนใจการวาดภาพไหม?"
+      }
+    },
+    {
+      "id": "s_09_017",
+      "en": "He broke the world record.",
+      "trans": {
+        "vi": "Anh ấy đã phá kỷ lục thế giới.",
+        "es": "Él rompió el récord mundial.",
+        "fr": "Il a battu le record du monde.",
+        "de": "Er hat den Weltrekord gebrochen.",
+        "ja": "彼は世界記録を更新しました。",
+        "ko": "그는 세계 기록을 깨뜨렸습니다.",
+        "zh": "他打破了世界纪录。",
+        "pt": "Ele quebrou o recorde mundial.",
+        "ru": "Он побил мировой рекорд.",
+        "th": "เขาทำลายสถิติโลก"
+      }
+    },
+    {
+      "id": "s_09_018",
+      "en": "I collect vintage stamps often.",
+      "trans": {
+        "vi": "Tôi thường sưu tầm tem cổ.",
+        "es": "A menudo colecciono sellos antiguos.",
+        "fr": "Je collectionne souvent les timbres anciens.",
+        "de": "Ich sammle oft alte Briefmarken.",
+        "ja": "よくヴィンテージの切手を集めています。",
+        "ko": "저는 자주 희귀 우표를 수집합니다.",
+        "zh": "我经常收集复古邮票。",
+        "pt": "Costumo colecionar selos antigos.",
+        "ru": "Я часто собираю старинные марки.",
+        "th": "ฉันชอบสะสมแสตมป์เก่าๆ"
+      }
+    },
+    {
+      "id": "s_09_019",
+      "en": "Fishing by river is calm.",
+      "trans": {
+        "vi": "Câu cá bên bờ sông rất êm đềm.",
+        "es": "Pescar junto al río es tranquilo.",
+        "fr": "Pêcher près de la rivière est calme.",
+        "de": "Angeln am Fluss ist beruhigend.",
+        "ja": "川辺で釣りをすると穏やかな気持ちになります。",
+        "ko": "강가에서 낚시하는 것은 평화롭습니다.",
+        "zh": "在河边钓鱼感觉很宁静。",
+        "pt": "Pescar no rio é calmo.",
+        "ru": "Рыбалка у реки успокаивает.",
+        "th": "การตกปลาที่แม่น้ำทำให้รู้สึกสงบ"
+      }
+    },
+    {
+      "id": "s_09_020",
+      "en": "She dances salsa very gracefully.",
+      "trans": {
+        "vi": "Cô ấy nhảy salsa rất uyển chuyển.",
+        "es": "Ella baila salsa muy elegantemente.",
+        "fr": "Elle danse la salsa très élégamment.",
+        "de": "Sie tanzt sehr anmutig Salsa.",
+        "ja": "彼女はとても優雅にサルサを踊ります。",
+        "ko": "그녀는 살사를 매우 우아하게 춥니다.",
+        "zh": "她萨尔萨舞跳得非常优美。",
+        "pt": "Ela dança salsa com muita graciosidade.",
+        "ru": "Она танцует сальсу очень грациозно.",
+        "th": "เธอเต้นซัลซ่าได้อย่างงดงามมาก"
+      }
+    },
+    {
+      "id": "s_09_021",
+      "en": "What is score of game?",
+      "trans": {
+        "vi": "Tỷ số trận đấu là bao nhiêu?",
+        "es": "¿Cuál es el marcador del partido?",
+        "fr": "Quel est le score du match?",
+        "de": "Wie ist der Spielstand?",
+        "ja": "試合のスコアはどうなっていますか？",
+        "ko": "경기 점수가 어떻게 되나요?",
+        "zh": "比赛比分是多少？",
+        "pt": "Qual é o placar do jogo?",
+        "ru": "Какой счет в игре?",
+        "th": "ผลการแข่งขันเป็นอย่างไร?"
+      }
+    },
+    {
+      "id": "s_09_022",
+      "en": "I go cycling every Sunday.",
+      "trans": {
+        "vi": "Tôi đi đạp xe vào mỗi Chủ Nhật.",
+        "es": "Voy a andar en bicicleta todos los domingos.",
+        "fr": "Je fais du vélo tous les dimanches.",
+        "de": "Ich gehe jeden Sonntag Fahrrad fahren.",
+        "ja": "毎週日曜日にサイクリングに出かけます。",
+        "ko": "매주 일요일마다 자전거를 타러 갑니다.",
+        "zh": "我每个星期天都去骑自行车。",
+        "pt": "Vou andar de bicicleta todo domingo.",
+        "ru": "Я катаюсь на велосипеде каждое воскресенье.",
+        "th": "ฉันไปปั่นจักรยานทุกวันอาทิตย์"
+      }
+    },
+    {
+      "id": "s_09_023",
+      "en": "Learning martial arts builds discipline.",
+      "trans": {
+        "vi": "Học võ thuật giúp xây dựng kỷ luật.",
+        "es": "Aprender artes marciales crea disciplina.",
+        "fr": "Apprendre les arts martiaux développe la discipline.",
+        "de": "Kampfsport zu lernen baut Disziplin auf.",
+        "ja": "武道を学ぶことで自律心が育まれます。",
+        "ko": "무술을 배우는 것은 자제력을 키워줍니다.",
+        "zh": "学习武术可以培养自律能力。",
+        "pt": "Aprender artes marciais desenvolve disciplina.",
+        "ru": "Занятия боевыми искусствами развивают дисциплину.",
+        "th": "การเรียนศิลปะการต่อสู้ช่วยฝึกวินัย"
+      }
+    },
+    {
+      "id": "s_09_024",
+      "en": "The stadium was fully packed.",
+      "trans": {
+        "vi": "Sân vận động đã chật kín người.",
+        "es": "El estadio estaba completamente lleno.",
+        "fr": "Le stade était totalement plein.",
+        "de": "Das Stadion war komplett ausverkauft.",
+        "ja": "スタジアムは超満員でした。",
+        "ko": "경기장은 사람들로 꽉 찼습니다.",
+        "zh": "体育馆里座无虚席。",
+        "pt": "O estádio estava completamente lotado.",
+        "ru": "Стадион был полностью забит.",
+        "th": "สนามอัดแน่นไปด้วยผู้คน"
+      }
+    },
+    {
+      "id": "s_09_025",
+      "en": "I prefer outdoor active sports.",
+      "trans": {
+        "vi": "Tôi thích các môn thể thao ngoài trời.",
+        "es": "Prefiero los deportes al aire libre.",
+        "fr": "Je préfère les sports de plein air.",
+        "de": "Ich bevorzuge Outdoor-Sportarten.",
+        "ja": "屋外でのアクティブなスポーツを好みます。",
+        "ko": "야외에서 하는 스포츠를 선호합니다.",
+        "zh": "我更喜欢户外运动。",
+        "pt": "Prefiro esportes ao ar livre.",
+        "ru": "Я предпочитаю спорт на открытом воздухе.",
+        "th": "ฉันชอบกีฬากลางแจ้งมากกว่า"
+      }
+    },
+    {
+      "id": "s_09_026",
+      "en": "He plays basketball with team.",
+      "trans": {
+        "vi": "Anh ấy chơi bóng rổ cùng đội.",
+        "es": "Él juega al baloncesto con su equipo.",
+        "fr": "Il joue au basket avec son équipe.",
+        "de": "Er spielt Basketball mit seinem Team.",
+        "ja": "彼はチームメイトとバスケをします。",
+        "ko": "그는 팀원들과 농구를 합니다.",
+        "zh": "他和队员们一起打篮球。",
+        "pt": "Ele joga basquete com a equipe.",
+        "ru": "Он играет в баскетбол с командой.",
+        "th": "เขาเล่นบาสเกตบอลกับทีม"
+      }
+    },
+    {
+      "id": "s_09_027",
+      "en": "Singing songs clears my stress.",
+      "trans": {
+        "vi": "Ca hát giúp tôi giải tỏa căng thẳng.",
+        "es": "Cantar canciones me quita el estrés.",
+        "fr": "Chanter des chansons évacue mon stress.",
+        "de": "Singen baut meinen Stress ab.",
+        "ja": "歌を歌うとストレスが解消されます。",
+        "ko": "노래를 부르면 스트레스가 풀립니다.",
+        "zh": "唱歌能消除我的压力。",
+        "pt": "Cantar músicas alivia meu estresse.",
+        "ru": "Пение песен снимает мой стресс.",
+        "th": "การร้องเพลงช่วยลดความเครียดของฉัน"
+      }
+    },
+    {
+      "id": "s_09_028",
+      "en": "She won gold medal competition.",
+      "trans": {
+        "vi": "Cô ấy giành huy chương vàng cuộc thi.",
+        "es": "Ella ganó la medalla de oro.",
+        "fr": "Elle a gagné la médaille d'or.",
+        "de": "Sie hat die Goldmedaille gewonnen.",
+        "ja": "彼女は大会で金メダルを獲得しました。",
+        "ko": "그녀는 대회에서 금메달을 땄습니다.",
+        "zh": "她在比赛中获得了金牌。",
+        "pt": "Ela ganhou a medalha de ouro.",
+        "ru": "Она выиграла золотую медаль.",
+        "th": "เธอได้รับเหรียญทองในการแข่งขัน"
+      }
+    },
+    {
+      "id": "s_09_029",
+      "en": "I love listening music daily.",
+      "trans": {
+        "vi": "Tôi yêu thích nghe nhạc hàng ngày.",
+        "es": "Me encanta escuchar música a diario.",
+        "fr": "J'adore écouter de la musique tous les jours.",
+        "de": "Ich liebe es täglich Musik zu hören.",
+        "ja": "毎日音楽を聴くのが大好きです。",
+        "ko": "저는 매일 음악 듣는 것을 좋아합니다.",
+        "zh": "我喜欢每天听音乐。",
+        "pt": "Adoro ouvir música diariamente.",
+        "ru": "Я люблю слушать музыку каждый день.",
+        "th": "ฉันชอบฟังเพลงทุกวัน"
+      }
+    },
+    {
+      "id": "s_09_030",
+      "en": "Sports keep our body fit.",
+      "trans": {
+        "vi": "Thể thao giúp cơ thể cân đối.",
+        "es": "El deporte mantiene nuestro cuerpo en forma.",
+        "fr": "Le sport maintient notre corps en forme.",
+        "de": "Sport hält unseren Körper fit.",
+        "ja": "スポーツは身体の健康を維持してくれます。",
+        "ko": "스포츠는 우리의 몸을 건강하게 유지해 줍니다.",
+        "zh": "体育运动使我们的身体保持健康。",
+        "pt": "O esporte mantém nosso corpo em forma.",
+        "ru": "Спорт поддерживает наше тело в форме.",
+        "th": "กีฬาทำให้ร่างกายของเราแข็งแรง"
+      }
+    }
+  ],
+  "top_10": [
+    {
+      "id": "s_10_001",
+      "en": "Which school do you attend?",
+      "trans": {
+        "vi": "Bạn đang học trường nào?",
+        "es": "¿A qué escuela asistes?",
+        "fr": "Dans quelle école allez-vous?",
+        "de": "Welche Schule besuchst du?",
+        "ja": "どこの学校に通っていますか？",
+        "ko": "어느 학교에 다니시나요?",
+        "zh": "你在哪所学校就读？",
+        "pt": "Qual escola você frequenta?",
+        "ru": "В какой школе вы учитесь?",
+        "th": "คุณเรียนอยู่โรงเรียนไหน?"
+      }
+    },
+    {
+      "id": "s_10_002",
+      "en": "I must study for exam.",
+      "trans": {
+        "vi": "Tôi phải ôn tập cho kỳ thi.",
+        "es": "Debo estudiar para el examen.",
+        "fr": "Je dois étudier pour l'examen.",
+        "de": "Ich muss für die Prüfung lernen.",
+        "ja": "試験の勉強をしなければなりません。",
+        "ko": "시험 공부를 해야 합니다.",
+        "zh": "我必须为考试复习。",
+        "pt": "Devo estudar para a prova.",
+        "ru": "Мне нужно готовиться к экзамену.",
+        "th": "ฉันต้องอ่านหนังสือสอบ"
+      }
+    },
+    {
+      "id": "s_10_003",
+      "en": "Where is the main library?",
+      "trans": {
+        "vi": "Thư viện chính ở đâu?",
+        "es": "¿Dónde está la biblioteca principal?",
+        "fr": "Où est la bibliothèque principale?",
+        "de": "Wo ist die Hauptbibliothek?",
+        "ja": "中央図書館はどこですか？",
+        "ko": "중앙 도서관이 어디에 있나요?",
+        "zh": "主图书馆在哪里？",
+        "pt": "Onde fica a biblioteca principal?",
+        "ru": "Где находится главная библиотека?",
+        "th": "ห้องสมุดหลักอยู่ที่ไหน?"
+      }
+    },
+    {
+      "id": "s_10_004",
+      "en": "Mathematics is my favorite subject.",
+      "trans": {
+        "vi": "Toán học là môn học yêu thích của tôi.",
+        "es": "La matemática es mi asignatura favorita.",
+        "fr": "Les mathématiques sont ma matière préférée.",
+        "de": "Mathematik ist mein Lieblingsfach.",
+        "ja": "数学は私の大好きな科目です。",
+        "ko": "수학은 제가 가장 좋아하는 과목입니다.",
+        "zh": "数学是我最喜欢的科目。",
+        "pt": "Matemática é a minha matéria favorita.",
+        "ru": "Математика — мой любимый предмет.",
+        "th": "วิชาคณิตศาสตร์เป็นวิชาที่ฉันชอบที่สุด"
+      }
+    },
+    {
+      "id": "s_10_005",
+      "en": "Did you finish homework yesterday?",
+      "trans": {
+        "vi": "Hôm qua bạn làm xong bài tập về nhà chưa?",
+        "es": "¿Terminaste la tarea ayer?",
+        "fr": "As-tu fini tes devoirs hier?",
+        "de": "Hast du gestern die Hausaufgaben gemacht?",
+        "ja": "昨日宿題は終わりましたか？",
+        "ko": "어제 숙제는 다 끝냈나요?",
+        "zh": "你昨天完成作业了吗？",
+        "pt": "Você terminou o dever de casa ontem?",
+        "ru": "Ты сделал домашнее задание вчера?",
+        "th": "เมื่อวานทำการบ้านเสร็จไหม?"
+      }
+    },
+    {
+      "id": "s_10_006",
+      "en": "The professor gave clear lecture.",
+      "trans": {
+        "vi": "Giáo sư giảng bài rất rõ ràng.",
+        "es": "El profesor dio una conferencia clara.",
+        "fr": "Le professeur a donné un cours clair.",
+        "de": "Der Professor hielt eine klare Vorlesung.",
+        "ja": "教授の講義はとても分かりやすかったです。",
+        "ko": "교수님의 강의는 명쾌했습니다.",
+        "zh": "教授的讲课非常清晰。",
+        "pt": "O professor deu uma palestra clara.",
+        "ru": "Профессор прочитал понятную лекцию.",
+        "th": "ศาสตราจารย์บรรยายได้อย่างชัดเจน"
+      }
+    },
+    {
+      "id": "s_10_007",
+      "en": "Open your textbook page ten.",
+      "trans": {
+        "vi": "Hãy mở sách giáo khoa trang mười.",
+        "es": "Abran su libro en la página diez.",
+        "fr": "Ouvrez votre manuel à la page dix.",
+        "de": "Schlagt das Lehrbuch auf Seite zehn auf.",
+        "ja": "教科書の10ページを開いてください。",
+        "ko": "교과서 10페이지를 펴세요.",
+        "zh": "请把课本翻到第十页。",
+        "pt": "Abram o livro na página dez.",
+        "ru": "Откройте учебник на странице десять.",
+        "th": "เปิดหนังสือเรียนไปที่หน้าสิบ"
+      }
+    },
+    {
+      "id": "s_10_008",
+      "en": "She passed the graduation exam.",
+      "trans": {
+        "vi": "Cô ấy đã đỗ kỳ thi tốt nghiệp.",
+        "es": "Ella aprobó el examen de graduación.",
+        "fr": "Elle a réussi l'examen de fin d'études.",
+        "de": "Sie hat die Abschlussprüfung bestanden.",
+        "ja": "彼女は卒業試験に合格しました。",
+        "ko": "그녀는 졸업 시험에 합격했습니다.",
+        "zh": "她通过了毕业考试。",
+        "pt": "Ela passou no exame de graduação.",
+        "ru": "Она сдала выпускной экзамен.",
+        "th": "เธอสอบผ่านการจบการศึกษา"
+      }
+    },
+    {
+      "id": "s_10_009",
+      "en": "What grade are you in?",
+      "trans": {
+        "vi": "Bạn đang học lớp mấy?",
+        "es": "¿En qué grado estás?",
+        "fr": "En quelle classe es-tu?",
+        "de": "In welcher Klasse bist du?",
+        "ja": "何学年ですか？",
+        "ko": "몇 학년인가요?",
+        "zh": "你在读几年级？",
+        "pt": "Em qual série você está?",
+        "ru": "В каком ты классе?",
+        "th": "คุณอยู่ชั้นเกรดอะไร?"
+      }
+    },
+    {
+      "id": "s_10_010",
+      "en": "Please raise your right hand.",
+      "trans": {
+        "vi": "Vui lòng giơ tay phải lên.",
+        "es": "Por favor levanta tu mano derecha.",
+        "fr": "Levez la main droite s'il vous plaît.",
+        "de": "Bitte heben Sie Ihre rechte Hand.",
+        "ja": "右手をつかんであげてください。",
+        "ko": "오른손을 들어 주세요.",
+        "zh": "请举起你的右手。",
+        "pt": "Por favor, levante sua mão direita.",
+        "ru": "Пожалуйста, поднимите правую руку.",
+        "th": "กรุณายกมือขวาขึ้น"
+      }
+    },
+    {
+      "id": "s_10_011",
+      "en": "Our classroom has digital projector.",
+      "trans": {
+        "vi": "Lớp học chúng tôi có máy chiếu kỹ thuật số.",
+        "es": "Nuestra aula tiene proyector digital.",
+        "fr": "Notre classe a un projecteur numérique.",
+        "de": "Unser Klassenzimmer hat einen Projektor.",
+        "ja": "私達の教室にはプロジェクターがあります。",
+        "ko": "우리 교실에는 프로젝터가 있습니다.",
+        "zh": "我们的教室有投影仪。",
+        "pt": "Nossa sala de aula tem projetor.",
+        "ru": "В нашем классе есть проектор.",
+        "th": "ห้องเรียนของเรามีเครื่องโปรเจกเตอร์"
+      }
+    },
+    {
+      "id": "s_10_012",
+      "en": "I got scholarship for study.",
+      "trans": {
+        "vi": "Tôi đã nhận được học bổng du học.",
+        "es": "Obtuve una beca para estudiar.",
+        "fr": "J'ai obtenu une bourse d'études.",
+        "de": "Ich habe ein Stipendium bekommen.",
+        "ja": "奨学金を獲得することができました。",
+        "ko": "장학금을 받았습니다.",
+        "zh": "我拿到了留学奖学金。",
+        "pt": "Ganhei uma bolsa de estudos.",
+        "ru": "Я получил стипендию на учебу.",
+        "th": "ฉันได้รับทุนการศึกษา"
+      }
+    },
+    {
+      "id": "s_10_013",
+      "en": "Who is head student representative?",
+      "trans": {
+        "vi": "Ai là lớp trưởng đại diện?",
+        "es": "¿Quién es el delegado de clase?",
+        "fr": "Qui est le délégué de classe?",
+        "de": "Wer ist der Klassensprecher?",
+        "ja": "学級委員長は誰ですか？",
+        "ko": "반장이 누구인가요?",
+        "zh": "谁是班长？",
+        "pt": "Quem é o representante de classe?",
+        "ru": "Кто староста класса?",
+        "th": "ใครเป็นหัวหน้าห้อง?"
+      }
+    },
+    {
+      "id": "s_10_014",
+      "en": "We do chemistry experiments lab.",
+      "trans": {
+        "vi": "Chúng tôi làm thí nghiệm hóa học ở phòng lab.",
+        "es": "Hacemos experimentos de química en el laboratorio.",
+        "fr": "Nous faisons des expériences en laboratoire.",
+        "de": "Wir machen Chemieexperimente im Labor.",
+        "ja": "実験室で化学実験を行います。",
+        "ko": "우리는 실험실에서 화학 실험을 합니다.",
+        "zh": "我们在实验室做化学实验。",
+        "pt": "Fazemos experimentos de química no laboratório.",
+        "ru": "Мы проводим опыты в лаборатории.",
+        "th": "พวกเราทำการทดลองเคมีในห้องแล็บ"
+      }
+    },
+    {
+      "id": "s_10_015",
+      "en": "School starts at eight sharp.",
+      "trans": {
+        "vi": "Trường bắt đầu học lúc 8 giờ đúng.",
+        "es": "La escuela empieza a las ocho en punto.",
+        "fr": "L'école commence à huit heures piles.",
+        "de": "Die Schule beginnt pünktlich um acht.",
+        "ja": "学校は8時ちょうどに始まります。",
+        "ko": "학교는 8시 정각에 시작합니다.",
+        "zh": "学校上课时间是八点整。",
+        "pt": "A escola começa às oito em ponto.",
+        "ru": "Занятия в школе начинаются ровно в восемь.",
+        "th": "โรงเรียนเริ่มเรียนแปดโมงตรง"
+      }
+    },
+    {
+      "id": "s_10_016",
+      "en": "Listen carefully to your teacher.",
+      "trans": {
+        "vi": "Lắng nghe giáo viên thật kỹ.",
+        "es": "Escucha atentamente a tu profesor.",
+        "fr": "Écoutez attentivement votre professeur.",
+        "de": "Höre deinem Lehrer aufmerksam zu.",
+        "ja": "先生の話をよく聴きなさい。",
+        "ko": "선생님의 말씀을 주의 깊게 들으세요.",
+        "zh": "仔细听老师讲课。",
+        "pt": "Ouça com atenção o seu professor.",
+        "ru": "Внимательно слушайте учителя.",
+        "th": "ตั้งใจฟังคุณครู"
+      }
+    },
+    {
+      "id": "s_10_017",
+      "en": "Where can I register courses?",
+      "trans": {
+        "vi": "Tôi đăng ký các môn học ở đâu?",
+        "es": "¿Dónde puedo inscribirme en los cursos?",
+        "fr": "Où puis-je m'inscrire aux cours?",
+        "de": "Wo kann ich Kurse belegen?",
+        "ja": "履修登録はどこでできますか？",
+        "ko": "수강 신청은 어디서 하나요?",
+        "zh": "我在哪里可以选课？",
+        "pt": "Onde posso me inscrever nos cursos?",
+        "ru": "Где можно записаться на курсы?",
+        "th": "ฉันจะลงทะเบียนเรียนได้ที่ไหน?"
+      }
+    },
+    {
+      "id": "s_10_018",
+      "en": "I submitted my essay online.",
+      "trans": {
+        "vi": "Tôi đã nộp bài luận trực tuyến.",
+        "es": "Entregué mi ensayo en línea.",
+        "fr": "J'ai soumis mon essai en ligne.",
+        "de": "Ich habe meinen Aufsatz online eingereicht.",
+        "ja": "オンラインでレポートを提出しました。",
+        "ko": "에세이를 온라인으로 제출했습니다.",
+        "zh": "我已经在网上提交了论文。",
+        "pt": "Enviei minha redação online.",
+        "ru": "Я отправил эссе онлайн.",
+        "th": "ฉันส่งเรียงความทางออนไลน์แล้ว"
+      }
+    },
+    {
+      "id": "s_10_019",
+      "en": "He major in computer science.",
+      "trans": {
+        "vi": "Anh ấy chuyên ngành khoa học máy tính.",
+        "es": "Él se especializa en informática.",
+        "fr": "Il se spécialise en informatique.",
+        "de": "Er studiert Informatik.",
+        "ja": "彼はコンピューターサイエンスを専攻しています。",
+        "ko": "그는 컴퓨터 공학을 전공합니다.",
+        "zh": "他的专业是计算机科学。",
+        "pt": "Ele é formado em ciência da computação.",
+        "ru": "Его специальность — информатика.",
+        "th": "เขาเรียนเอกวิทยาการคอมพิวเตอร์"
+      }
+    },
+    {
+      "id": "s_10_020",
+      "en": "Can I borrow your pen?",
+      "trans": {
+        "vi": "Tôi mượn chiếc bút của bạn được không?",
+        "es": "¿Puedo tomar prestado tu bolígrafo?",
+        "fr": "Puis-je emprunter votre stylo?",
+        "de": "Kann ich mir deinen Stift leihen?",
+        "ja": "ペンを借りてもいいですか？",
+        "ko": "펜 좀 빌릴 수 있을까요?",
+        "zh": "我能借用一下你的笔吗？",
+        "pt": "Posso pegar sua caneta emprestada?",
+        "ru": "Можно одолжить вашу ручку?",
+        "th": "ยืมปากกาของคุณหน่อยได้ไหม?"
+      }
+    },
+    {
+      "id": "s_10_021",
+      "en": "The exam results will announce.",
+      "trans": {
+        "vi": "Kết quả thi sẽ được công bố.",
+        "es": "Los resultados del examen se anunciarán.",
+        "fr": "Les résultats d'examen seront annoncés.",
+        "de": "Die Prüfungsergebnisse werden bekannt gegeben.",
+        "ja": "試験結果が発表されます。",
+        "ko": "시험 결과가 발표될 예정입니다.",
+        "zh": "考试成绩即将公布。",
+        "pt": "Os resultados dos exames serão anunciados.",
+        "ru": "Результаты экзамена будут объявлены.",
+        "th": "ผลการสอบจะประกาศในไม่ช้า"
+      }
+    },
+    {
+      "id": "s_10_022",
+      "en": "Practice makes your skill perfect.",
+      "trans": {
+        "vi": "Luyện tập giúp kỹ năng hoàn hảo.",
+        "es": "La práctica hace al maestro.",
+        "fr": "C'est en forgeant qu'on devient forgeron.",
+        "de": "Übung macht den Meister.",
+        "ja": "継続は力なり、習うより慣れろ。",
+        "ko": "연습이 완벽을 만듭니다.",
+        "zh": "熟能生巧。",
+        "pt": "A prática leva à perfeição.",
+        "ru": "Практика ведет к совершенству.",
+        "th": "ความพยายามอยู่ที่ไหน ความสำเร็จอยู่ที่นั่น"
+      }
+    },
+    {
+      "id": "s_10_023",
+      "en": "We wear uniform on Monday.",
+      "trans": {
+        "vi": "Chúng tôi mặc đồng phục vào Thứ Hai.",
+        "es": "Usamos uniforme los lunes.",
+        "fr": "Nous portons l'uniforme le lundi.",
+        "de": "Wir tragen montags Schuluniform.",
+        "ja": "月曜日は制服を着用します。",
+        "ko": "우리는 월요일에 교복을 입습니다.",
+        "zh": "我们在周一穿着校服。",
+        "pt": "Usamos uniforme na segunda-feira.",
+        "ru": "Мы носим форму по понедельникам.",
+        "th": "พวกเราใส่ชุดนักเรียนในวันจันทร์"
+      }
+    },
+    {
+      "id": "s_10_024",
+      "en": "Is history exam difficult today?",
+      "trans": {
+        "vi": "Bài thi lịch sử hôm nay có khó không?",
+        "es": "¿Estuvo difícil el examen de historia?",
+        "fr": "L'examen d'histoire était-il difficile?",
+        "de": "War die Geschichtsprüfung heute schwer?",
+        "ja": "今日の歴史のテストは難しかったですか？",
+        "ko": "오늘 역사 시험이 어려웠나요?",
+        "zh": "今天的历史考试难吗？",
+        "pt": "A prova de história de hoje foi difícil?",
+        "ru": "Экзамен по истории сегодня был сложным?",
+        "th": "ข้อสอบประวัติศาสตร์วันนี้ยากไหม?"
+      }
+    },
+    {
+      "id": "s_10_025",
+      "en": "Write your name on paper.",
+      "trans": {
+        "vi": "Hãy viết tên bạn lên tờ giấy.",
+        "es": "Escribe tu nombre en el papel.",
+        "fr": "Écrivez votre nom sur le papier.",
+        "de": "Schreiben Sie Ihren Namen auf das Papier.",
+        "ja": "紙にお名前を書いてください。",
+        "ko": "종이에 이름을 쓰세요.",
+        "zh": "在纸上写下你的名字。",
+        "pt": "Escreva seu nome no papel.",
+        "ru": "Напишите свое имя на бумаге.",
+        "th": "เขียนชื่อของคุณลงบนกระดาษ"
+      }
+    },
+    {
+      "id": "s_10_026",
+      "en": "Lunch break is one hour.",
+      "trans": {
+        "vi": "Giờ nghỉ trưa kéo dài một tiếng.",
+        "es": "La pausa del almuerzo dura una hora.",
+        "fr": "La pause déjeuner dure une heure.",
+        "de": "Die Mittagspause dauert eine Stunde.",
+        "ja": "昼休みは1時間あります。",
+        "ko": "점심시간은 한 시간입니다.",
+        "zh": "午休时间为一小时。",
+        "pt": "O horário do almoço é de uma hora.",
+        "ru": "Обеденный перерыв длится один час.",
+        "th": "พักรับประทานอาหารกลางวันหนึ่งชั่วโมง"
+      }
+    },
+    {
+      "id": "s_10_027",
+      "en": "I love discovering scientific facts.",
+      "trans": {
+        "vi": "Tôi thích khám phá các sự thật khoa học.",
+        "es": "Me encanta descubrir hechos científicos.",
+        "fr": "J'aime découvrir des faits scientifiques.",
+        "de": "Ich liebe es wissenschaftliche Fakten zu entdecken.",
+        "ja": "科学の事実を発見するのが好きです。",
+        "ko": "과학적 사실을 밝혀내는 것을 좋아합니다.",
+        "zh": "我喜欢探索科学事实。",
+        "pt": "Adoro descobrir fatos científicos.",
+        "ru": "Мне нравится открывать научные факты.",
+        "th": "ฉันชอบค้นพบข้อเท็จจริงทางวิทยาศาสตร์"
+      }
+    },
+    {
+      "id": "s_10_028",
+      "en": "Summer vacation starts next week.",
+      "trans": {
+        "vi": "Kỳ nghỉ hè bắt đầu từ tuần sau.",
+        "es": "Las vacaciones de verano empiezan la próxima semana.",
+        "fr": "Les vacances d'été commencent la semaine prochaine.",
+        "de": "Die Sommerferien beginnen nächste Woche.",
+        "ja": "夏休みは来週から始まります。",
+        "ko": "여름 방학은 다음 주부터 시작합니다.",
+        "zh": "暑假下周开始。",
+        "pt": "As férias de verão começam na próxima semana.",
+        "ru": "Летние каникулы начинаются на следующей неделе.",
+        "th": "ปิดเทอมฤดูร้อนจะเริ่มสัปดาห์หน้า"
+      }
+    },
+    {
+      "id": "s_10_029",
+      "en": "Never stop learning new things.",
+      "trans": {
+        "vi": "Đừng bao giờ ngừng học hỏi điều mới.",
+        "es": "Nunca dejes de aprender cosas nuevas.",
+        "fr": "N'arrêtez jamais d'apprendre de nouvelles choses.",
+        "de": "Höre niemals auf Neues zu lernen.",
+        "ja": "新しいことを学ぶのを決してやめないでください。",
+        "ko": "새로운 것을 배우는 것을 결코 멈추지 마세요.",
+        "zh": "永远不要停止学习新事物。",
+        "pt": "Nunca pare de aprender coisas novas.",
+        "ru": "Никогда не прекращайте учиться новому.",
+        "th": "อย่าหยุดเรียนรู้สิ่งใหม่ๆ"
+      }
+    },
+    {
+      "id": "s_10_030",
+      "en": "Knowledge is power for future.",
+      "trans": {
+        "vi": "Tri thức là sức mạnh cho tương lai.",
+        "es": "El conocimiento es poder para el futuro.",
+        "fr": "Le savoir est un pouvoir pour l'avenir.",
+        "de": "Wissen ist Macht für die Zukunft.",
+        "ja": "知識は未来への力となります。",
+        "ko": "지식은 미래를 위한 힘입니다.",
+        "zh": "知识就是面向未来的力量。",
+        "pt": "O conhecimento é o poder para o futuro.",
+        "ru": "Знания — сила для будущего.",
+        "th": "ความรู้คือพลังสำหรับอนาคต"
+      }
+    }
   ]
+
+ 
 
 
 
