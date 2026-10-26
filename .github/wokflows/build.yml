@@ -1,0 +1,118 @@
+name: Build Android APK
+
+on:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup Java JDK 21
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Prepare Web Assets
+        run: |
+          npm init -y
+          mkdir -p www
+          cp index.html www/index.html 2>/dev/null || true
+          cat << 'EOF' > capacitor.config.json
+          {
+            "appId": "com.trithucso.hoctienganhrapcau_0002_x9z",
+            "appName": "Tieng Anh Rap Cau Fast Pro V3.3",
+            "webDir": "www",
+            "bundledWebRuntime": false
+          }
+          EOF
+
+      - name: Install Capacitor & Plugins
+        run: |
+          npm install --legacy-peer-deps @capacitor/core @capacitor/cli @capacitor/android @capacitor-community/admob @capacitor-community/text-to-speech
+
+      - name: Sync Capacitor Android Project
+        run: |
+          npx cap add android || true
+          npx cap sync android
+          mkdir -p android/app/src/main/assets/public
+          cp -r www/* android/app/src/main/assets/public/
+
+      - name: Generate Android App Icons from icon.png
+        run: |
+          python3 -m pip install Pillow
+          python3 -c "
+          import os
+          from PIL import Image
+
+          sizes = {
+              'mipmap-mdpi': 48,
+              'mipmap-hdpi': 72,
+              'mipmap-xhdpi': 96,
+              'mipmap-xxhdpi': 144,
+              'mipmap-xxxhdpi': 192
+          }
+
+          icon_path = 'icon.png'
+          if os.path.exists(icon_path):
+              img = Image.open(icon_path).convert('RGBA')
+              res_dir = 'android/app/src/main/res'
+              for folder, size in sizes.items():
+                  out_dir = os.path.join(res_dir, folder)
+                  os.makedirs(out_dir, exist_ok=True)
+                  resized = img.resize((size, size), Image.Resampling.LANCZOS)
+                  resized.save(os.path.join(out_dir, 'ic_launcher.png'), 'PNG')
+                  resized.save(os.path.join(out_dir, 'ic_launcher_round.png'), 'PNG')
+                  resized.save(os.path.join(out_dir, 'ic_launcher_foreground.png'), 'PNG')
+              print('✅ Đã cập nhật icon.png thành công vào tất cả mipmap resolution!')
+          else:
+              print('⚠️ Không tìm thấy file icon.png!')
+          "
+
+      - name: Fix Kotlin Duplicate Dependencies
+        run: |
+          if ! grep -q "kotlin-stdlib-jdk7" android/app/build.gradle; then
+            echo "
+            configurations.all {
+                exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk7'
+                exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk8'
+            }
+            " >> android/app/build.gradle
+          fi
+
+      - name: Configure AdMob Network Security
+        run: |
+          python3 -c "
+          import os
+          manifest_path = 'android/app/src/main/AndroidManifest.xml'
+          if os.path.exists(manifest_path):
+              with open(manifest_path, 'r') as f:
+                  content = f.read()
+              admob_meta = '<meta-data android:name=\"com.google.android.gms.ads.APPLICATION_ID\" android:value=\"ca-app-pub-3940256099942544~3347511713\"/>'
+              if 'APPLICATION_ID' not in content:
+                  content = content.replace('</application>', f'    {admob_meta}\n    </application>')
+              with open(manifest_path, 'w') as f:
+                  f.write(content)
+          " || true
+
+      - name: Build Android Debug APK
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+ 

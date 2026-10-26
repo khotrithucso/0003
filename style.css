@@ -1,0 +1,239 @@
+/* DESIGN TOKENS - CARTOON POP VIBRANT STYLE */
+:root {
+  --bg-main: #F4F0EA;
+  --primary-red: #FF5964;
+  --primary-hover: #E0434E;
+  --secondary-blue: #35A7FF;
+  --accent-yellow: #FFE347;
+  --accent-green: #38B000;
+  --card-bg: #FFFFFF;
+  --text-dark: #2B2D42;
+  --text-muted: #8D99AE;
+  --border-dark: #2B2D42;
+  --shadow-pop: 0px 6px 0px #2B2D42;
+  --shadow-pop-sm: 0px 4px 0px #2B2D42;
+  --shadow-active: 0px 0px 0px #2B2D42;
+  --font-main: 'Fredoka', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.screen {
+  display: none;
+  width: 100%;
+  max-width: 480px;
+  height: 100vh;
+  padding: 16px;
+  flex-direction: column;
+}
+
+.screen.active {
+  display: flex;
+}
+
+/* NÚT BẤM HOẠT HÌNH POP 3D */
+.btn-cartoon {
+  border: 2.5px solid var(--border-dark);
+  border-radius: 16px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+  box-shadow: var(--shadow-pop);
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-cartoon:active {
+  transform: translateY(6px);
+  box-shadow: var(--shadow-active);
+}
+
+.btn-red { background-color: var(--primary-red); color: #FFF; }
+.btn-yellow { background-color: var(--accent-yellow); }
+.btn-green { background-color: var(--accent-green); color: #FFF; }
+
+.btn-icon-pop {
+  border: 2.5px solid var(--border-dark);
+  background: #FFF;
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-size: 18px;
+  box-shadow: var(--shadow-pop-sm);
+  cursor: pointer;
+}
+
+.btn-icon-pop:active {
+  transform: translateY(4px);
+  box-shadow: var(--shadow-active);
+}
+
+/* CARTOON CARDS */
+.translation-card {
+  background: var(--card-bg);
+  border: 2.5px solid var(--border-dark);
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: var(--shadow-pop);
+  margin-top: 12px;
+  position: relative;
+}
+
+.card-tag {
+  position: absolute;
+  top: -12px;
+  left: 16px;
+  background: var(--secondary-blue);
+  color: #FFF;
+  border: 2px solid var(--border-dark);
+  border-radius: 8px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.trans-text {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* THẺ TỪ VỰNG (WORD CHIPS) */
+.word-chip {
+  background: #FFF;
+  border: 2.5px solid var(--border-dark);
+  border-radius: 14px;
+  padding: 10px 14px;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: var(--shadow-pop-sm);
+  cursor: pointer;
+  display: inline-block;
+  margin: 4px;
+  animation: squishy 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.word-chip:active {
+  transform: translateY(4px);
+  box-shadow: var(--shadow-active);
+}
+
+.drop-zone-container {
+  background: #EAE5DC;
+  border: 2.5px dashed var(--border-dark);
+  border-radius: 20px;
+  padding: 16px;
+  margin-top: 16px;
+  min-height: 130px;
+}
+
+.drop-zone-header {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.word-slots-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 60px;
+  align-items: center;
+}
+
+.word-pool-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 12px;
+  flex-grow: 1;
+}
+
+.placeholder-text {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.game-action-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.game-action-bar button {
+  flex: 1;
+}
+
+.hidden { display: none !important; }
+
+/* ANIMATION KEYFRAMES */
+@keyframes squishy {
+  0% { transform: scale(0.8); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+.wrong-shake {
+  animation: wrongShake 0.4s ease-in-out;
+}
+
+@keyframes wrongShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+/* MODAL CARTOON */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(43, 45, 66, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-card-cartoon {
+  background: #FFF;
+  border: 3px solid var(--border-dark);
+  border-radius: 24px;
+  padding: 24px;
+  width: 85%;
+  max-width: 360px;
+  text-align: center;
+  box-shadow: 0px 10px 0px var(--border-dark);
+}
+
+.star-burst {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--accent-green);
+  margin-bottom: 12px;
+}
+ 

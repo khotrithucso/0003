@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Sentence Drag & Drop Puzzle Cartoon Pro</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- MÀN HÌNH 1: CHỌN NGÔN NGỮ MẸ ĐẺ -->
+  <section id="screen-lang" class="screen active">
+    <div class="header-pop">
+      <h1 class="title-cartoon">🌍 SELECT LANGUAGE</h1>
+      <p class="subtitle">Choose your native language to start!</p>
+    </div>
+    <div id="lang-grid" class="lang-grid-container"></div>
+  </section>
+
+  <!-- MÀN HÌNH 2: TỔNG QUAN CHỦ ĐỀ HỌC -->
+  <section id="screen-topics" class="screen">
+    <div class="top-nav-bar">
+      <button id="btn-change-lang" class="btn-icon-pop">🇻🇳</button>
+      <h2 class="nav-title">🎯 SELECT TOPIC</h2>
+      <div class="streak-badge">🔥 <span id="streak-count">0</span></div>
+    </div>
+    <div id="topic-grid" class="topic-grid-container"></div>
+  </section>
+
+  <!-- MÀN HÌNH 3: KHUNG CHƠI GAME RÁP CÂU -->
+  <section id="screen-game" class="screen">
+    <div class="game-top-bar">
+      <button id="btn-back-topics" class="btn-pop-sm">⬅️ Back</button>
+      <div id="game-topic-badge" class="topic-pill">💬 Giao Tiếp</div>
+      <button id="btn-speak-tts" class="btn-icon-pop">🔊</button>
+    </div>
+
+    <!-- Khung Bản Dịch Tiếng Mẹ Đẻ -->
+    <div class="translation-card">
+      <span class="card-tag">TRANSLATION</span>
+      <p id="target-translation" class="trans-text">Hôm nay bạn khỏe không?</p>
+    </div>
+
+    <!-- KHUNG THẢ TỪ VỰNG (DROP ZONE / TARGET SLOTS) -->
+    <div class="drop-zone-container">
+      <div class="drop-zone-header">YOUR SENTENCE:</div>
+      <div id="drop-zone" class="word-slots-box">
+        <span class="placeholder-text">Tap or drag words here...</span>
+      </div>
+    </div>
+
+    <!-- KHUNG TỪ VỰNG NGẪU NHIÊN (WORD POOL) -->
+    <div id="word-pool" class="word-pool-container"></div>
+
+    <!-- THANH NÚT THAO TÁC -->
+    <div class="game-action-bar">
+      <button id="btn-reset-words" class="btn-cartoon btn-yellow">🔄 Reset</button>
+      <button id="btn-check-answer" class="btn-cartoon btn-green">✨ CHECK</button>
+      <button id="btn-next-sentence" class="btn-cartoon btn-red hidden">🚀 NEXT</button>
+    </div>
+  </section>
+
+  <!-- MODAL THÔNG BÁO HOÀN THÀNH CÂU -->
+  <div id="success-modal" class="modal-overlay hidden">
+    <div class="modal-card-cartoon">
+      <div class="star-burst">⭐ WOW! GREAT! ⭐</div>
+      <p id="modal-en-sentence" class="modal-en-text">How are you doing today?</p>
+      <button id="btn-modal-continue" class="btn-cartoon btn-red">CONTINUE ➔</button>
+    </div>
+  </div>
+
+  <!-- NẠP CÁC FILE SCRIPT THEO ĐÚNG THỨ TỰ -->
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
