@@ -1,77 +1,506 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Sentence Drag & Drop Puzzle Cartoon Pro</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Song Ngữ Ráp Câu Fast Pro V2</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --card-border: #334155;
+            --accent-blue: #38bdf8;
+            --accent-green: #22c55e;
+            --accent-red: #ef4444;
+            --accent-yellow: #f59e0b;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; font-family: system-ui, -apple-system, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+
+        /* HEADER & NAVBAR */
+        .app-header { background-color: var(--card-bg); padding: 12px 16px; border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center; }
+        .app-title { font-size: 16px; font-weight: 700; color: var(--accent-blue); display: flex; align-items: center; gap: 8px; }
+        .lang-badge { background: #0f172a; border: 1px solid var(--accent-blue); padding: 4px 10px; border-radius: 20px; font-size: 13px; color: var(--accent-blue); font-weight: 600; cursor: pointer; }
+
+        /* TAB NAVIGATION */
+        .tab-nav { display: flex; background: var(--card-bg); border-bottom: 1px solid var(--card-border); }
+        .tab-btn { flex: 1; padding: 12px; text-align: center; font-size: 13px; font-weight: 600; color: var(--text-sub); border: none; background: none; cursor: pointer; border-bottom: 3px solid transparent; }
+        .tab-btn.active { color: var(--accent-blue); border-bottom-color: var(--accent-blue); background: rgba(56, 189, 248, 0.05); }
+
+        /* CONTENT VIEWS */
+        .view-container { flex: 1; overflow-y: auto; padding: 16px; padding-bottom: 70px; }
+        .view-tab { display: none; }
+        .view-tab.active { display: block; }
+
+        /* TAB 1: GAME STAGE VIEW */
+        .stage-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .stage-title { font-size: 14px; color: var(--text-sub); }
+        .progress-bar-bg { width: 100%; height: 8px; background: #334155; border-radius: 4px; overflow: hidden; margin-bottom: 16px; }
+        .progress-bar-fill { height: 100%; background: var(--accent-green); width: 0%; transition: width 0.3s ease; }
+
+        .target-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 16px; margin-bottom: 16px; text-align: center; position: relative; }
+        .target-text { font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+        .speaker-btn { background: rgba(56, 189, 248, 0.15); border: 1px solid var(--accent-blue); color: var(--accent-blue); padding: 6px 12px; border-radius: 20px; font-size: 12px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; }
+
+        /* WORD CHIP SLOTS */
+        .answer-box { min-height: 80px; background: #0f172a; border: 2px dashed var(--card-border); border-radius: 12px; padding: 12px; display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start; margin-bottom: 16px; }
+        .word-pool { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; min-height: 100px; padding: 8px; }
+
+        .chip { background: #334155; color: #fff; padding: 10px 14px; border-radius: 8px; font-size: 15px; font-weight: 600; border: 1px solid #475569; cursor: pointer; transition: all 0.15s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        .chip:active { transform: scale(0.95); }
+        .chip.used { opacity: 0.2; pointer-events: none; }
+
+        /* ACTION BUTTONS */
+        .action-row { display: flex; gap: 10px; margin-top: 16px; }
+        .btn { flex: 1; padding: 14px; border-radius: 10px; border: none; font-size: 15px; font-weight: 700; cursor: pointer; text-align: center; }
+        .btn-check { background: var(--accent-blue); color: #0f172a; }
+        .btn-clear { background: #334155; color: #fff; }
+        .btn-next { background: var(--accent-green); color: #0f172a; display: none; }
+
+        .feedback-msg { margin-top: 12px; text-align: center; font-weight: 700; font-size: 15px; min-height: 24px; }
+        .feedback-correct { color: var(--accent-green); }
+        .feedback-wrong { color: var(--accent-red); }
+
+        /* TAB 2: TOPIC SELECTOR */
+        .topic-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+        .topic-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 14px; text-align: center; cursor: pointer; transition: transform 0.2s; }
+        .topic-card:active { transform: scale(0.97); }
+        .topic-card.active { border-color: var(--accent-blue); background: rgba(56, 189, 248, 0.1); }
+        .topic-icon { font-size: 28px; margin-bottom: 6px; }
+        .topic-name { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+        .topic-count { font-size: 11px; color: var(--text-sub); }
+
+        /* TAB 3: LANGUAGE & SERVER SYNC */
+        .setting-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+        .setting-title { font-size: 15px; font-weight: 700; color: var(--accent-yellow); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+        .lang-select { width: 100%; padding: 12px; background: #0f172a; border: 1px solid var(--card-border); border-radius: 8px; color: #fff; font-size: 14px; margin-bottom: 12px; }
+
+        .sync-box { background: #0f172a; border: 1px solid var(--card-border); padding: 12px; border-radius: 8px; font-size: 12px; color: var(--text-sub); margin-bottom: 12px; }
+        .btn-sync { background: var(--accent-blue); color: #0f172a; width: 100%; padding: 12px; border-radius: 8px; font-weight: 700; border: none; cursor: pointer; }
+
+        /* BOTTOM AD CONTAINER */
+        #admob-banner { position: fixed; bottom: 0; left: 0; width: 100%; height: 50px; background: #000; display: flex; justify-content: center; align-items: center; color: #555; font-size: 10px; z-index: 1000; border-top: 1px solid #222; }
+    </style>
 </head>
 <body>
 
-  <!-- MÀN HÌNH 1: CHỌN NGÔN NGỮ MẸ ĐẺ -->
-  <section id="screen-lang" class="screen active">
-    <div class="header-pop">
-      <h1 class="title-cartoon">🌍 SELECT LANGUAGE</h1>
-      <p class="subtitle">Choose your native language to start!</p>
-    </div>
-    <div id="lang-grid" class="lang-grid-container"></div>
-  </section>
-
-  <!-- MÀN HÌNH 2: TỔNG QUAN CHỦ ĐỀ HỌC -->
-  <section id="screen-topics" class="screen">
-    <div class="top-nav-bar">
-      <button id="btn-change-lang" class="btn-icon-pop">🇻🇳</button>
-      <h2 class="nav-title">🎯 SELECT TOPIC</h2>
-      <div class="streak-badge">🔥 <span id="streak-count">0</span></div>
-    </div>
-    <div id="topic-grid" class="topic-grid-container"></div>
-  </section>
-
-  <!-- MÀN HÌNH 3: KHUNG CHƠI GAME RÁP CÂU -->
-  <section id="screen-game" class="screen">
-    <div class="game-top-bar">
-      <button id="btn-back-topics" class="btn-pop-sm">⬅️ Back</button>
-      <div id="game-topic-badge" class="topic-pill">💬 Giao Tiếp</div>
-      <button id="btn-speak-tts" class="btn-icon-pop">🔊</button>
+    <!-- APP HEADER -->
+    <div class="app-header">
+        <div class="app-title">🚀 Fast English Game V2</div>
+        <div class="lang-badge" id="current-lang-badge" onclick="switchTab('sync')">🇻🇳 Tiếng Việt</div>
     </div>
 
-    <!-- Khung Bản Dịch Tiếng Mẹ Đẻ -->
-    <div class="translation-card">
-      <span class="card-tag">TRANSLATION</span>
-      <p id="target-translation" class="trans-text">Hôm nay bạn khỏe không?</p>
+    <!-- TAB NAVIGATION -->
+    <div class="tab-nav">
+        <button class="tab-btn active" id="nav-game" onclick="switchTab('game')">🎮 Màn Chơi</button>
+        <button class="tab-btn" id="nav-topics" onclick="switchTab('topics')">📚 Chủ Đề</button>
+        <button class="tab-btn" id="nav-sync" onclick="switchTab('sync')">🌐 Ngôn Ngữ & Sync</button>
     </div>
 
-    <!-- KHUNG THẢ TỪ VỰNG (DROP ZONE / TARGET SLOTS) -->
-    <div class="drop-zone-container">
-      <div class="drop-zone-header">YOUR SENTENCE:</div>
-      <div id="drop-zone" class="word-slots-box">
-        <span class="placeholder-text">Tap or drag words here...</span>
-      </div>
+    <!-- VIEW CONTAINER -->
+    <div class="view-container">
+
+        <!-- TAB 1: GAME PLAY VIEW -->
+        <div class="view-tab active" id="tab-game">
+            <div class="stage-header">
+                <span class="stage-title" id="stage-topic-name">Chủ đề 1: Daily Conversation</span>
+                <span style="font-size: 12px; font-weight: 700; color: var(--accent-blue);" id="stage-counter">Màn 1 / 10</span>
+            </div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="stage-progress"></div>
+            </div>
+
+            <div class="target-card">
+                <div class="target-text" id="target-sentence-text">Hôm nay bạn cảm thấy thế nào?</div>
+                <button class="speaker-btn" onclick="speakTarget()">🔊 Phát âm mẫu</button>
+            </div>
+
+            <!-- CHIP ANSWER SLOT -->
+            <div class="answer-box" id="answer-slot" onclick="removeLastChip()"></div>
+
+            <!-- WORD POOL CHIPS -->
+            <div class="word-pool" id="word-pool"></div>
+
+            <div class="feedback-msg" id="feedback-text"></div>
+
+            <div class="action-row">
+                <button class="btn btn-clear" onclick="clearAnswer()">Xóa</button>
+                <button class="btn btn-check" id="btn-check-ans" onclick="checkAnswer()">Kiểm tra</button>
+                <button class="btn btn-next" id="btn-next-stage" onclick="nextStage()">Màn Kế Tiếp ➔</button>
+            </div>
+        </div>
+
+        <!-- TAB 2: TOPIC SELECTOR -->
+        <div class="view-tab" id="tab-topics">
+            <h3 style="font-size: 15px; margin-bottom: 12px; color: var(--text-sub);">Danh Sách Chủ Đề (10 Topics)</h3>
+            <div class="topic-grid" id="topic-grid-container"></div>
+        </div>
+
+        <!-- TAB 3: LANGUAGE & SERVER SYNC -->
+        <div class="view-tab" id="tab-sync">
+            <div class="setting-card">
+                <div class="setting-title">🌐 Ngôn Ngữ Học / Bản Dịch Đích</div>
+                <select class="lang-select" id="select-lang" onchange="changeLanguage()">
+                    <option value="vi">🇻🇳 Tiếng Việt (Vietnamese)</option>
+                    <option value="pt">🇵🇹 Tiếng Bồ Đào Nha (Portuguese)</option>
+                    <option value="ko">🇰🇷 Tiếng Hàn (Korean)</option>
+                    <option value="ja">🇯🇵 Tiếng Nhật (Japanese)</option>
+                    <option value="zh">🇨🇳 Tiếng Trung (Chinese)</option>
+                    <option value="es">🇪🇸 Tây Ban Nha (Spanish)</option>
+                    <option value="fr">🇫🇷 Tiếng Pháp (French)</option>
+                    <option value="de">🇩🇪 Tiếng Đức (German)</option>
+                    <option value="ru">🇷🇺 Tiếng Nga (Russian)</option>
+                    <option value="th">🇹🇭 Tiếng Thái (Thai)</option>
+                    <option value="id">🇮🇩 Indonesia (Bahasa)</option>
+                </select>
+            </div>
+
+            <div class="setting-card">
+                <div class="setting-title">🔄 Đồng Bộ Dữ Liệu Từ Server</div>
+                <p style="font-size: 13px; color: var(--text-sub); margin-bottom: 10px;">Tự động kiểm tra và tải gói dữ liệu câu hỏi mới nhất từ server cho cặp ngôn ngữ đã chọn.</p>
+                <div class="sync-box" id="sync-info-box">
+                    • App ID: 0003<br>
+                    • Cặp ngôn ngữ: <span id="sync-lang-code">en_vi</span><br>
+                    • Phiên bản hiện tại: <span id="sync-current-ver">v1</span><br>
+                    • Trạng thái: Sẵn sàng đồng bộ
+                </div>
+                <button class="btn-sync" onclick="syncWithServer()">⚡ TẢI GÓI CÂU HỎI MỚI TỪ SERVER</button>
+            </div>
+        </div>
+
     </div>
 
-    <!-- KHUNG TỪ VỰNG NGẪU NHIÊN (WORD POOL) -->
-    <div id="word-pool" class="word-pool-container"></div>
+    <!-- BOTTOM ADMOB BANNER CONTAINER -->
+    <div id="admob-banner">[AdMob Adaptive Banner Placeholder]</div>
 
-    <!-- THANH NÚT THAO TÁC -->
-    <div class="game-action-bar">
-      <button id="btn-reset-words" class="btn-cartoon btn-yellow">🔄 Reset</button>
-      <button id="btn-check-answer" class="btn-cartoon btn-green">✨ CHECK</button>
-      <button id="btn-next-sentence" class="btn-cartoon btn-red hidden">🚀 NEXT</button>
-    </div>
-  </section>
+    <script>
+        // ============================================================================
+        // DỮ LIỆU MẶC ĐỊNH 11 NGÔN NGỮ (OFLINE DEFAULT PACK)
+        // ============================================================================
+        const DEFAULT_TOPICS = [
+            { id: 1, name: "Daily Conversation", icon: "💬" },
+            { id: 2, name: "Travel & Airport", icon: "✈️" },
+            { id: 3, name: "Restaurant & Ordering", icon: "🍔" },
+            { id: 4, name: "Shopping & Buying", icon: "🛍️" },
+            { id: 5, name: "Hotel & Booking", icon: "🏨" },
+            { id: 6, name: "Office & Work", icon: "💼" },
+            { id: 7, name: "Family & Friends", icon: "👨‍👩‍👧" },
+            { id: 8, name: "Medical & Emergency", icon: "🚑" },
+            { id: 9, name: "Hobbies & Sports", icon: "⚽" },
+            { id: 10, name: "Study & School", icon: "🎓" }
+        ];
 
-  <!-- MODAL THÔNG BÁO HOÀN THÀNH CÂU -->
-  <div id="success-modal" class="modal-overlay hidden">
-    <div class="modal-card-cartoon">
-      <div class="star-burst">⭐ WOW! GREAT! ⭐</div>
-      <p id="modal-en-sentence" class="modal-en-text">How are you doing today?</p>
-      <button id="btn-modal-continue" class="btn-cartoon btn-red">CONTINUE ➔</button>
-    </div>
-  </div>
+        const DEFAULT_SENTENCES = [
+            // CHỦ ĐỀ 1
+            { id: "s_01_001", topic_id: 1, en: "How are you feeling today?", trans: { vi: "Hôm nay bạn cảm thấy thế nào?", pt: "Como você está se sentindo hoje?", ko: "오늘 기분이 어떠신가요?", ja: "今日の気分はどうですか？", zh: "你今天感觉怎么样？", es: "¿Cómo te sientes hoy?", fr: "Comment vous sentez-vous aujourd'hui?", de: "Wie fühlst du dich heute?", ru: "Как вы себя чувствуете сегодня?", th: "วันนี้คุณรู้สึกอย่างไรบ้าง?", id: "Bagaimana perasaan Anda hari ini?" } },
+            { id: "s_01_002", topic_id: 1, en: "Nice to meet you.", trans: { vi: "Rất vui được gặp bạn.", pt: "Prazer em conhecê-lo.", ko: "만나서 반갑습니다.", ja: "はじめまして。", zh: "很高兴认识你。", es: "Mucho gusto en conocerte.", fr: "Ravi de vous rencontrer.", de: "Schön, Sie kennenzulernen.", ru: "Приятно познакомиться.", th: "ยินดีที่ได้รู้จัก", id: "Senang bertemu dengan Anda." } },
+            { id: "s_01_003", topic_id: 1, en: "Where are you from?", trans: { vi: "Bạn đến từ đâu?", pt: "De onde você é?", ko: "어디 출신이신가요?", ja: "出身はどこですか？", zh: "你来自哪里？", es: "¿De dónde eres?", fr: "D'où venez-vous?", de: "Woher kommen Sie?", ru: "Откуда вы?", th: "คุณมาจากไหน?", id: "Dari mana Anda berasal?" } },
+            
+            // CHỦ ĐỀ 2
+            { id: "s_02_001", topic_id: 2, en: "Where is the check in counter?", trans: { vi: "Quầy làm thủ tục ở đâu?", pt: "Onde fica o balcão de check-in?", ko: "체크인 카운터가 어디에 있나요?", ja: "チェックインカウンターはどこですか？", zh: "值机柜台在哪里？", es: "¿Dónde está el mostrador de facturación?", fr: "Où se trouve le comptoir d'enregistrement?", de: "Wo ist der Check-in-Schalter?", ru: "Где находится стойка регистрации?", th: "เคาน์เตอร์เช็คอินอยู่ที่ไหน?", id: "Di mana konter check-in?" } },
+            { id: "s_02_002", topic_id: 2, en: "Can I have a window seat?", trans: { vi: "Tôi có thể ngồi cạnh cửa sổ không?", pt: "Posso ficar com um assento na janela?", ko: "창가 쪽 좌석으로 부탁드릴 수 있을까요?", ja: "窓側の席にしてもらえますか？", zh: "我可以要一个靠窗的座位吗？", es: "¿Puedo tener un asiento junto a la ventana?", fr: "Puis-je avoir un siège côté fenêtre?", de: "Kann ich einen Fensterplatz haben?", ru: "Можно мне место у окна?", th: "ขอที่นั่งติดหน้าต่างได้ไหม?", id: "Bisakah saya mendapat kursi di dekat jendela?" } },
 
-  <!-- NẠP CÁC FILE SCRIPT THEO ĐÚNG THỨ TỰ -->
-  <script src="data.js"></script>
-  <script src="main.js"></script>
+            // CHỦ ĐỀ 3
+            { id: "s_03_001", topic_id: 3, en: "May I have the menu please?", trans: { vi: "Cho tôi xin thực đơn được không?", pt: "Poderia me trazer o cardápio por favor?", ko: "메뉴판 좀 볼 수 있을까요?", ja: "メニューをいただけますか？", zh: "请给我看一下菜单好吗？", es: "¿Me permite el menú por favor?", fr: "Puis-je avoir le menu s'il vous plaît?", de: "Kann ich bitte die Speisekarte haben?", ru: "Можно мне меню пожалуйста?", th: "ขอดูเมนูหน่อยได้ไหม?", id: "Bisakah saya minta menunya?" } }
+        ];
+
+        // ============================================================================
+        // BIẾN TRẠNG THÁI HỆ THỐNG
+        // ============================================================================
+        let currentLang = localStorage.getItem('APP_LANG') || 'vi';
+        let currentTopicId = 1;
+        let currentStageIndex = 0;
+        let currentSentenceList = [];
+        let selectedChips = [];
+        let availableChips = [];
+        let adActionCount = 0;
+
+        // ============================================================================
+        // KHỞI CHẠY APP
+        // ============================================================================
+        window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('select-lang').value = currentLang;
+            updateLangBadge();
+            renderTopicGrid();
+            loadTopicData(currentTopicId);
+            initAdMob();
+        });
+
+        // ============================================================================
+        // QUẢN LÝ TAB & CHUYỂN CHẾ ĐỘ
+        // ============================================================================
+        function switchTab(tabName) {
+            triggerAdCounter();
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.view-tab').forEach(v => v.classList.remove('active'));
+
+            document.getElementById(`nav-${tabName}`).classList.add('active');
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+        }
+
+        function updateLangBadge() {
+            const langMap = { vi: '🇻🇳 Tiếng Việt', pt: '🇵🇹 Bồ Đào Nha', ko: '🇰🇷 Tiếng Hàn', ja: '🇯🇵 Tiếng Nhật', zh: '🇨🇳 Tiếng Trung', es: '🇪🇸 Tây Ban Nha', fr: '🇫🇷 Tiếng Pháp', de: '🇩🇪 Tiếng Đức', ru: '🇷🇺 Tiếng Nga', th: '🇹🇭 Tiếng Thái', id: '🇮🇩 Indonesia' };
+            document.getElementById('current-lang-badge').innerText = langMap[currentLang] || currentLang;
+            document.getElementById('sync-lang-code').innerText = `en_${currentLang}`;
+        }
+
+        function changeLanguage() {
+            currentLang = document.getElementById('select-lang').value;
+            localStorage.setItem('APP_LANG', currentLang);
+            updateLangBadge();
+            loadTopicData(currentTopicId);
+            alert(`Đã đổi ngôn ngữ học sang: ${currentLang.toUpperCase()}`);
+        }
+
+        // ============================================================================
+        // DỰNG GAME PLAY THEO MÀN CHƠI (STAGE LOGIC)
+        // ============================================================================
+        function loadTopicData(topicId) {
+            currentTopicId = topicId;
+            currentStageIndex = 0;
+
+            // Đọc dữ liệu từ Cache Server đã tải nếu có, ngược lại dùng Mặc Định
+            let customPackRaw = localStorage.getItem(`PACK_0003_en_${currentLang}`);
+            let sourceSentences = DEFAULT_SENTENCES;
+
+            if (customPackRaw) {
+                try {
+                    let parsed = JSON.parse(customPackRaw);
+                    if (parsed && parsed.data) {
+                        sourceSentences = parsed.data;
+                    }
+                } catch(e) {}
+            }
+
+            // Lọc danh sách câu theo Topic
+            currentSentenceList = sourceSentences.filter(s => parseInt(s.topic_id) === topicId);
+
+            if (currentSentenceList.length === 0) {
+                // Fallback nếu chủ đề chưa có câu
+                currentSentenceList = DEFAULT_SENTENCES.filter(s => parseInt(s.topic_id) === 1);
+            }
+
+            renderStage();
+        }
+
+        function renderStage() {
+            if (currentStageIndex >= currentSentenceList.length) {
+                currentStageIndex = 0; // Hoàn thành vòng lặp
+            }
+
+            const item = currentSentenceList[currentStageIndex];
+            const topicObj = DEFAULT_TOPICS.find(t => t.id === currentTopicId) || DEFAULT_TOPICS[0];
+
+            document.getElementById('stage-topic-name').innerText = `Chủ đề ${topicObj.id}: ${topicObj.name}`;
+            document.getElementById('stage-counter').innerText = `Màn ${currentStageIndex + 1} / ${currentSentenceList.length}`;
+            
+            let pct = Math.round(((currentStageIndex + 1) / currentSentenceList.length) * 100);
+            document.getElementById('stage-progress').style.width = `${pct}%`;
+
+            // Lấy câu tiếng Anh và nghĩa bản dịch tương ứng
+            let targetTrans = "";
+            if (item.trans && item.trans[currentLang]) {
+                targetTrans = item.trans[currentLang];
+            } else if (item[currentLang]) {
+                targetTrans = item[currentLang];
+            } else {
+                targetTrans = item.en;
+            }
+
+            document.getElementById('target-sentence-text').innerText = targetTrans;
+
+            // Bóc tách câu tiếng Anh thành mảng chip từ ngẫu nhiên
+            let words = item.en.replace(/[.,?!]/g, '').split(' ');
+            availableChips = [...words].sort(() => Math.random() - 0.5);
+            selectedChips = [];
+
+            renderChips();
+
+            // Reset UI nút kiểm tra
+            document.getElementById('feedback-text').innerText = "";
+            document.getElementById('btn-check-ans').style.display = "block";
+            document.getElementById('btn-next-stage').style.display = "none";
+        }
+
+        function renderChips() {
+            // Render Answer Slot
+            const answerBox = document.getElementById('answer-slot');
+            answerBox.innerHTML = '';
+            selectedChips.forEach((word, idx) => {
+                let chipEl = document.createElement('div');
+                chipEl.className = 'chip';
+                chipEl.innerText = word;
+                chipEl.onclick = () => removeChip(idx);
+                answerBox.appendChild(chipEl);
+            });
+
+            // Render Pool
+            const poolBox = document.getElementById('word-pool');
+            poolBox.innerHTML = '';
+            availableChips.forEach((word, idx) => {
+                let chipEl = document.createElement('div');
+                chipEl.className = 'chip';
+                chipEl.innerText = word;
+                chipEl.onclick = () => selectChip(word, idx);
+                poolBox.appendChild(chipEl);
+            });
+        }
+
+        function selectChip(word, idx) {
+            selectedChips.push(word);
+            availableChips.splice(idx, 1);
+            renderChips();
+        }
+
+        function removeChip(idx) {
+            let word = selectedChips.splice(idx, 1)[0];
+            availableChips.push(word);
+            renderChips();
+        }
+
+        function clearAnswer() {
+            availableChips = availableChips.concat(selectedChips);
+            selectedChips = [];
+            renderChips();
+        }
+
+        function checkAnswer() {
+            triggerAdCounter();
+            const item = currentSentenceList[currentStageIndex];
+            const cleanUserAns = selectedChips.join(' ').toLowerCase().replace(/[.,?!]/g, '');
+            const cleanTargetAns = item.en.toLowerCase().replace(/[.,?!]/g, '');
+
+            const fb = document.getElementById('feedback-text');
+
+            if (cleanUserAns === cleanTargetAns) {
+                fb.className = "feedback-msg feedback-correct";
+                fb.innerText = "🎉 CHÍNH XÁC! XIN CHÚC MỪNG!";
+                speakTarget();
+                document.getElementById('btn-check-ans').style.display = "none";
+                document.getElementById('btn-next-stage').style.display = "block";
+            } else {
+                fb.className = "feedback-msg feedback-wrong";
+                fb.innerText = "❌ CHƯA ĐÚNG! HÃY THỬ LẠI XEM SAO.";
+            }
+        }
+
+        function nextStage() {
+            triggerAdCounter();
+            currentStageIndex++;
+            renderStage();
+        }
+
+        function speakTarget() {
+            const item = currentSentenceList[currentStageIndex];
+            if ('speechSynthesis' in window && item) {
+                let utter = new SpeechSynthesisUtterance(item.en);
+                utter.lang = 'en-US';
+                window.speechSynthesis.speak(utter);
+            }
+        }
+
+        // ============================================================================
+        // DỰNG DANH SÁCH CHỦ ĐỀ (TAB 2)
+        // ============================================================================
+        function renderTopicGrid() {
+            const container = document.getElementById('topic-grid-container');
+            container.innerHTML = '';
+
+            DEFAULT_TOPICS.forEach(topic => {
+                let card = document.createElement('div');
+                card.className = `topic-card ${topic.id === currentTopicId ? 'active' : ''}`;
+                card.onclick = () => {
+                    loadTopicData(topic.id);
+                    switchTab('game');
+                };
+                card.innerHTML = `
+                    <div class="topic-icon">${topic.icon}</div>
+                    <div class="topic-name">${topic.name}</div>
+                    <div class="topic-count">Chủ đề ${topic.id}</div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // ============================================================================
+        // ĐỒNG BỘ DỮ LIỆU TỪ SERVER (API update.php)
+        // ============================================================================
+        async function syncWithServer() {
+            triggerAdCounter();
+            const infoBox = document.getElementById('sync-info-box');
+            infoBox.innerText = "⏳ Đang kết nối tới server kiểm tra bản ghi...";
+
+            const appToken = "0003";
+            const langPair = `en_${currentLang}`;
+            const clientVer = parseInt(localStorage.getItem(`VER_0003_${langPair}`) || "1");
+
+            // Gọi API update.php trên server khotrithucso.io.vn
+            const apiUrl = `https://khotrithucso.io.vn/apps/api/update.php?app_token=${appToken}&lang_pair=${langPair}&pack_version=${clientVer}`;
+
+            try {
+                let res = await fetch(apiUrl);
+                let data = await res.json();
+
+                if (data.status === "success") {
+                    if (data.has_update && data.pack_info && data.pack_info.download_url) {
+                        infoBox.innerText = `🚀 Đã tìm thấy bản mới v${data.pack_info.latest_version}! Đang tải...`;
+                        
+                        // Tải gói JSON tĩnh mới từ Server
+                        let packRes = await fetch(data.pack_info.download_url);
+                        let packData = await packRes.json();
+
+                        if (packData && packData.data) {
+                            localStorage.setItem(`PACK_0003_${langPair}`, JSON.stringify(packData));
+                            localStorage.setItem(`VER_0003_${langPair}`, data.pack_info.latest_version);
+                            
+                            infoBox.innerText = `✅ CẬP NHẬT THÀNH CÔNG!\n• Đã tải: ${packData.data.length} câu\n• Version: v${data.pack_info.latest_version}`;
+                            loadTopicData(currentTopicId);
+                            alert("Đã cập nhật thành công gói dữ liệu mới từ Server!");
+                        }
+                    } else {
+                        infoBox.innerText = `✅ BẠN ĐANG Ở PHIÊN BẢN MỚI NHẤT!\n• Cặp ngôn ngữ: ${langPair}\n• Phiên bản: v${clientVer}`;
+                        alert("Bạn đang sử dụng bộ dữ liệu mới nhất!");
+                    }
+                } else {
+                    infoBox.innerText = `❌ ${data.message || 'Chưa khởi tạo gói trên server'}`;
+                }
+            } catch (err) {
+                infoBox.innerText = "❌ Lỗi kết nối Server! Vui lòng kiểm tra mạng.";
+                console.error(err);
+            }
+        }
+
+        // ============================================================================
+        // BỘ ĐẾM QUẢNG CÁO ADMOB (ACTION COUNTER)
+        // ============================================================================
+        function initAdMob() {
+            // Khởi tạo Banner AdMob qua Capacitor Plugin
+            if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.AdMob) {
+                try {
+                    window.Capacitor.Plugins.AdMob.initialize();
+                } catch(e){}
+            }
+        }
+
+        function triggerAdCounter() {
+            adActionCount++;
+            if (adActionCount >= 5) {
+                adActionCount = 0;
+                showInterstitialAd();
+            }
+        }
+
+        function showInterstitialAd() {
+            if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.AdMob) {
+                try {
+                    // Trigger Interstitial Ad
+                    console.log("AdMob Interstitial Ad Triggered!");
+                } catch(e){}
+            }
+        }
+    </script>
 </body>
 </html>
