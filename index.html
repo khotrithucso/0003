@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Fast English - Cartoon Game V2</title>
-    <!-- GOOGLE FONTS NUNITO - CHUẨN TIẾNG VIỆT 100% -->
+    <title>Fast English - Cartoon Game V2 Pro</title>
+    <!-- GOOGLE FONTS NUNITO -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-cartoon: #23113d;
             --bg-gradient: linear-gradient(180deg, #321656 0%, #1a0b2e 100%);
             --card-bg: #3b1c63;
             --card-border: #562b8a;
@@ -53,8 +52,11 @@
 
         /* STAGE CARTOON HEADER */
         .stage-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-        .stage-title { font-size: 15px; color: var(--text-sub); font-weight: 800; }
-        .stage-badge { background: #ff9f1c; color: #000; padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 800; border-bottom: 3px solid #b86e00; }
+        .stage-title { font-size: 15px; color: var(--text-sub); font-weight: 800; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 8px; }
+        
+        /* NÚT MÀN CHƠI - BẤM VÀO ĐƯỢC */
+        .stage-badge { background: #ff9f1c; color: #000; padding: 6px 12px; border-radius: 14px; font-size: 12px; font-weight: 900; border: 2px solid #ffe285; border-bottom: 4px solid #b86e00; cursor: pointer; transition: transform 0.1s; display: flex; align-items: center; gap: 4px; box-shadow: 0 2px 0 #b86e00; }
+        .stage-badge:active { transform: translateY(2px); box-shadow: 0 0 0; }
 
         .progress-bar-bg { width: 100%; height: 16px; background: #1d0a33; border: 3px solid #4a237a; border-radius: 12px; overflow: hidden; margin-bottom: 16px; position: relative; }
         .progress-bar-fill { height: 100%; background: linear-gradient(90deg, #06d6a0, #1b9aaa); width: 0%; transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border-radius: 8px; position: relative; }
@@ -67,17 +69,38 @@
         .speaker-btn { background: var(--cyan-btn); border: 2px solid #38bdf8; border-bottom: 4px solid var(--cyan-shadow); color: #fff; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; text-shadow: 1px 1px 0 #000; }
         .speaker-btn:active { transform: translateY(2px); border-bottom-width: 2px; }
 
-        /* WORD CHIP SLOTS */
-        .answer-box { min-height: 90px; background: #17092b; border: 3px dashed #4f2680; border-radius: 18px; padding: 10px; display: flex; flex-wrap: wrap; gap: 10px; align-content: flex-start; margin-bottom: 16px; }
-        .word-pool { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; min-height: 110px; padding: 6px; }
+        /* WORD CHIP SLOTS & FIXED HEIGHT FIX */
+        .answer-box { min-height: 85px; max-height: 150px; overflow-y: auto; background: #17092b; border: 3px dashed #4f2680; border-radius: 18px; padding: 10px; display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start; align-items: flex-start; margin-bottom: 12px; }
+        .word-pool { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; align-items: flex-start; min-height: 95px; max-height: 160px; overflow-y: auto; padding: 6px; margin-bottom: 8px; }
 
-        /* CHIPS 3D BUTTONS */
-        .chip { background: var(--yellow-btn); color: #2b1100; padding: 10px 16px; border-radius: 16px; font-size: 16px; font-weight: 800; border: 2px solid #ffe285; border-bottom: 5px solid var(--yellow-shadow); cursor: pointer; transition: all 0.1s ease; box-shadow: 0 4px 0 var(--yellow-shadow); }
-        .chip:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--yellow-shadow); }
+        /* FIX 100% CHIỀU CAO CHIP ĐỀU NHAU & CHỐNG TRÀN */
+        .chip { 
+            height: 42px; 
+            padding: 0 14px; 
+            background: var(--yellow-btn); 
+            color: #2b1100; 
+            border-radius: 14px; 
+            font-size: 15px; 
+            font-weight: 800; 
+            border: 2px solid #ffe285; 
+            border-bottom: 4px solid var(--yellow-shadow); 
+            cursor: pointer; 
+            transition: all 0.1s ease; 
+            box-shadow: 0 3px 0 var(--yellow-shadow); 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            white-space: nowrap; 
+            box-sizing: border-box;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .chip:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--yellow-shadow); }
         .chip.used { opacity: 0.15; pointer-events: none; filter: grayscale(1); }
 
         /* ACTION BUTTONS 3D */
-        .action-row { display: flex; gap: 10px; margin-top: 12px; }
+        .action-row { display: flex; gap: 10px; margin-top: 10px; }
         .btn { flex: 1; padding: 14px; border-radius: 16px; border: none; font-size: 16px; font-weight: 800; cursor: pointer; text-align: center; text-shadow: 1px 1px 0 rgba(0,0,0,0.4); transition: all 0.1s; }
         
         .btn-check { background: var(--green-btn); color: #023829; border: 2px solid #5effd8; border-bottom: 6px solid var(--green-shadow); box-shadow: 0 4px 0 var(--green-shadow); }
@@ -89,7 +112,7 @@
         .btn-next { background: var(--yellow-btn); color: #3d2300; border: 2px solid #fff0a8; border-bottom: 6px solid var(--yellow-shadow); box-shadow: 0 4px 0 var(--yellow-shadow); display: none; }
         .btn-next:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--yellow-shadow); }
 
-        .feedback-msg { margin-top: 10px; text-align: center; font-weight: 800; font-size: 16px; min-height: 28px; text-shadow: 1px 1px 0 #000; }
+        .feedback-msg { margin-top: 8px; text-align: center; font-weight: 800; font-size: 15px; min-height: 24px; text-shadow: 1px 1px 0 #000; }
         .feedback-correct { color: #5effd8; animation: bounce 0.4s ease; }
         .feedback-wrong { color: #ff6b6b; animation: shake 0.3s ease; }
 
@@ -105,20 +128,33 @@
         /* SETTINGS & SYNC CARD CARTOON */
         .setting-card { background: var(--card-bg); border: 3px solid var(--card-border); border-bottom: 6px solid var(--card-shadow); border-radius: 20px; padding: 16px; margin-bottom: 16px; }
         .setting-title { font-size: 16px; font-weight: 800; color: var(--text-yellow); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; text-shadow: 1px 1px 0 #000; }
-        
         .lang-select { width: 100%; padding: 12px; background: #1f0b38; border: 2px solid var(--card-border); border-radius: 14px; color: #fff; font-size: 15px; font-weight: 800; margin-bottom: 12px; outline: none; }
-
         .sync-box { background: #19092d; border: 2px dashed #4a237a; padding: 12px; border-radius: 14px; font-size: 13px; color: var(--text-sub); margin-bottom: 12px; line-height: 1.6; }
         .btn-sync { background: var(--cyan-btn); color: #fff; width: 100%; padding: 14px; border-radius: 16px; font-size: 15px; font-weight: 800; border: 2px solid #56ccf2; border-bottom: 6px solid var(--cyan-shadow); cursor: pointer; text-shadow: 1px 1px 0 #000; }
         .btn-sync:active { transform: translateY(3px); }
 
+        /* MODAL BẢNG CHỌN MÀN CHƠI (FULL STAGE SELECTOR) */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 3, 20, 0.85); backdrop-filter: blur(4px); display: none; justify-content: center; align-items: center; z-index: 2000; padding: 16px; }
+        .modal-overlay.active { display: flex; animation: fadeIn 0.2s ease-out; }
+        .modal-content { background: #2b124c; border: 3px solid #6b33b2; border-bottom: 6px solid #1a0833; border-radius: 24px; width: 100%; max-width: 400px; max-height: 80vh; display: flex; flex-direction: column; padding: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid #48207a; }
+        .modal-title { font-size: 16px; font-weight: 800; color: var(--text-yellow); text-shadow: 1px 1px 0 #000; }
+        .modal-close-btn { background: var(--pink-btn); border: 2px solid #ff85a2; color: #fff; width: 32px; height: 32px; border-radius: 50%; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+        
+        .stage-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; overflow-y: auto; padding: 4px; }
+        .stage-item { background: #3b1c63; border: 2px solid #562b8a; border-bottom: 4px solid #19092d; border-radius: 16px; padding: 12px 6px; text-align: center; cursor: pointer; font-weight: 800; font-size: 13px; color: #fff; position: relative; transition: transform 0.1s; }
+        .stage-item:active { transform: translateY(2px); }
+        .stage-item.completed { background: #06d6a0; color: #023829; border-color: #5effd8; border-bottom-color: #049f76; }
+        .stage-item.current { border-color: #ffd166; background: #52278a; box-shadow: 0 0 10px rgba(255, 209, 102, 0.6); }
+
         /* BOTTOM ADMOB BANNER */
         #admob-banner { position: fixed; bottom: 0; left: 0; width: 100%; height: 50px; background: #120524; display: flex; justify-content: center; align-items: center; color: #6b4c9a; font-size: 11px; font-weight: 800; z-index: 1000; border-top: 3px solid #2d1254; }
 
-        /* ANIMATION KEYFRAMES */
+        /* ANIMATIONS */
         @keyframes popIn { 0% { opacity: 0; transform: scale(0.9); } 100% { opacity: 1; transform: scale(1); } }
-        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-        @keyframes shake { 0%, 100% { transform: translateX(0); } 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
+        @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+        @keyframes shake { 0%, 100% { transform: translateX(0); } 20%, 60% { transform: translateX(-5px); } 40%, 80% { transform: translateX(5px); } }
     </style>
 </head>
 <body>
@@ -143,7 +179,7 @@
         <div class="view-tab active" id="tab-game">
             <div class="stage-header">
                 <span class="stage-title" id="stage-topic-name">Chủ đề 1: Daily Conversation</span>
-                <span class="stage-badge" id="stage-counter">Màn 1 / 10</span>
+                <button class="stage-badge" id="stage-counter" onclick="openStageModal()">Màn 1 / 10 📋</button>
             </div>
             <div class="progress-bar-bg">
                 <div class="progress-bar-fill" id="stage-progress"></div>
@@ -209,6 +245,19 @@
 
     </div>
 
+    <!-- MODAL BẢNG CHỌN MÀN CHƠI (FULL STAGE SELECTOR) -->
+    <div class="modal-overlay" id="stage-modal" onclick="closeStageModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <span class="modal-title" id="modal-topic-title">📋 Chọn Màn Chơi</span>
+                <button class="modal-close-btn" onclick="closeStageModal()">✖</button>
+            </div>
+            <div class="stage-grid" id="stage-grid-container">
+                <!-- Các ô màn chơi sẽ tự động render tại đây -->
+            </div>
+        </div>
+    </div>
+
     <!-- BOTTOM ADMOB BANNER PLACEHOLDER -->
     <div id="admob-banner">[AdMob Adaptive Banner Placeholder]</div>
 
@@ -240,6 +289,9 @@
         let availableChips = [];
         let adActionCount = 0;
 
+        // Quản lý tiến trình màn chơi đã vượt qua
+        let completedStages = JSON.parse(localStorage.getItem('COMPLETED_STAGES_V2') || '{}');
+
         window.addEventListener('DOMContentLoaded', () => {
             document.getElementById('select-lang').value = currentLang;
             updateLangBadge();
@@ -247,7 +299,6 @@
             loadTopicData(currentTopicId);
             initAdMob();
 
-            // Tự động kiểm tra đồng bộ dữ liệu Server khi mở App
             setTimeout(() => {
                 syncWithServer(false);
             }, 1000);
@@ -276,8 +327,6 @@
             localStorage.setItem('APP_LANG', currentLang);
             updateLangBadge();
             loadTopicData(currentTopicId);
-            
-            // Tự động đồng bộ ngay khi đổi ngôn ngữ mới
             syncWithServer(false);
         }
 
@@ -315,7 +364,7 @@
             const topicObj = DEFAULT_TOPICS.find(t => t.id === currentTopicId) || DEFAULT_TOPICS[0];
 
             document.getElementById('stage-topic-name').innerText = `Chủ đề ${topicObj.id}: ${topicObj.name}`;
-            document.getElementById('stage-counter').innerText = `Màn ${currentStageIndex + 1} / ${currentSentenceList.length}`;
+            document.getElementById('stage-counter').innerText = `Màn ${currentStageIndex + 1} / ${currentSentenceList.length} 📋`;
             
             let pct = Math.round(((currentStageIndex + 1) / currentSentenceList.length) * 100);
             document.getElementById('stage-progress').style.width = `${pct}%`;
@@ -399,6 +448,14 @@
             if (cleanUserAns === cleanTargetAns) {
                 fb.className = "feedback-msg feedback-correct";
                 fb.innerText = "🎉 QUÁ ĐỈNH! CHÍNH XÁC CẢ CÂU!";
+                
+                // Đánh dấu đã vượt qua màn chơi
+                if (!completedStages[currentTopicId]) completedStages[currentTopicId] = [];
+                if (!completedStages[currentTopicId].includes(currentStageIndex)) {
+                    completedStages[currentTopicId].push(currentStageIndex);
+                    localStorage.setItem('COMPLETED_STAGES_V2', JSON.stringify(completedStages));
+                }
+
                 speakTarget();
                 document.getElementById('btn-check-ans').style.display = "none";
                 document.getElementById('btn-next-stage').style.display = "block";
@@ -415,7 +472,46 @@
         }
 
         // ============================================================================
-        // 🔥 HÀM PHÁT ÂM TIẾNG ANH CHUẨN NATIVE CAPACITOR TTS (FIX LỖI 100%)
+        // 📋 BẢNG CHỌN MÀN CHƠI FULL (MODAL STAGE SELECTOR)
+        // ============================================================================
+        function openStageModal() {
+            triggerAdCounter();
+            const modal = document.getElementById('stage-modal');
+            const topicObj = DEFAULT_TOPICS.find(t => t.id === currentTopicId) || DEFAULT_TOPICS[0];
+            document.getElementById('modal-topic-title').innerText = `📋 Chủ đề ${topicObj.id}: ${topicObj.name}`;
+            
+            const grid = document.getElementById('stage-grid-container');
+            grid.innerHTML = '';
+
+            const doneList = completedStages[currentTopicId] || [];
+
+            currentSentenceList.forEach((stg, index) => {
+                let item = document.createElement('div');
+                let isDone = doneList.includes(index);
+                let isCurrent = (index === currentStageIndex);
+
+                item.className = `stage-item ${isDone ? 'completed' : ''} ${isCurrent ? 'current' : ''}`;
+                item.innerText = `Màn ${index + 1} ${isDone ? '✅' : ''}`;
+                
+                item.onclick = () => {
+                    currentStageIndex = index;
+                    renderStage();
+                    closeStageModal();
+                };
+                grid.appendChild(item);
+            });
+
+            modal.classList.add('active');
+        }
+
+        function closeStageModal(e) {
+            if (!e || e.target.id === 'stage-modal' || e.target.classList.contains('modal-close-btn')) {
+                document.getElementById('stage-modal').classList.remove('active');
+            }
+        }
+
+        // ============================================================================
+        // 🔥 HÀM PHÁT ÂM TIẾNG ANH CHUẨN NATIVE CAPACITOR TTS
         // ============================================================================
         function speakTarget() {
             const item = currentSentenceList[currentStageIndex];
@@ -426,7 +522,6 @@
         async function speakText(text) {
             if (!text) return;
 
-            // 1. ƯU TIÊN 1: Tận dụng Native Plugin @capacitor-community/text-to-speech
             if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.TextToSpeech) {
                 try {
                     await window.Capacitor.Plugins.TextToSpeech.speak({
@@ -443,7 +538,6 @@
                 }
             }
 
-            // 2. ƯU TIÊN 2: Luồng Audio Stream Amazon Polly (Không bao giờ bị lỗi 403)
             try {
                 let streamUrl = `https://api.streamelements.com/kappa/v2/speech?voice=Brian&text=${encodeURIComponent(text)}`;
                 let audio = new Audio(streamUrl);
@@ -453,7 +547,6 @@
                 console.log("Audio Stream Error:", err);
             }
 
-            // 3. ƯU TIÊN 3: Web SpeechSynthesis
             if ('speechSynthesis' in window) {
                 try {
                     window.speechSynthesis.cancel();
@@ -486,7 +579,7 @@
         }
 
         // ============================================================================
-        // 🔄 HÀM ĐỒNG BỘ DỮ LIỆU TỪ SERVER (NHẬN TỰ ĐỘNG KHÔNG LỖI CORS)
+        // 🔄 ĐỒNG BỘ DỮ LIỆU TỪ SERVER
         // ============================================================================
         async function syncWithServer(isManualClick = false) {
             const infoBox = document.getElementById('sync-info-box');
