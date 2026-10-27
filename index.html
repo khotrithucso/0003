@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Fast English - Cartoon Game V2</title>
-    <!-- GOOGLE FONTS CARTOON STYLE -->
+    <!-- GOOGLE FONTS NUNITO - HỖ TRỢ 100% TIẾNG VIỆT CHUẨN CARTOON -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -30,18 +31,18 @@
             --text-sub: #cbb2eb;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; font-family: 'Fredoka', cursive, sans-serif; -webkit-tap-highlight-color: transparent; }
+        * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; font-family: 'Nunito', system-ui, -apple-system, sans-serif; -webkit-tap-highlight-color: transparent; }
         body { background: var(--bg-gradient); color: var(--text-white); display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
 
         /* HEADER CARTOON */
         .app-header { background: #2a134a; padding: 12px 16px; border-bottom: 4px solid var(--card-border); display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
-        .app-title { font-size: 18px; font-weight: 700; color: var(--text-yellow); display: flex; align-items: center; gap: 8px; text-shadow: 2px 2px 0 #000; }
-        .lang-badge { background: #49227a; border: 2px solid var(--yellow-btn); border-bottom: 4px solid var(--yellow-shadow); padding: 6px 12px; border-radius: 20px; font-size: 13px; color: #fff; font-weight: 700; cursor: pointer; transition: transform 0.1s; }
+        .app-title { font-size: 18px; font-weight: 800; color: var(--text-yellow); display: flex; align-items: center; gap: 8px; text-shadow: 1px 2px 0 #000; }
+        .lang-badge { background: #49227a; border: 2px solid var(--yellow-btn); border-bottom: 4px solid var(--yellow-shadow); padding: 6px 12px; border-radius: 20px; font-size: 13px; color: #fff; font-weight: 800; cursor: pointer; transition: transform 0.1s; }
         .lang-badge:active { transform: translateY(2px); }
 
         /* TAB NAVIGATION 3D */
         .tab-nav { display: flex; background: #1f0b38; padding: 6px 12px; gap: 8px; border-bottom: 4px solid #140626; }
-        .tab-btn { flex: 1; padding: 10px 4px; text-align: center; font-size: 13px; font-weight: 700; color: var(--text-sub); border: 2px solid #3d1a6b; border-bottom: 4px solid #280f4a; background: #2c124d; border-radius: 14px; cursor: pointer; transition: all 0.15s; }
+        .tab-btn { flex: 1; padding: 10px 4px; text-align: center; font-size: 13px; font-weight: 800; color: var(--text-sub); border: 2px solid #3d1a6b; border-bottom: 4px solid #280f4a; background: #2c124d; border-radius: 14px; cursor: pointer; transition: all 0.15s; }
         .tab-btn.active { color: #fff; background: var(--cyan-btn); border-color: #38bdf8; border-bottom: 4px solid var(--cyan-shadow); text-shadow: 1px 1px 0 #000; }
         .tab-btn:active { transform: translateY(2px); }
 
@@ -52,8 +53,8 @@
 
         /* STAGE CARTOON HEADER */
         .stage-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-        .stage-title { font-size: 15px; color: var(--text-sub); font-weight: 700; }
-        .stage-badge { background: #ff9f1c; color: #000; padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700; border-bottom: 3px solid #b86e00; }
+        .stage-title { font-size: 15px; color: var(--text-sub); font-weight: 800; }
+        .stage-badge { background: #ff9f1c; color: #000; padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 800; border-bottom: 3px solid #b86e00; }
 
         .progress-bar-bg { width: 100%; height: 16px; background: #1d0a33; border: 3px solid #4a237a; border-radius: 12px; overflow: hidden; margin-bottom: 16px; position: relative; }
         .progress-bar-fill { height: 100%; background: linear-gradient(90deg, #06d6a0, #1b9aaa); width: 0%; transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border-radius: 8px; position: relative; }
@@ -61,9 +62,9 @@
 
         /* TARGET CARD CARTOON */
         .target-card { background: var(--card-bg); border: 3px solid var(--card-border); border-bottom: 8px solid var(--card-shadow); border-radius: 22px; padding: 18px; margin-bottom: 16px; text-align: center; position: relative; }
-        .target-text { font-size: 20px; font-weight: 700; color: var(--text-yellow); margin-bottom: 10px; text-shadow: 1px 2px 0 #000; line-height: 1.3; }
+        .target-text { font-size: 20px; font-weight: 800; color: var(--text-yellow); margin-bottom: 10px; text-shadow: 1px 2px 0 #000; line-height: 1.3; }
         
-        .speaker-btn { background: var(--cyan-btn); border: 2px solid #38bdf8; border-bottom: 4px solid var(--cyan-shadow); color: #fff; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; text-shadow: 1px 1px 0 #000; }
+        .speaker-btn { background: var(--cyan-btn); border: 2px solid #38bdf8; border-bottom: 4px solid var(--cyan-shadow); color: #fff; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; text-shadow: 1px 1px 0 #000; }
         .speaker-btn:active { transform: translateY(2px); border-bottom-width: 2px; }
 
         /* WORD CHIP SLOTS */
@@ -71,13 +72,13 @@
         .word-pool { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; min-height: 110px; padding: 6px; }
 
         /* CHIPS 3D BUTTONS */
-        .chip { background: var(--yellow-btn); color: #2b1100; padding: 10px 16px; border-radius: 16px; font-size: 16px; font-weight: 700; border: 2px solid #ffe285; border-bottom: 5px solid var(--yellow-shadow); cursor: pointer; transition: all 0.1s ease; box-shadow: 0 4px 0 var(--yellow-shadow); }
+        .chip { background: var(--yellow-btn); color: #2b1100; padding: 10px 16px; border-radius: 16px; font-size: 16px; font-weight: 800; border: 2px solid #ffe285; border-bottom: 5px solid var(--yellow-shadow); cursor: pointer; transition: all 0.1s ease; box-shadow: 0 4px 0 var(--yellow-shadow); }
         .chip:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--yellow-shadow); }
         .chip.used { opacity: 0.15; pointer-events: none; filter: grayscale(1); }
 
         /* ACTION BUTTONS 3D */
         .action-row { display: flex; gap: 10px; margin-top: 12px; }
-        .btn { flex: 1; padding: 14px; border-radius: 16px; border: none; font-size: 16px; font-weight: 700; cursor: pointer; text-align: center; text-shadow: 1px 1px 0 rgba(0,0,0,0.4); transition: all 0.1s; }
+        .btn { flex: 1; padding: 14px; border-radius: 16px; border: none; font-size: 16px; font-weight: 800; cursor: pointer; text-align: center; text-shadow: 1px 1px 0 rgba(0,0,0,0.4); transition: all 0.1s; }
         
         .btn-check { background: var(--green-btn); color: #023829; border: 2px solid #5effd8; border-bottom: 6px solid var(--green-shadow); box-shadow: 0 4px 0 var(--green-shadow); }
         .btn-check:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--green-shadow); }
@@ -88,7 +89,7 @@
         .btn-next { background: var(--yellow-btn); color: #3d2300; border: 2px solid #fff0a8; border-bottom: 6px solid var(--yellow-shadow); box-shadow: 0 4px 0 var(--yellow-shadow); display: none; }
         .btn-next:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--yellow-shadow); }
 
-        .feedback-msg { margin-top: 10px; text-align: center; font-weight: 700; font-size: 16px; min-height: 28px; text-shadow: 1px 1px 0 #000; }
+        .feedback-msg { margin-top: 10px; text-align: center; font-weight: 800; font-size: 16px; min-height: 28px; text-shadow: 1px 1px 0 #000; }
         .feedback-correct { color: #5effd8; animation: bounce 0.4s ease; }
         .feedback-wrong { color: #ff6b6b; animation: shake 0.3s ease; }
 
@@ -98,21 +99,21 @@
         .topic-card:active { transform: translateY(3px); }
         .topic-card.active { border-color: var(--yellow-btn); background: #52278a; box-shadow: 0 0 12px rgba(255,209,102,0.4); }
         .topic-icon { font-size: 32px; margin-bottom: 4px; filter: drop-shadow(2px 2px 0 rgba(0,0,0,0.3)); }
-        .topic-name { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+        .topic-name { font-size: 13px; font-weight: 800; color: #fff; margin-bottom: 2px; }
         .topic-count { font-size: 11px; color: var(--text-sub); }
 
         /* SETTINGS & SYNC CARD CARTOON */
         .setting-card { background: var(--card-bg); border: 3px solid var(--card-border); border-bottom: 6px solid var(--card-shadow); border-radius: 20px; padding: 16px; margin-bottom: 16px; }
-        .setting-title { font-size: 16px; font-weight: 700; color: var(--text-yellow); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; text-shadow: 1px 1px 0 #000; }
+        .setting-title { font-size: 16px; font-weight: 800; color: var(--text-yellow); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; text-shadow: 1px 1px 0 #000; }
         
-        .lang-select { width: 100%; padding: 12px; background: #1f0b38; border: 2px solid var(--card-border); border-radius: 14px; color: #fff; font-size: 15px; font-weight: 700; margin-bottom: 12px; outline: none; }
+        .lang-select { width: 100%; padding: 12px; background: #1f0b38; border: 2px solid var(--card-border); border-radius: 14px; color: #fff; font-size: 15px; font-weight: 800; margin-bottom: 12px; outline: none; }
 
-        .sync-box { background: #19092d; border: 2px dashed #4a237a; padding: 12px; border-radius: 14px; font-size: 13px; color: var(--text-sub); margin-bottom: 12px; line-height: 1.5; }
-        .btn-sync { background: var(--cyan-btn); color: #fff; width: 100%; padding: 14px; border-radius: 16px; font-size: 15px; font-weight: 700; border: 2px solid #56ccf2; border-bottom: 6px solid var(--cyan-shadow); cursor: pointer; text-shadow: 1px 1px 0 #000; }
+        .sync-box { background: #19092d; border: 2px dashed #4a237a; padding: 12px; border-radius: 14px; font-size: 13px; color: var(--text-sub); margin-bottom: 12px; line-height: 1.6; }
+        .btn-sync { background: var(--cyan-btn); color: #fff; width: 100%; padding: 14px; border-radius: 16px; font-size: 15px; font-weight: 800; border: 2px solid #56ccf2; border-bottom: 6px solid var(--cyan-shadow); cursor: pointer; text-shadow: 1px 1px 0 #000; }
         .btn-sync:active { transform: translateY(3px); }
 
         /* BOTTOM ADMOB BANNER */
-        #admob-banner { position: fixed; bottom: 0; left: 0; width: 100%; height: 50px; background: #120524; display: flex; justify-content: center; align-items: center; color: #6b4c9a; font-size: 11px; font-weight: 700; z-index: 1000; border-top: 3px solid #2d1254; }
+        #admob-banner { position: fixed; bottom: 0; left: 0; width: 100%; height: 50px; background: #120524; display: flex; justify-content: center; align-items: center; color: #6b4c9a; font-size: 11px; font-weight: 800; z-index: 1000; border-top: 3px solid #2d1254; }
 
         /* ANIMATION KEYFRAMES */
         @keyframes popIn { 0% { opacity: 0; transform: scale(0.9); } 100% { opacity: 1; transform: scale(1); } }
@@ -122,13 +123,13 @@
 </head>
 <body>
 
-    <!-- APP HEADER CARTOON -->
+    <!-- APP HEADER -->
     <div class="app-header">
         <div class="app-title">🐣 Fast English V2</div>
         <div class="lang-badge" id="current-lang-badge" onclick="switchTab('sync')">🇻🇳 Tiếng Việt</div>
     </div>
 
-    <!-- TAB NAVIGATION CARTOON -->
+    <!-- TAB NAVIGATION -->
     <div class="tab-nav">
         <button class="tab-btn active" id="nav-game" onclick="switchTab('game')">🎮 Màn Chơi</button>
         <button class="tab-btn" id="nav-topics" onclick="switchTab('topics')">📚 Chủ Đề</button>
@@ -198,23 +199,20 @@
                 <p style="font-size: 13px; color: var(--text-sub); margin-bottom: 10px;">Tự động kiểm tra và tải gói dữ liệu câu hỏi mới nhất từ server cho cặp ngôn ngữ đã chọn.</p>
                 <div class="sync-box" id="sync-info-box">
                     • Mã App: 0003<br>
-                    • Cặp ngôn ngữ: <span id="sync-lang-code" style="color:#ffe600; font-weight:700;">en_vi</span><br>
-                    • Phiên bản hiện tại: <span id="sync-current-ver" style="color:#06d6a0; font-weight:700;">v1</span><br>
+                    • Cặp ngôn ngữ: <span id="sync-lang-code" style="color:#ffe600; font-weight:800;">en_vi</span><br>
+                    • Phiên bản hiện tại: <span id="sync-current-ver" style="color:#06d6a0; font-weight:800;">v1</span><br>
                     • Trạng thái: Sẵn sàng kết nối API
                 </div>
-                <button class="btn-sync" onclick="syncWithServer()">⚡ TẢI CÂU HỎI MỚI TỪ SERVER</button>
+                <button class="btn-sync" onclick="syncWithServer(true)">⚡ TẢI CÂU HỎI MỚI TỪ SERVER</button>
             </div>
         </div>
 
     </div>
 
-    <!-- BOTTOM ADMOB BANNER PLACEHOLDER -->
+    <!-- BOTTOM ADMOB BANNER -->
     <div id="admob-banner">[AdMob Adaptive Banner Placeholder]</div>
 
     <script>
-        // ============================================================================
-        // DỮ LIỆU MẶC ĐỊNH 11 NGÔN NGỮ (OFFLINE DEFAULT PACK)
-        // ============================================================================
         const DEFAULT_TOPICS = [
             { id: 1, name: "Daily Conversation", icon: "💬" },
             { id: 2, name: "Travel & Airport", icon: "✈️" },
@@ -229,22 +227,11 @@
         ];
 
         const DEFAULT_SENTENCES = [
-            // CHỦ ĐỀ 1
             { id: "s_01_001", topic_id: 1, en: "How are you feeling today?", trans: { vi: "Hôm nay bạn cảm thấy thế nào?", pt: "Como você está se sentindo hoje?", ko: "오늘 기분이 어떠신가요?", ja: "今日の気分はどうですか？", zh: "你今天感觉怎么样？", es: "¿Cómo te sientes hoy?", fr: "Comment vous sentez-vous aujourd'hui?", de: "Wie fühlst du dich heute?", ru: "Как вы себя чувствуете сегодня?", th: "วันนี้คุณรู้สึกอย่างไรบ้าง?", id: "Bagaimana perasaan Anda hari ini?" } },
             { id: "s_01_002", topic_id: 1, en: "Nice to meet you.", trans: { vi: "Rất vui được gặp bạn.", pt: "Prazer em conhecê-lo.", ko: "만나서 반갑습니다.", ja: "はじめまして。", zh: "很高兴认识你。", es: "Mucho gusto en conocerte.", fr: "Ravi de vous rencontrer.", de: "Schön, Sie kennenzulernen.", ru: "Приятно познакомиться.", th: "ยินดีที่ได้รู้จัก", id: "Senang bertemu dengan Anda." } },
-            { id: "s_01_003", topic_id: 1, en: "Where are you from?", trans: { vi: "Bạn đến từ đâu?", pt: "De onde você é?", ko: "어디 출신이신가요?", ja: "出身はどこですか？", zh: "你来自哪里？", es: "¿De dónde eres?", fr: "D'où venez-vous?", de: "Woher kommen Sie?", ru: "Откуда вы?", th: "คุณมาจากไหน?", id: "Dari mana Anda berasal?" } },
-            
-            // CHỦ ĐỀ 2
-            { id: "s_02_001", topic_id: 2, en: "Where is the check in counter?", trans: { vi: "Quầy làm thủ tục ở đâu?", pt: "Onde fica o balcão de check-in?", ko: "체크인 카운터가 어디에 있나요?", ja: "チェックインカウンターはどこですか？", zh: "值机柜台在哪里？", es: "¿Dónde está el mostrador de facturación?", fr: "Où se trouve le comptoir d'enregistrement?", de: "Wo ist der Check-in-Schalter?", ru: "Где находится стойка регистрации?", th: "เคาน์เตอร์เช็คอินอยู่ที่ไหน?", id: "Di mana konter check-in?" } },
-            { id: "s_02_002", topic_id: 2, en: "Can I have a window seat?", trans: { vi: "Tôi có thể ngồi cạnh cửa sổ không?", pt: "Posso ficar com um assento na janela?", ko: "창가 쪽 좌석으로 부탁드릴 수 있을까요?", ja: "窓側の席にしてもらえますか？", zh: "我可以要一个靠窗的座位吗？", es: "¿Puedo tener un asiento junto a la ventana?", fr: "Puis-je avoir un siège côté fenêtre?", de: "Kann ich einen Fensterplatz haben?", ru: "Можно мне место у окна?", th: "ขอที่นั่งติดหน้าต่างได้ไหม?", id: "Bisakah saya mendapat kursi di dekat jendela?" } },
-
-            // CHỦ ĐỀ 3
-            { id: "s_03_001", topic_id: 3, en: "May I have the menu please?", trans: { vi: "Cho tôi xin thực đơn được không?", pt: "Poderia me trazer o cardápio por favor?", ko: "메뉴판 좀 볼 수 있을까요?", ja: "メニューをいただけますか？", zh: "请给我看一下菜单好吗？", es: "¿Me permite el menú por favor?", fr: "Puis-je avoir le menu s'il vous plaît?", de: "Kann ich bitte die Speisekarte haben?", ru: "Можно мне меню пожалуйста?", th: "ขอดูเมนูหน่อยได้ไหม?", id: "Bisakah saya minta menunya?" } }
+            { id: "s_01_003", topic_id: 1, en: "Where are you from?", trans: { vi: "Bạn đến từ đâu?", pt: "De onde você é?", ko: "어디 출신이신가요?", ja: "出身はどこですか？", zh: "你来自哪里？", es: "¿De dónde eres?", fr: "D'où venez-vous?", de: "Woher kommen Sie?", ru: "Откуда вы?", th: "คุณมาจากไหน?", id: "Dari mana Anda berasal?" } }
         ];
 
-        // ============================================================================
-        // BIẾN TRẠNG THÁI HỆ THỐNG
-        // ============================================================================
         let currentLang = localStorage.getItem('APP_LANG') || 'vi';
         let currentTopicId = 1;
         let currentStageIndex = 0;
@@ -253,20 +240,19 @@
         let availableChips = [];
         let adActionCount = 0;
 
-        // ============================================================================
-        // KHỞI CHẠY APP
-        // ============================================================================
         window.addEventListener('DOMContentLoaded', () => {
             document.getElementById('select-lang').value = currentLang;
             updateLangBadge();
             renderTopicGrid();
             loadTopicData(currentTopicId);
             initAdMob();
+
+            // 🔥 TỰ ĐỘNG ĐỒNG BỘ VỚI SERVER KHI MỞ APP (Auto Sync on Launch)
+            setTimeout(() => {
+                syncWithServer(false);
+            }, 1200);
         });
 
-        // ============================================================================
-        // QUẢN LÝ TAB & CHUYỂN CHẾ ĐỘ
-        // ============================================================================
         function switchTab(tabName) {
             triggerAdCounter();
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -280,6 +266,9 @@
             const langMap = { vi: '🇻🇳 Tiếng Việt', pt: '🇵🇹 Bồ Đào Nha', ko: '🇰🇷 Tiếng Hàn', ja: '🇯🇵 Tiếng Nhật', zh: '🇨🇳 Tiếng Trung', es: '🇪🇸 Tây Ban Nha', fr: '🇫🇷 Tiếng Pháp', de: '🇩🇪 Tiếng Đức', ru: '🇷🇺 Tiếng Nga', th: '🇹🇭 Tiếng Thái', id: '🇮🇩 Indonesia' };
             document.getElementById('current-lang-badge').innerText = langMap[currentLang] || currentLang;
             document.getElementById('sync-lang-code').innerText = `en_${currentLang}`;
+            
+            let curVer = localStorage.getItem(`VER_0003_en_${currentLang}`) || "1";
+            document.getElementById('sync-current-ver').innerText = `v${curVer}`;
         }
 
         function changeLanguage() {
@@ -287,12 +276,11 @@
             localStorage.setItem('APP_LANG', currentLang);
             updateLangBadge();
             loadTopicData(currentTopicId);
-            alert(`Đã đổi ngôn ngữ học sang: ${currentLang.toUpperCase()}`);
+            
+            // Tự động đồng bộ ngay khi đổi ngôn ngữ mới
+            syncWithServer(false);
         }
 
-        // ============================================================================
-        // DỰNG GAME PLAY THEO MÀN CHƠI (STAGE LOGIC)
-        // ============================================================================
         function loadTopicData(topicId) {
             currentTopicId = topicId;
             currentStageIndex = 0;
@@ -303,7 +291,7 @@
             if (customPackRaw) {
                 try {
                     let parsed = JSON.parse(customPackRaw);
-                    if (parsed && parsed.data) {
+                    if (parsed && parsed.data && parsed.data.length > 0) {
                         sourceSentences = parsed.data;
                     }
                 } catch(e) {}
@@ -312,7 +300,7 @@
             currentSentenceList = sourceSentences.filter(s => parseInt(s.topic_id) === topicId);
 
             if (currentSentenceList.length === 0) {
-                currentSentenceList = DEFAULT_SENTENCES.filter(s => parseInt(s.topic_id) === 1);
+                currentSentenceList = sourceSentences.length > 0 ? sourceSentences : DEFAULT_SENTENCES;
             }
 
             renderStage();
@@ -435,9 +423,6 @@
             }
         }
 
-        // ============================================================================
-        // DỰNG DANH SÁCH CHỦ ĐỀ (TAB 2)
-        // ============================================================================
         function renderTopicGrid() {
             const container = document.getElementById('topic-grid-container');
             container.innerHTML = '';
@@ -459,54 +444,55 @@
         }
 
         // ============================================================================
-        // ĐỒNG BỘ DỮ LIỆU TỪ SERVER (API update.php)
+        // 🔄 ĐỒNG BỘ DỮ LIỆU TỰ ĐỘNG & BẤM TẢI TỪ SERVER
         // ============================================================================
-        async function syncWithServer() {
-            triggerAdCounter();
+        async function syncWithServer(isManualClick = false) {
             const infoBox = document.getElementById('sync-info-box');
-            infoBox.innerText = "⏳ Đang kết nối tới server kiểm tra bản ghi...";
+            infoBox.innerHTML = "⏳ Đang kết nối kiểm tra dữ liệu từ Server...";
 
             const appToken = "0003";
             const langPair = `en_${currentLang}`;
             const clientVer = parseInt(localStorage.getItem(`VER_0003_${langPair}`) || "1");
 
-            const apiUrl = `https://khotrithucso.io.vn/apps/api/update.php?app_token=${appToken}&lang_pair=${langPair}&pack_version=${clientVer}`;
+            // Gọi API update.php hỗ trợ cả lang_pair lẫn ngonngu
+            const apiUrl = `https://khotrithucso.io.vn/apps/api/update.php?app_token=${appToken}&ngonngu=${currentLang}&pack_version=${clientVer}`;
 
             try {
-                let res = await fetch(apiUrl);
+                let res = await fetch(apiUrl, { cache: "no-store" });
                 let data = await res.json();
 
                 if (data.status === "success") {
                     if (data.has_update && data.pack_info && data.pack_info.download_url) {
-                        infoBox.innerText = `🚀 Đã tìm thấy bản mới v${data.pack_info.latest_version}! Đang tải...`;
+                        infoBox.innerHTML = `🚀 Tìm thấy gói mới <strong>v${data.pack_info.latest_version}</strong> (${data.pack_info.total_items} câu)! Đang tải...`;
                         
-                        let packRes = await fetch(data.pack_info.download_url);
+                        // Chuẩn hóa download_url (Xóa dấu escape slashes nếu có)
+                        let cleanDownloadUrl = data.pack_info.download_url.replace(/\\/g, '');
+                        let packRes = await fetch(cleanDownloadUrl, { cache: "no-store" });
                         let packData = await packRes.json();
 
                         if (packData && packData.data) {
                             localStorage.setItem(`PACK_0003_${langPair}`, JSON.stringify(packData));
                             localStorage.setItem(`VER_0003_${langPair}`, data.pack_info.latest_version);
                             
-                            infoBox.innerText = `✅ CẬP NHẬT THÀNH CÔNG!\n• Đã tải: ${packData.data.length} câu\n• Version: v${data.pack_info.latest_version}`;
+                            updateLangBadge();
+                            infoBox.innerHTML = `✅ <strong>CẬP NHẬT THÀNH CÔNG!</strong><br>• Đã tải: <strong>${packData.data.length} câu</strong><br>• Version: <strong>v${data.pack_info.latest_version}</strong>`;
+                            
                             loadTopicData(currentTopicId);
-                            alert("Đã cập nhật thành công gói dữ liệu mới từ Server!");
+                            if (isManualClick) alert(`🎉 Cập nhật thành công ${packData.data.length} câu hỏi mới từ Server!`);
                         }
                     } else {
-                        infoBox.innerText = `✅ BẠN ĐANG Ở PHIÊN BẢN MỚI NHẤT!\n• Cặp ngôn ngữ: ${langPair}\n• Phiên bản: v${clientVer}`;
-                        alert("Bạn đang sử dụng bộ dữ liệu mới nhất!");
+                        infoBox.innerHTML = `✅ <strong>DỮ LIỆU ĐÃ MỚI NHẤT!</strong><br>• Cặp ngôn ngữ: <strong>${langPair}</strong><br>• Phiên bản: <strong>v${clientVer}</strong>`;
+                        if (isManualClick) alert("Bạn đang sử dụng bộ dữ liệu mới nhất!");
                     }
                 } else {
-                    infoBox.innerText = `❌ ${data.message || 'Chưa khởi tạo gói trên server'}`;
+                    infoBox.innerHTML = `⚠️ ${data.message || 'Gói ngôn ngữ chưa được khởi tạo'}`;
                 }
             } catch (err) {
-                infoBox.innerText = "❌ Lỗi kết nối Server! Vui lòng kiểm tra mạng.";
-                console.error(err);
+                console.error("Sync Error:", err);
+                infoBox.innerHTML = `❌ <strong>Lỗi kết nối Server!</strong><br>Vui lòng kiểm tra lại mạng Wifi/4G.`;
             }
         }
 
-        // ============================================================================
-        // BỘ ĐẾM QUẢNG CÁO ADMOB
-        // ============================================================================
         function initAdMob() {
             if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.AdMob) {
                 try {
