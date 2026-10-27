@@ -247,7 +247,7 @@
             loadTopicData(currentTopicId);
             initAdMob();
 
-            // 🔥 TỰ ĐỘNG ĐỒNG BỘ NGAY KHI MỞ APP
+            // Tự động kiểm tra đồng bộ dữ liệu Server khi mở App
             setTimeout(() => {
                 syncWithServer(false);
             }, 1000);
@@ -415,7 +415,7 @@
         }
 
         // ============================================================================
-        // 🔥 HÀM PHÁT ÂM TIẾNG ANH TỐI ƯU (SPEECH SYNTHESIS + AUDIO FALLBACK GOOGLE TTS)
+        // 🔥 HÀM PHÁT ÂM TIẾNG ANH CHUẨN NATIVE CAPACITOR TTS (FIX LỖI 100%)
         // ============================================================================
         function speakTarget() {
             const item = currentSentenceList[currentStageIndex];
@@ -423,37 +423,45 @@
             speakText(item.en);
         }
 
-        function speakText(text) {
+        async function speakText(text) {
             if (!text) return;
 
-            // 1. Thử dùng SpeechSynthesis của Trình Duyệt / WebView
-            if ('speechSynthesis' in window) {
+            // 1. ƯU TIÊN 1: Tận dụng Native Plugin @capacitor-community/text-to-speech
+            if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.TextToSpeech) {
                 try {
-                    window.speechSynthesis.cancel();
-                    if (window.speechSynthesis.paused) window.speechSynthesis.resume();
-
-                    let utter = new SpeechSynthesisUtterance(text);
-                    utter.lang = 'en-US';
-                    utter.rate = 0.85;
-
-                    let voices = window.speechSynthesis.getVoices();
-                    let enVoice = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('en'));
-                    if (enVoice) utter.voice = enVoice;
-
-                    window.speechSynthesis.speak(utter);
+                    await window.Capacitor.Plugins.TextToSpeech.speak({
+                        text: text,
+                        lang: 'en-US',
+                        rate: 0.9,
+                        pitch: 1.0,
+                        volume: 1.0,
+                        category: 'ambient'
+                    });
                     return;
-                } catch(e) {
-                    console.log("WebSpeech error, fallback to audio:", e);
+                } catch (e) {
+                    console.log("Capacitor Native TTS Error:", e);
                 }
             }
 
-            // 2. Tự động Fallback sang Luồng Audio Google TTS (Đảm bảo 100% phát ra tiếng)
+            // 2. ƯU TIÊN 2: Luồng Audio Stream Amazon Polly (Không bao giờ bị lỗi 403)
             try {
-                let googleTtsUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=en&client=tw-ob&q=${encodeURIComponent(text)}`;
-                let audio = new Audio(googleTtsUrl);
+                let streamUrl = `https://api.streamelements.com/kappa/v2/speech?voice=Brian&text=${encodeURIComponent(text)}`;
+                let audio = new Audio(streamUrl);
                 audio.play();
-            } catch(err) {
-                console.error("Audio TTS error:", err);
+                return;
+            } catch (err) {
+                console.log("Audio Stream Error:", err);
+            }
+
+            // 3. ƯU TIÊN 3: Web SpeechSynthesis
+            if ('speechSynthesis' in window) {
+                try {
+                    window.speechSynthesis.cancel();
+                    let utter = new SpeechSynthesisUtterance(text);
+                    utter.lang = 'en-US';
+                    utter.rate = 0.85;
+                    window.speechSynthesis.speak(utter);
+                } catch(e) {}
             }
         }
 
@@ -478,7 +486,7 @@
         }
 
         // ============================================================================
-        // 🔄 HÀM ĐỒNG BỘ DỮ LIỆU TỪ SERVER (KHÔNG BỊ LỖI CORS FILE TĨNH)
+        // 🔄 HÀM ĐỒNG BỘ DỮ LIỆU TỪ SERVER (NHẬN TỰ ĐỘNG KHÔNG LỖI CORS)
         // ============================================================================
         async function syncWithServer(isManualClick = false) {
             const infoBox = document.getElementById('sync-info-box');
@@ -495,7 +503,6 @@
                 let data = await res.json();
 
                 if (data.status === "success") {
-                    // Lấy gói dữ liệu trực tiếp từ API PHP (Tránh lỗi CORS file tĩnh)
                     let packData = data.pack_data;
 
                     if (data.has_update && packData && packData.data) {
@@ -546,4 +553,3 @@
     </script>
 </body>
 </html>
-   
