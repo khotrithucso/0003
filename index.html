@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Fast English - Cartoon Game V2</title>
-    <!-- GOOGLE FONTS NUNITO - HỖ TRỢ 100% TIẾNG VIỆT CHUẨN CARTOON -->
+    <!-- GOOGLE FONTS NUNITO - CHUẨN TIẾNG VIỆT 100% -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
@@ -209,7 +209,7 @@
 
     </div>
 
-    <!-- BOTTOM ADMOB BANNER -->
+    <!-- BOTTOM ADMOB BANNER PLACEHOLDER -->
     <div id="admob-banner">[AdMob Adaptive Banner Placeholder]</div>
 
     <script>
@@ -247,10 +247,10 @@
             loadTopicData(currentTopicId);
             initAdMob();
 
-            // 🔥 TỰ ĐỘNG ĐỒNG BỘ VỚI SERVER KHI MỞ APP (Auto Sync on Launch)
+            // 🔥 TỰ ĐỘNG ĐỒNG BỘ NGAY KHI MỞ APP
             setTimeout(() => {
                 syncWithServer(false);
-            }, 1200);
+            }, 1000);
         });
 
         function switchTab(tabName) {
@@ -414,12 +414,46 @@
             renderStage();
         }
 
+        // ============================================================================
+        // 🔥 HÀM PHÁT ÂM TIẾNG ANH TỐI ƯU (SPEECH SYNTHESIS + AUDIO FALLBACK GOOGLE TTS)
+        // ============================================================================
         function speakTarget() {
             const item = currentSentenceList[currentStageIndex];
-            if ('speechSynthesis' in window && item) {
-                let utter = new SpeechSynthesisUtterance(item.en);
-                utter.lang = 'en-US';
-                window.speechSynthesis.speak(utter);
+            if (!item || !item.en) return;
+            speakText(item.en);
+        }
+
+        function speakText(text) {
+            if (!text) return;
+
+            // 1. Thử dùng SpeechSynthesis của Trình Duyệt / WebView
+            if ('speechSynthesis' in window) {
+                try {
+                    window.speechSynthesis.cancel();
+                    if (window.speechSynthesis.paused) window.speechSynthesis.resume();
+
+                    let utter = new SpeechSynthesisUtterance(text);
+                    utter.lang = 'en-US';
+                    utter.rate = 0.85;
+
+                    let voices = window.speechSynthesis.getVoices();
+                    let enVoice = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('en'));
+                    if (enVoice) utter.voice = enVoice;
+
+                    window.speechSynthesis.speak(utter);
+                    return;
+                } catch(e) {
+                    console.log("WebSpeech error, fallback to audio:", e);
+                }
+            }
+
+            // 2. Tự động Fallback sang Luồng Audio Google TTS (Đảm bảo 100% phát ra tiếng)
+            try {
+                let googleTtsUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=en&client=tw-ob&q=${encodeURIComponent(text)}`;
+                let audio = new Audio(googleTtsUrl);
+                audio.play();
+            } catch(err) {
+                console.error("Audio TTS error:", err);
             }
         }
 
@@ -444,7 +478,7 @@
         }
 
         // ============================================================================
-        // 🔄 ĐỒNG BỘ DỮ LIỆU TỰ ĐỘNG & BẤM TẢI TỪ SERVER
+        // 🔄 HÀM ĐỒNG BỘ DỮ LIỆU TỪ SERVER (KHÔNG BỊ LỖI CORS FILE TĨNH)
         // ============================================================================
         async function syncWithServer(isManualClick = false) {
             const infoBox = document.getElementById('sync-info-box');
@@ -454,7 +488,6 @@
             const langPair = `en_${currentLang}`;
             const clientVer = parseInt(localStorage.getItem(`VER_0003_${langPair}`) || "1");
 
-            // Gọi API update.php hỗ trợ cả lang_pair lẫn ngonngu
             const apiUrl = `https://khotrithucso.io.vn/apps/api/update.php?app_token=${appToken}&ngonngu=${currentLang}&pack_version=${clientVer}`;
 
             try {
@@ -462,34 +495,28 @@
                 let data = await res.json();
 
                 if (data.status === "success") {
-                    if (data.has_update && data.pack_info && data.pack_info.download_url) {
-                        infoBox.innerHTML = `🚀 Tìm thấy gói mới <strong>v${data.pack_info.latest_version}</strong> (${data.pack_info.total_items} câu)! Đang tải...`;
-                        
-                        // Chuẩn hóa download_url (Xóa dấu escape slashes nếu có)
-                        let cleanDownloadUrl = data.pack_info.download_url.replace(/\\/g, '');
-                        let packRes = await fetch(cleanDownloadUrl, { cache: "no-store" });
-                        let packData = await packRes.json();
+                    // Lấy gói dữ liệu trực tiếp từ API PHP (Tránh lỗi CORS file tĩnh)
+                    let packData = data.pack_data;
 
-                        if (packData && packData.data) {
-                            localStorage.setItem(`PACK_0003_${langPair}`, JSON.stringify(packData));
-                            localStorage.setItem(`VER_0003_${langPair}`, data.pack_info.latest_version);
-                            
-                            updateLangBadge();
-                            infoBox.innerHTML = `✅ <strong>CẬP NHẬT THÀNH CÔNG!</strong><br>• Đã tải: <strong>${packData.data.length} câu</strong><br>• Version: <strong>v${data.pack_info.latest_version}</strong>`;
-                            
-                            loadTopicData(currentTopicId);
-                            if (isManualClick) alert(`🎉 Cập nhật thành công ${packData.data.length} câu hỏi mới từ Server!`);
-                        }
+                    if (data.has_update && packData && packData.data) {
+                        localStorage.setItem(`PACK_0003_${langPair}`, JSON.stringify(packData));
+                        localStorage.setItem(`VER_0003_${langPair}`, data.pack_info.latest_version);
+                        
+                        updateLangBadge();
+                        infoBox.innerHTML = `✅ <strong>CẬP NHẬT THÀNH CÔNG!</strong><br>• Đã tải: <strong>${packData.data.length} câu</strong><br>• Phiên bản: <strong>v${data.pack_info.latest_version}</strong>`;
+                        
+                        loadTopicData(currentTopicId);
+                        if (isManualClick) alert(`🎉 Đã đồng bộ thành công ${packData.data.length} câu hỏi mới từ Server!`);
                     } else {
                         infoBox.innerHTML = `✅ <strong>DỮ LIỆU ĐÃ MỚI NHẤT!</strong><br>• Cặp ngôn ngữ: <strong>${langPair}</strong><br>• Phiên bản: <strong>v${clientVer}</strong>`;
                         if (isManualClick) alert("Bạn đang sử dụng bộ dữ liệu mới nhất!");
                     }
                 } else {
-                    infoBox.innerHTML = `⚠️ ${data.message || 'Gói ngôn ngữ chưa được khởi tạo'}`;
+                    infoBox.innerHTML = `⚠️ ${data.message || 'Gói ngôn ngữ chưa được khởi tạo trên server.'}`;
                 }
             } catch (err) {
                 console.error("Sync Error:", err);
-                infoBox.innerHTML = `❌ <strong>Lỗi kết nối Server!</strong><br>Vui lòng kiểm tra lại mạng Wifi/4G.`;
+                infoBox.innerHTML = `❌ <strong>Lỗi kết nối Server!</strong><br>Vui lòng kiểm tra kết nối mạng Wifi/4G.`;
             }
         }
 
