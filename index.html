@@ -155,7 +155,7 @@
 
         .progress-bar-fill {
             height: 100%;
-            width: 10%;
+            width: 20%;
             background: linear-gradient(90deg, #ff9f1c, #ffe600);
             border-radius: 10px;
             transition: width 0.3s ease;
@@ -399,11 +399,9 @@
             box-shadow: 0 4px 0 #0077b6;
         }
 
-        /* ==========================================================================
-           2. MODAL OVERLAY (SỬA LỖI TREO MÀN HÌNH - MẶC ĐỊNH DISPLAY: NONE)
-           ========================================================================== */
+        /* Modal Chọn Màn Chơi */
         .modal-overlay {
-            display: none; /* QUAN TRỌNG: Mặc định ẩn hoàn toàn để không che màn hình */
+            display: none;
             position: fixed;
             inset: 0;
             background: rgba(0, 0, 0, 0.85);
@@ -415,7 +413,7 @@
         }
 
         .modal-overlay.active {
-            display: flex; /* Chỉ hiện khi có class active */
+            display: flex;
             pointer-events: auto;
         }
 
@@ -486,7 +484,7 @@
             color: #000;
         }
 
-        /* AdMob Banner Sticky Bottom */
+        /* Bottom AdMob Banner Placeholder */
         #admob-banner-space {
             position: fixed;
             bottom: 0;
@@ -527,7 +525,7 @@
         <div class="view-tab active" id="tab-game">
             <div class="stage-header">
                 <span class="stage-title" id="stage-topic-name">Chủ đề 1: Daily Conversation</span>
-                <button class="stage-badge" id="stage-counter" onclick="openStageModal()">Màn 1 / 10 📋</button>
+                <button class="stage-badge" id="stage-counter" onclick="openStageModal()">Màn 1 / 5 📋</button>
             </div>
             <div class="progress-bar-bg">
                 <div class="progress-bar-fill" id="stage-progress"></div>
@@ -565,7 +563,6 @@
                 <div class="setting-title">🌐 Ngôn Ngữ Bản Dịch Đích</div>
                 <select class="lang-select" id="select-lang" onchange="changeLanguage()">
                     <option value="vi">🇻🇳 Tiếng Việt (Vietnamese)</option>
-                    <option value="pt">🇵🇹 Tiếng Bồ Đào Nha (Portuguese)</option>
                     <option value="ko">🇰🇷 Tiếng Hàn (Korean)</option>
                     <option value="ja">🇯🇵 Tiếng Nhật (Japanese)</option>
                     <option value="zh">🇨🇳 Tiếng Trung (Chinese)</option>
@@ -574,6 +571,7 @@
                     <option value="de">🇩🇪 Tiếng Đức (German)</option>
                     <option value="ru">🇷🇺 Tiếng Nga (Russian)</option>
                     <option value="th">🇹🇭 Tiếng Thái (Thai)</option>
+                    <option value="pt">🇵🇹 Tiếng Bồ Đào Nha (Portuguese)</option>
                     <option value="id">🇮🇩 Indonesia (Bahasa)</option>
                 </select>
             </div>
@@ -611,7 +609,6 @@
        3. COMPLETE JAVASCRIPT ENGINE (LOGIC + ADMOB + TTS + AUDIO FX)
        ========================================================================== -->
     <script>
-        // Catch-all errors
         window.onerror = function(msg, url, line) {
             console.error("App Error:", msg, "Line:", line);
             return true;
@@ -638,10 +635,77 @@
             { id: 10, name: "Study & School", icon: "🎓" }
         ];
 
+        /* BỘ CÂU HỎI MẶC ĐỊNH ĐẦY ĐỦ 5 CÂU X 10 CHỦ ĐỀ = 50 CÂU CHUẨN 11 NGÔN NGỮ */
         const DEFAULT_SENTENCES = [
-            { id: "s_01_001", topic_id: 1, en: "How are you feeling today?", trans: { vi: "Hôm nay bạn cảm thấy thế nào?", pt: "Como você está se sentindo hoje?", ko: "오늘 기분이 어떠신가요?", ja: "今日の気分はどうですか？", zh: "你今天感觉怎么样？", es: "¿Cómo te sientes hoy?", fr: "Comment vous sentez-vous aujourd'hui?", de: "Wie fühlst du dich heute?", ru: "Как вы себя чувствуете сегодня?", th: "วันนี้คุณรู้สึกอย่างไรบ้าง?", id: "Bagaimana perasaan Anda hari ini?" } },
-            { id: "s_01_002", topic_id: 1, en: "Nice to meet you.", trans: { vi: "Rất vui được gặp bạn.", pt: "Prazer em conhecê-lo.", ko: "만나서 반갑습니다.", ja: "はじめまして。", zh: "很高兴认识你。", es: "Mucho gusto en conocerte.", fr: "Ravi de vous rencontrer.", de: "Schön, Sie kennenzulernen.", ru: "Приятно познакомиться.", th: "ยินดีที่ได้รู้จัก", id: "Senang bertemu dengan Anda." } },
-            { id: "s_01_003", topic_id: 1, en: "Where are you from?", trans: { vi: "Bạn đến từ đâu?", pt: "De onde você é?", ko: "어디 출신이신가요?", ja: "出身はどこですか？", zh: "你来自哪里？", es: "¿De dónde eres?", fr: "D'où venez-vous?", de: "Woher kommen Sie?", ru: "Откуда вы?", th: "คุณมาจากไหน?", id: "Dari mana Anda berasal?" } }
+            /* TOPIC 1 */
+            { id: "s_01_001", topic_id: 1, en: "How are you feeling today?", translations: { vi: "Hôm nay bạn cảm thấy thế nào?", pt: "Como você está se sentindo hoje?", ko: "오늘 기분이 어떠신가요?", ja: "今日の気分はどうですか？", zh: "你今天感觉怎么样？", es: "¿Cómo te sientes hoy?", fr: "Comment vous sentez-vous aujourd'hui?", de: "Wie fühlst du dich heute?", ru: "Как вы себя чувствуете сегодня?", th: "วันนี้คุณรู้สึกอย่างไรบ้าง?", id: "Bagaimana perasaan Anda hari ini?" } },
+            { id: "s_01_002", topic_id: 1, en: "Nice to meet you.", translations: { vi: "Rất vui được gặp bạn.", pt: "Prazer em conhecê-lo.", ko: "만나서 반갑습니다.", ja: "はじめまして。", zh: "很高兴认识你。", es: "Mucho gusto en conocerte.", fr: "Ravi de vous rencontrer.", de: "Schön, Sie kennenzulernen.", ru: "Приятно познакомиться.", th: "ยินดีที่ได้รู้จัก", id: "Senang bertemu dengan Anda." } },
+            { id: "s_01_003", topic_id: 1, en: "Where are you from?", translations: { vi: "Bạn đến từ đâu?", pt: "De onde você é?", ko: "어디 출신이신가요?", ja: "出身はどこですか？", zh: "你来自哪里？", es: "¿De dónde eres?", fr: "D'où venez-vous?", de: "Woher kommen Sie?", ru: "Откуда вы?", th: "คุณมาจากไหน?", id: "Dari mana Anda berasal?" } },
+            { id: "s_01_004", topic_id: 1, en: "What do you do for a living?", translations: { vi: "Bạn làm nghề gì để kiếm sống?", pt: "O que você faz da vida?", ko: "무슨 일을 하시나요?", ja: "お仕事は何をされていますか？", zh: "你是做什么工作的？", es: "¿A qué te dedicas?", fr: "Que faites-vous dans la vie?", de: "Was machen Sie beruflich?", ru: "Чем вы занимаетесь?", th: "คุณทำงานอะไร?", id: "Apa pekerjaan Anda?" } },
+            { id: "s_01_005", topic_id: 1, en: "Have a wonderful day!", translations: { vi: "Chúc bạn một ngày tuyệt vời!", pt: "Tenha um excelente dia!", ko: "좋은 하루 되세요!", ja: "素晴らしい一日をお過ごしください！", zh: "祝你有美好的一天！", es: "¡Que tengas un día maravilloso!", fr: "Passez une excellente journée!", de: "Haben Sie einen wunderbaren Tag!", ru: "Хорошего дня!", th: "ขอให้เป็นวันที่ยอดเยี่ยม!", id: "Semoga hari Anda menyenangkan!" } },
+
+            /* TOPIC 2 */
+            { id: "s_02_001", topic_id: 2, en: "Where is the check in counter?", translations: { vi: "Quầy làm thủ tục ở đâu?", pt: "Onde fica o balcão de check-in?", ko: "체크인 카운터가 어디에 있나요?", ja: "チェックインカウンターはどこですか？", zh: "值机柜台在哪里？", es: "¿Dónde está el mostrador de facturación?", fr: "Où se trouve le comptoir d'enregistrement?", de: "Wo ist der Check-in-Schalter?", ru: "Где находится стойка регистрации?", th: "เคาน์เตอร์เช็คอินอยู่ที่ไหน?", id: "Di mana konter check-in?" } },
+            { id: "s_02_002", topic_id: 2, en: "Can I have a window seat?", translations: { vi: "Tôi có thể ngồi cạnh cửa sổ không?", pt: "Posso ficar com um assento na janela?", ko: "창가 쪽 좌석으로 부탁드릴 수 있을까요?", ja: "窓側の席にしてもらえますか？", zh: "我可以要一个靠窗的座位吗？", es: "¿Puedo tener un asiento junto a la ventana?", fr: "Puis-je avoir un siège côté fenêtre?", de: "Kann ich einen Fensterplatz haben?", ru: "Можно мне место у окна?", th: "ขอที่นั่งติดหน้าต่างได้ไหม?", id: "Bisakah saya mendapat kursi di dekat jendela?" } },
+            { id: "s_02_003", topic_id: 2, en: "What is the baggage weight limit?", translations: { vi: "Hạn mức trọng lượng hành lý là bao nhiêu?", pt: "Qual é o limite de peso da bagagem?", ko: "수하물 무게 제한이 어떻게 되나요?", ja: "手荷物の重量制限は何キロですか？", zh: "行李限重是多少？", es: "¿Cuál es el límite de peso del equipaje?", fr: "Quelle est la limite de poids pour les bagages?", de: "Wie hoch ist das Gewichtslimit für das Gepäck?", ru: "Каков лимит веса багажа?", th: "น้ำหนักสัมภาระจำกัดอยู่ที่เท่าไหร่?", id: "Berapa batas berat bagasi?" } },
+            { id: "s_02_004", topic_id: 2, en: "Where do I claim my luggage?", translations: { vi: "Tôi có thể lấy hành lý ở đâu?", pt: "Onde posso retirar minha bagagem?", ko: "수하물 찾는 곳이 어디인가요?", ja: "手荷物受取所はどこですか？", zh: "我在哪里取行李？", es: "¿Dónde recojo mi equipaje?", fr: "Où puis-je récupérer mes bagages?", de: "Wo kann ich mein Gepäck abholen?", ru: "Где я могу получить свой багаж?", th: "ฉันสามารถรับสัมภาระได้ที่ไหน?", id: "Di mana saya bisa mengambil bagasi saya?" } },
+            { id: "s_02_005", topic_id: 2, en: "Where can I buy a SIM card?", translations: { vi: "Tôi có thể mua SIM ở đâu?", pt: "Onde posso comprar um cartão SIM?", ko: "심카드는 어디서 살 수 있나요?", ja: "SIMカードはどこで買えますか？", zh: "我在哪里可以买到SIM卡？", es: "¿Dónde puedo comprar una tarjeta SIM?", fr: "Où puis-je acheter une carte SIM?", de: "Wo kann ich eine SIM-Karte kaufen?", ru: "Где я могу купить SIM-карту?", th: "ฉันสามารถซื้อซิมการ์ดได้ที่ไหน?", id: "Di mana saya bisa membeli kartu SIM?" } },
+
+            /* TOPIC 3 */
+            { id: "s_03_001", topic_id: 3, en: "May I have the menu please?", translations: { vi: "Cho tôi xin thực đơn được không?", pt: "Poderia me trazer o cardápio por favor?", ko: "메뉴판 좀 볼 수 있을까요?", ja: "メニューをいただけますか？", zh: "请给我看一下菜单好吗？", es: "¿Me permite el menú por favor?", fr: "Puis-je avoir le menu s'il vous plaît?", de: "Kann ich bitte die Speisekarte haben?", ru: "Можно мне меню пожалуйста?", th: "ขอดูเมนูหน่อยได้ไหม?", id: "Bisakah saya minta menunya?" } },
+            { id: "s_03_002", topic_id: 3, en: "I would like to order a steak.", translations: { vi: "Tôi muốn gọi một phần bít tết.", pt: "Eu gostaria de pedir um bife.", ko: "스테이크 하나 주문하고 싶습니다.", ja: "ステーキを一つ注文したいです。", zh: "我想点一份牛排。", es: "Me gustaría pedir un bistec.", fr: "Je voudrais commander un steak.", de: "Ich möchte ein Steak bestellen.", ru: "Я хотел бы заказать стейк.", th: "ฉันอยากสั่งสเต๊กหนึ่งจาน", id: "Saya ingin memesan steak." } },
+            { id: "s_03_003", topic_id: 3, en: "What do you recommend for dinner?", translations: { vi: "Bạn có gợi ý món nào cho bữa tối không?", pt: "O que você me recomenda para o jantar?", ko: "저녁 식사로 무엇을 추천하시나요?", ja: "夕食のおすすめは何ですか？", zh: "晚餐你有什么推荐的吗？", es: "¿Qué me recomienda para la cena?", fr: "Que me recommandez-vous pour le dîner?", de: "Was empfehlen Sie zum Abendessen?", ru: "Что вы посоветуете на ужин?", th: "คุณมีมื้อเย็นอะไรแนะนำบ้าง?", id: "Apa yang Anda rekomendasikan untuk makan malam?" } },
+            { id: "s_03_004", topic_id: 3, en: "Could we have some water please?", translations: { vi: "Cho chúng tôi xin chút nước được không?", pt: "Poderia nos trazer um pouco de água por favor?", ko: "물 좀 주시겠어요?", ja: "お水をいただけますか？", zh: "请给我们拿点水好吗？", es: "¿Nos podría traer un poco de agua por favor?", fr: "Pourrions-nous avoir de l'eau s'il vous plaît?", de: "Könnten wir bitte etwas Wasser haben?", ru: "Можно нам немного воды пожалуйста?", th: "ขอน้ำเปล่าหน่อยได้ไหม?", id: "Bisakah kami minta air minum?" } },
+            { id: "s_03_005", topic_id: 3, en: "Can we get the check please?", translations: { vi: "Làm ơn tính tiền cho chúng tôi!", pt: "Poderia nos trazer a conta por favor?", ko: "계산서 좀 주시겠어요?", ja: "お会計をお願いします。", zh: "请帮我们结账，谢谢！", es: "¿Nos trae la cuenta por favor?", fr: "L'addition s'il vous plaît!", de: "Können wir bitte die Rechnung haben?", ru: "Можно нам счет пожалуйста?", th: "เช็คบิลด้วยครับ/ค่ะ!", id: "Bisakah kami minta bilnya?" } },
+
+            /* TOPIC 4 */
+            { id: "s_04_001", topic_id: 4, en: "How much does this cost?", translations: { vi: "Cái này giá bao nhiêu?", pt: "Quanto custa isso?", ko: "이것은 얼마인가요?", ja: "これはいくらですか？", zh: "这个多少钱？", es: "¿Cuánto cuesta esto?", fr: "Combien ça coûte?", de: "Wie viel kostet das?", ru: "Сколько это стоит?", th: "อันนี้ราคาเท่าไหร่?", id: "Berapa harga ini?" } },
+            { id: "s_04_002", topic_id: 4, en: "Do you have this in a larger size?", translations: { vi: "Bạn có cái này kích cỡ lớn hơn không?", pt: "Você tem isso em um tamanho maior?", ko: "이것보다 더 큰 사이즈가 있나요?", ja: "これの大きいサイズはありますか？", zh: "这个有更大号的吗？", es: "¿Tiene esto en una talla más grande?", fr: "Avez-vous cela dans une taille plus grande?", de: "Haben Sie das in einer größeren Größe?", ru: "У вас есть это размера побольше?", th: "มีขนาดใหญ่กว่านี้ไหม?", id: "Apakah ada ukuran yang lebih besar?" } },
+            { id: "s_04_003", topic_id: 4, en: "Can I pay with a credit card?", translations: { vi: "Tôi có thể thanh toán bằng thẻ tín dụng không?", pt: "Posso pagar com cartão de crédito?", ko: "신용카드로 결제할 수 있나요?", ja: "クレジットカードで支払えますか？", zh: "可以用信用卡付款吗？", es: "¿Puedo pagar con tarjeta de crédito?", fr: "Puis-je payer par carte de crédit?", de: "Kann ich mit Kreditkarte zahlen?", ru: "Могу ли я заплатить кредитной картой?", th: "ชำระด้วยบัตรเครดิตได้ไหม?", id: "Bisakah saya membayar dengan kartu kredit?" } },
+            { id: "s_04_004", topic_id: 4, en: "Is there any discount on this item?", translations: { vi: "Sản phẩm này có được giảm giá không?", pt: "Há algum desconto neste item?", ko: "이 상품 할인되나요?", ja: "この商品は割引がありますか？", zh: "这个商品有折扣吗？", es: "¿Hay algún descuento en este artículo?", fr: "Y a-t-il une réduction sur cet article?", de: "Gibt es einen Rabatt auf diesen Artikel?", ru: "Есть ли скидка на этот товар?", th: "สินค้าชิ้นนี้มีส่วนลดไหม?", id: "Apakah ada diskon untuk barang ini?" } },
+            { id: "s_04_005", topic_id: 4, en: "I would like to return this product.", translations: { vi: "Tôi muốn trả lại sản phẩm này.", pt: "Gostaria de devolver este produto.", ko: "이 제품을 환불하고 싶습니다.", ja: "この商品を返品したいです。", zh: "我想退掉这个商品。", es: "Me gustaría devolver este producto.", fr: "Je voudrais retourner ce produit.", de: "Ich möchte dieses Produkt zurückgeben.", ru: "Я хотел бы вернуть этот товар.", th: "ฉันต้องการคืนสินค้าชิ้นนี้", id: "Saya ingin mengembalikan produk ini." } },
+
+            /* TOPIC 5 */
+            { id: "s_05_001", topic_id: 5, en: "I have a reservation under my name.", translations: { vi: "Tôi đã đặt phòng dưới tên tôi.", pt: "Tenho uma reserva em meu nome.", ko: "제 이름으로 예약했습니다.", ja: "私の名前で予約しています。", zh: "我用我的名字订了房间。", es: "Tengo una reserva a mi nombre.", fr: "J'ai une réservation à mon nom.", de: "Ich habe eine Reservierung auf meinen Namen.", ru: "У меня забронирован номер на мое имя.", th: "ฉันได้จองห้องพักไว้ในชื่อของฉัน", id: "Saya memiliki reservasi atas nama saya." } },
+            { id: "s_05_002", topic_id: 5, en: "What time is check out tomorrow?", translations: { vi: "Mấy giờ trả phòng vào ngày mai?", pt: "A que horas é o check-out amanhã?", ko: "내일 체크아웃 시간이 언제인가요?", ja: "明日のチェックアウトは何時ですか？", zh: "明天几点退房？", es: "¿A qué hora es el check-out mañana?", fr: "À quelle heure est le départ demain?", de: "Wann ist morgen Check-out?", ru: "Во сколько выезд завтра?", th: "เช็คเอาท์พรุ่งนี้กี่โมง?", id: "Jam berapa check-out besok?" } },
+            { id: "s_05_003", topic_id: 5, en: "Could I get a room with a nice view?", translations: { vi: "Cho tôi phòng có hướng nhìn đẹp được không?", pt: "Poderia conseguir um quarto com uma boa vista?", ko: "경치가 좋은 방으로 할 수 있을까요?", ja: "眺めの良い部屋にできますか？", zh: "我可以要一间风景好的房间吗？", es: "¿Podría tener una habitación con buena vista?", fr: "Puis-je avoir une chambre avec une belle vue?", de: "Könnte ich ein Zimmer mit schöner Aussicht bekommen?", ru: "Можно мне номер с красивым видом?", th: "ขอห้องพักที่มีวิวสวยๆ ได้ไหม?", id: "Bisakah saya mendapatkan kamar dengan pemandangan bagus?" } },
+            { id: "s_05_004", topic_id: 5, en: "Is breakfast included in the price?", translations: { vi: "Giá phòng đã bao gồm bữa sáng chưa?", pt: "O café da manhã está incluído no preço?", ko: "조식이 가격에 포함되어 있나요?", ja: "朝食は料金に含まれていますか？", zh: "价格包含早餐吗？", es: "¿El desayuno está incluido en el precio?", fr: "Le petit-déjeuner est-il inclus dans le prix?", de: "Ist das Frühstück im Preis inbegriffen?", ru: "Завтрак включен в стоимость?", th: "อาหารเช้ารวมอยู่ในราคาหรือยัง?", id: "Apakah sarapan sudah termasuk dalam harga?" } },
+            { id: "s_05_005", topic_id: 5, en: "Can I leave my bags here for a few hours?", translations: { vi: "Tôi có thể gửi hành lý ở đây vài giờ không?", pt: "Posso deixar minhas malas aqui por algumas horas?", ko: "몇 시간 동안 짐을 맡길 수 있나요?", ja: "ここに荷物を数時間預けられますか？", zh: "我可以把行李在这里寄放几个小时吗？", es: "¿Puedo dejar mis maletas aquí por unas horas?", fr: "Puis-je laisser mes bagages ici quelques heures?", de: "Kann ich meine Taschen hier für ein paar Stunden lassen?", ru: "Могу ли я оставить свои сумки здесь на пару часов?", th: "ฝากกระเป๋าไว้ที่นี่สักสองสามชั่วโมงได้ไหม?", id: "Bisakah saya menitipkan tas di sini selama beberapa jam?" } },
+
+            /* TOPIC 6 */
+            { id: "s_06_001", topic_id: 6, en: "Let us schedule a meeting for tomorrow.", translations: { vi: "Hãy lên lịch một cuộc họp vào ngày mai.", pt: "Vamos agendar uma reunião para amanhã.", ko: "내일 회의 일정을 잡읍시다.", ja: "明日会議の予定を立てましょう。", zh: "让我们安排明天的会议吧。", es: "Programemos una reunión para mañana.", fr: "Planifions une réunion pour demain.", de: "Lassen Sie uns ein Treffen für morgen planen.", ru: "Давайте запланируем встречу на завтра.", th: "เรามานัดประชุมสำหรับวันพรุ่งนี้กันเถอะ", id: "Mari kita jadwalkan rapat untuk besok." } },
+            { id: "s_06_002", topic_id: 6, en: "Could you please send me the report?", translations: { vi: "Bạn vui lòng gửi báo cáo cho tôi được không?", pt: "Você poderia me enviar o relatório por favor?", ko: "보고서를 보내주시겠습니까?", ja: "レポートを送っていただけますか？", zh: "能否请你把报告发给我？", es: "¿Podría enviarme el informe por favor?", fr: "Pourriez-vous s'il vous plaît m'envoyer le rapport?", de: "Könnten Sie mir bitte den Bericht senden?", ru: "Не могли бы вы отправить мне отчет?", th: "ช่วยส่งรายงานให้ฉันหน่อยได้ไหม?", id: "Bisakah Anda mengirimkan laporannya kepada saya?" } },
+            { id: "s_06_003", topic_id: 6, en: "Thank you for your hard work today.", translations: { vi: "Cảm ơn vì sự chăm chỉ của bạn hôm nay.", pt: "Obrigado pelo seu trabalho duro hoje.", ko: "오늘 수고 많으셨습니다.", ja: "今日もお疲れ様でした。", zh: "感谢你今天辛苦工作。", es: "Gracias por tu trabajo de hoy.", fr: "Merci pour votre travail acharné aujourd'hui.", de: "Vielen Dank für Ihre harte Arbeit heute.", ru: "Спасибо за вашу усердную работу сегодня.", th: "ขอบคุณสำหรับความตั้งใจทำงานในวันนี้", id: "Terima kasih atas kerja keras Anda hari ini." } },
+            { id: "s_06_004", topic_id: 6, en: "We need to discuss the project budget.", translations: { vi: "Chúng ta cần thảo luận về ngân sách dự án.", pt: "Precisamos discutir o orçamento do projeto.", ko: "프로젝트 예산에 대해 논의해야 합니다.", ja: "プロジェクトの予算について話し合う必要があります。", zh: "我们需要讨论项目的预算。", es: "Necesitamos discutir el presupuesto del proyecto.", fr: "Nous devons discuter du budget du projet.", de: "Wir müssen das Projektbudget besprechen.", ru: "Нам нужно обсудить бюджет проекта.", th: "เราจำเป็นต้องหารือเกี่ยวกับงบประมาณโครงการ", id: "Kita perlu membahas anggaran proyek." } },
+            { id: "s_06_005", topic_id: 6, en: "I will reply to your email shortly.", translations: { vi: "Tôi sẽ trả lời email của bạn sớm thôi.", pt: "Responderei ao seu e-mail em breve.", ko: "곧 이메일에 답장 드리겠습니다.", ja: "すぐにメールに返信します。", zh: "我很快会回复你的邮件。", es: "Responderé a tu correo electrónico en breve.", fr: "Je répondrai à votre e-mail sous peu.", de: "Ich werde in Kürze auf Ihre E-Mail antworten.", ru: "Я отвечу на ваше письмо в ближайшее время.", th: "ฉันจะตอบกลับอีเมลของคุณในไม่ช้า", id: "Saya akan segera membalas email Anda." } },
+
+            /* TOPIC 7 */
+            { id: "s_07_001", topic_id: 7, en: "How is your family doing?", translations: { vi: "Gia đình bạn dạo này thế nào?", pt: "Como vai sua família?", ko: "가족들은 잘 지내시나요?", ja: "ご家族はお元気ですか？", zh: "你的家人好吗？", es: "¿Cómo está tu familia?", fr: "Comment va votre famille?", de: "Wie geht es Ihrer Familie?", ru: "Как поживает ваша семья?", th: "ครอบครัวของคุณเป็นอย่างไรบ้าง?", id: "Bagaimana kabar keluarga Anda?" } },
+            { id: "s_07_002", topic_id: 7, en: "Let us hang out this weekend.", translations: { vi: "Cuối tuần này chúng mình đi chơi nhé.", pt: "Vamos sair neste fim de semana.", ko: "이번 주말에 같이 놀자.", ja: "今週末一緒に遊びましょう。", zh: "我们这个周末出去聚聚吧。", es: "Salgamos este fin de semana.", fr: "Sortons ce week-end.", de: "Lassen Sie uns dieses Wochenende etwas unternehmen.", ru: "Давайте потусуемся в эти выходные.", th: "เสาร์อาทิตย์นี้ไปเที่ยวกันเถอะ", id: "Mari kita jalan-jalan akhir pekan ini." } },
+            { id: "s_07_003", topic_id: 7, en: "My younger brother lives in Hanoi.", translations: { vi: "Em trai tôi sống ở Hà Nội.", pt: "Meu irmão mais novo mora em Hanói.", ko: "남동생은 하노이에 살고 있습니다.", ja: "私の弟はハノイに住んでいます。", zh: "我的弟弟住在河内。", es: "Mi hermano menor vive en Hanói.", fr: "Mon petit frère vit à Hanoï.", de: "Mein jüngerer Bruder lebt in Hanoi.", ru: "Мой младший брат живет в Ханое.", th: "น้องชายของฉันอาศัยอยู่ที่ฮานอย", id: "Adik laki-laki saya tinggal di Hanoi." } },
+            { id: "s_07_004", topic_id: 7, en: "We are going to celebrate his birthday.", translations: { vi: "Chúng tôi sắp tổ chức sinh nhật cho anh ấy.", pt: "Vamos celebrar o aniversário dele.", ko: "우리는 그의 생일을 축하할 예정입니다.", ja: "彼の誕生日をお祝いする予定です。", zh: "我们要给他过生日。", es: "Vamos a celebrar su cumpleaños.", fr: "Nous allons fêter son anniversaire.", de: "Wir werden seinen Geburtstag feiern.", ru: "Мы собираемся праздновать его день рождения.", th: "พวกเรากำลังจะฉลองวันเกิดของเขา", id: "Kami akan merayakan ulang tahunnya." } },
+            { id: "s_07_005", topic_id: 7, en: "Thank you for being a great friend.", translations: { vi: "Cảm ơn bạn vì đã là một người bạn tuyệt vời.", pt: "Obrigado por ser um ótimo amigo.", ko: "좋은 친구가 되어주어서 고마워.", ja: "素晴らしい友達でいてくれてありがとう。", zh: "谢谢你成为我这么好的朋友。", es: "Gracias por ser un gran amigo.", fr: "Merci d'être un si grand ami.", de: "Danke, dass du ein so toller Freund bist.", ru: "Спасибо за то, что ты замечательный друг.", th: "ขอบคุณที่เป็นเพื่อนที่ดีเสมอมา", id: "Terima kasih telah menjadi teman yang hebat." } },
+
+            /* TOPIC 8 */
+            { id: "s_08_001", topic_id: 8, en: "I need to see a doctor immediately.", translations: { vi: "Tôi cần khám bác sĩ ngay lập tức.", pt: "Preciso ver um médico imediatamente.", ko: "지금 당장 의사를 만나야 합니다.", ja: "すぐに医者に診てもらう必要があります。", zh: "我需要立刻看医生。", es: "Necesito ver a un médico de inmediato.", fr: "J'ai besoin de voir un médecin immédiatement.", de: "Ich muss sofort einen Arzt aufsuchen.", ru: "Мне нужно срочно показаться врачу.", th: "ฉันต้องไปพบแพทย์ทันที", id: "Saya harus segera menemui dokter." } },
+            { id: "s_08_002", topic_id: 8, en: "Where is the nearest pharmacy?", translations: { vi: "Hiệu thuốc gần nhất ở đâu?", pt: "Onde fica a farmácia mais próxima?", ko: "가장 가까운 약국이 어디인가요?", ja: "一番近い薬局はどこですか？", zh: "最近的药店在哪里？", es: "¿Dónde está la farmacia más cercana?", fr: "Où se trouve la pharmacie la plus proche?", de: "Wo ist die nächste Apotheke?", ru: "Где находится ближайшая аптека?", th: "ร้านขายยาที่ใกล้ที่สุดอยู่ที่ไหน?", id: "Di mana apotek terdekat?" } },
+            { id: "s_08_003", topic_id: 8, en: "I have a severe headache today.", translations: { vi: "Hôm nay tôi bị đau đầu dữ dội.", pt: "Estou com uma dor de cabeça forte hoje.", ko: "오늘 두통이 너무 심합니다.", ja: "今日はひどい頭痛がします。", zh: "今天我头疼得厉害。", es: "Tengo un dolor de cabeza muy fuerte hoy.", fr: "J'ai un violent mal de tête aujourd'hui.", de: "Ich habe heute starke Kopfschmerzen.", ru: "У меня сегодня сильная головная боль.", th: "วันนี้ฉันปวดหัวมาก", id: "Saya sakit kepala parah hari ini." } },
+            { id: "s_08_004", topic_id: 8, en: "Please call an ambulance right now.", translations: { vi: "Làm ơn gọi xe cấp cứu ngay bây giờ.", pt: "Por favor chame uma ambulância agora.", ko: "지금 당장 구급차를 불러주세요.", ja: "今すぐ救急車を呼んでください。", zh: "请立刻叫救护车。", es: "Por favor llame a una ambulancia ahora mismo.", fr: "S'il vous plaît appelez une ambulance tout de suite.", de: "Bitte rufen Sie sofort einen Krankenwagen.", ru: "Пожалуйста вызовите скорую помощь прямо сейчас.", th: "กรุณาเรียกรถพยาบาลตอนนี้เลย", id: "Tolong panggil ambulans sekarang juga." } },
+            { id: "s_08_005", topic_id: 8, en: "How often should I take this medicine?", translations: { vi: "Tôi nên uống thuốc này bao lâu một lần?", pt: "Com que frequência devo tomar este remédio?", ko: "이 약은 얼마나 자주 복용해야 하나요?", ja: "この薬はどれくらいの頻度で飲むべきですか？", zh: "这种药我应该多久吃一次？", es: "¿Con qué frecuencia debo tomar esta medicina?", fr: "À quelle fréquence dois-je prendre ce médicament?", de: "Wie oft sollte ich diese Medizin einnehmen?", ru: "Как часто мне принимать это лекарство?", th: "ฉันควรกินยานี้บ่อยแค่ไหน?", id: "Seberapa sering saya harus minum obat ini?" } },
+
+            /* TOPIC 9 */
+            { id: "s_09_001", topic_id: 9, en: "I enjoy listening to music in my free time.", translations: { vi: "Tôi thích nghe nhạc vào thời gian rảnh.", pt: "Gosto de ouvir música no meu tempo livre.", ko: "여가 시간에 음악 듣는 것을 좋아합니다.", ja: "自由な時間に音楽を聴くのが好きです。", zh: "我喜欢在空闲时间听音乐。", es: "Disfruto escuchar música en mi tiempo libre.", fr: "J'aime écouter de la musique pendant mon temps libre.", de: "Ich höre in meiner Freizeit gerne Musik.", ru: "Мне нравится слушать музыку в свободное время.", th: "ฉันชอบฟังเพลงในเวลาว่าง", id: "Saya suka mendengarkan musik di waktu luang." } },
+            { id: "s_09_002", topic_id: 9, en: "Do you play football on weekends?", translations: { vi: "Bạn có đá bóng vào cuối tuần không?", pt: "Você joga futebol nos fins de semana?", ko: "주말에 축구를 하시나요?", ja: "週末にサッカーをしますか？", zh: "你周末踢足球吗？", es: "¿Juegas al fútbol los fines de semana?", fr: "Jouez-vous au football le week-end?", de: "Spielen Sie am Wochenende Fußball?", ru: "Вы играете в футбол по выходным?", th: "คุณเล่นฟุตบอลในวันเสาร์อาทิตย์ไหม?", id: "Apakah Anda bermain sepak bola di akhir pekan?" } },
+            { id: "s_09_003", topic_id: 9, en: "My favorite sport is swimming.", translations: { vi: "Môn thể thao yêu thích của tôi là bơi lội.", pt: "Meu esporte favorito é natação.", ko: "제가 가장 좋아하는 스포츠는 수영입니다.", ja: "私の好きなスポーツは水泳です。", zh: "我最喜欢的运动是游泳。", es: "Mi deporte favorito es la natación.", fr: "Mon sport préféré est la natation.", de: "Mein Lieblingssport ist Schwimmen.", ru: "Мой любимый вид спорта - плавание.", th: "กีฬาที่ฉันชอบที่สุดคือการว่ายน้ำ", id: "Olahraga favorit saya adalah berenang." } },
+            { id: "s_09_004", topic_id: 9, en: "I love taking photos when traveling.", translations: { vi: "Tôi thích chụp ảnh khi đi du lịch.", pt: "Adoro tirar fotos quando viajo.", ko: "여행할 때 사진 찍는 것을 좋아합니다.", ja: "旅行中に写真を撮るのが大好きです。", zh: "我喜欢在旅行时拍照。", es: "Me encanta tomar fotos cuando viajo.", fr: "J'adore prendre des photos quand je voyage.", de: "Ich liebe es auf Reisen Fotos zu machen.", ru: "Я люблю фотографировать в путешествиях.", th: "ฉันชอบถ่ายรูปเวลาไปเที่ยว", id: "Saya suka mengambil foto saat bepergian." } },
+            { id: "s_09_005", topic_id: 9, en: "He likes playing video games with friends.", translations: { vi: "Cậu ấy thích chơi điện tử với bạn bè.", pt: "Ele gosta de jogar videogame com amigos.", ko: "그는 친구들과 비디오 게임 하는 것을 좋아합니다.", ja: "彼は友達とビデオゲームをするのが好きです。", zh: "他喜欢和朋友一起打游戏。", es: "A él le gusta jugar videojuegos con amigos.", fr: "Il aime jouer aux jeux vidéo avec des amis.", de: "Er spielt gerne Videospiele mit Freunden.", ru: "Ему нравится играть в видеоигры с друзьями.", th: "เขาชอบเล่นวิดีโอเกมกับเพื่อนๆ", id: "Dia suka bermain video game dengan teman-teman." } },
+
+            /* TOPIC 10 */
+            { id: "s_10_001", topic_id: 10, en: "Where is the main library located?", translations: { vi: "Thư viện chính nằm ở đâu?", pt: "Onde fica a biblioteca principal?", ko: "중앙 도서관은 어디에 있나요?", ja: "中央図書館はどこにありますか？", zh: "主图书馆在哪里？", es: "¿Dónde está ubicada la biblioteca principal?", fr: "Où se trouve la bibliothèque principale?", de: "Wo befindet sich die Hauptbibliothek?", ru: "Где находится главная библиотека?", th: "ห้องสมุดหลักตั้งอยู่ที่ไหน?", id: "Di mana letak perpustakaan utama?" } },
+            { id: "s_10_002", topic_id: 10, en: "We have an English test tomorrow morning.", translations: { vi: "Chúng tôi có bài kiểm tra tiếng Anh vào sáng mai.", pt: "Temos um teste de inglês amanhã de manhã.", ko: "내일 아침에 영어 시험이 있습니다.", ja: "明日の朝、英語の試験があります。", zh: "我们明天早上有英语考试。", es: "Tenemos un examen de inglés mañana por la mañana.", fr: "Nous avons un test d'anglais demain matin.", de: "Wir haben morgen Früh einen Englischtest.", ru: "Завтра утром у нас тест по английскому.", th: "พวกเรามีสอบภาษาอังกฤษพรุ่งนี้เช้า", id: "Kami ada ujian bahasa Inggris besok pagi." } },
+            { id: "s_10_003", topic_id: 10, en: "Can you explain this math question to me?", translations: { vi: "Bạn có thể giải thích câu hỏi toán này cho tôi không?", pt: "Você pode me explicar esta questão de matemática?", ko: "이 수학 문제를 설명해 주시겠습니까?", ja: "この数学の問題を説明してもらえますか？", zh: "你能给我解释一下这道数学题吗？", es: "¿Puedes explicarme esta pregunta de matemáticas?", fr: "Pouvez-vous m'expliquer cette question de maths?", de: "Können Sie mir diese Matheaufgabe erklären?", ru: "Можешь объяснить мне эту математическую задачу?", th: "คุณช่วยอธิบายโจทย์การบ้านข้อนี้ให้ฉันฟังหน่อยได้ไหม?", id: "Bisakah Anda menjelaskan soal matematikaนี้ kepada saya?" } },
+            { id: "s_10_004", topic_id: 10, en: "I need to study for the final exam.", translations: { vi: "Tôi cần học bài cho kỳ thi cuối kỳ.", pt: "Preciso estudar para o exame final.", ko: "기말고사를 위해 공부해야 합니다.", ja: "期末試験のために勉強する必要があります。", zh: "我需要为期末考试复习。", es: "Necesito estudiar para el examen final.", fr: "Je dois réviser pour l'examen final.", de: "Ich muss für die Abschlussprüfung lernen.", ru: "Мне нужно готовиться к финальному экзамену.", th: "ฉันต้องอ่านหนังสือสำหรับสอบปลายภาค", id: "Saya harus belajar untuk ujian akhir." } },
+            { id: "s_10_005", topic_id: 10, en: "What is your favorite subject at school?", translations: { vi: "Môn học yêu thích của bạn ở trường là gì?", pt: "Qual é a sua matéria favorita na escola?", ko: "학교에서 가장 좋아하는 과목은 무엇인가요?", ja: "学校で一番好きな教科は何ですか？", zh: "你在学校最喜欢的科目是什么？", es: "¿Cuál es tu asignatura favorita en la escuela?", fr: "Quelle est votre matière préférée à l'école?", de: "Was ist Ihr Lieblingsfach in der Schule?", ru: "Какой твой любимый предмет в школе?", th: "วิชาที่คุณชอบที่สุดในโรงเรียนคืออะไร?", id: "Apa mata pelajaran favorit Anda di sekolah?" } }
         ];
 
         let currentLang = localStorage.getItem('APP_LANG') || 'vi';
@@ -666,10 +730,8 @@
                 renderTopicGrid();
                 loadTopicData(currentTopicId);
                 
-                // Khởi tạo AdMob
                 initAdMob();
 
-                // Đồng bộ ngầm server
                 setTimeout(() => {
                     syncWithServer(false);
                 }, 1000);
@@ -689,7 +751,7 @@
         }
 
         function updateLangBadge() {
-            const langMap = { vi: '🇻🇳 Tiếng Việt', pt: '🇵🇹 Bồ Đào Nha', ko: '🇰🇷 Tiếng Hàn', ja: '🇯🇵 Tiếng Nhật', zh: '🇨🇳 Tiếng Trung', es: '🇪🇸 Tây Ban Nha', fr: '🇫🇷 Tiếng Pháp', de: '🇩🇪 Tiếng Đức', ru: '🇷🇺 Tiếng Nga', th: '🇹🇭 Tiếng Thái', id: '🇮🇩 Indonesia' };
+            const langMap = { vi: '🇻🇳 Tiếng Việt', ko: '🇰🇷 Tiếng Hàn', ja: '🇯🇵 Tiếng Nhật', zh: '🇨🇳 Tiếng Trung', es: '🇪🇸 Tây Ban Nha', fr: '🇫🇷 Tiếng Pháp', de: '🇩🇪 Tiếng Đức', ru: '🇷🇺 Tiếng Nga', th: '🇹🇭 Tiếng Thái', pt: '🇵🇹 Bồ Đào Nha', id: '🇮🇩 Indonesia' };
             document.getElementById('current-lang-badge').innerText = langMap[currentLang] || currentLang;
             document.getElementById('sync-lang-code').innerText = `en_${currentLang}`;
             
@@ -705,26 +767,81 @@
             syncWithServer(false);
         }
 
+        /* HÀM TRÍCH XUẤT TOPIC ID LINH HOẠT TỪ MỌI DẠNG DỮ LIỆU */
+        function getTopicId(item) {
+            if (item.topic_id !== undefined && item.topic_id !== null) {
+                let tid = parseInt(item.topic_id);
+                if (!isNaN(tid)) return tid;
+                let match = String(item.topic_id).match(/\d+/);
+                if (match) return parseInt(match[0]);
+            }
+            if (item.id) {
+                let match = String(item.id).match(/s_(\d+)_/);
+                if (match) return parseInt(match[1]);
+                let match2 = String(item.id).match(/top_(\d+)/);
+                if (match2) return parseInt(match2[1]);
+            }
+            return 1;
+        }
+
+        /* HÀM LẤY BẢN DỊCH CHUẨN XÁC THEO MỌI CẤU TRÚC JSON SERVER */
+        function getTargetTranslation(item, lang) {
+            if (!item) return "";
+            if (item.translations && item.translations[lang]) return item.translations[lang];
+            if (item.trans && typeof item.trans === 'object' && item.trans[lang]) return item.trans[lang];
+            if (item[lang]) return item[lang];
+            if (item.trans && typeof item.trans === 'string') return item.trans;
+            return item.en || "";
+        }
+
+        /* HÀM NẠP CÂU HỎI AN TOÀN TỪ LOCALSTORAGE HOẶC DEFAULT */
+        function getSentencesForLang(lang) {
+            let customPackRaw = localStorage.getItem(`PACK_0003_en_${lang}`);
+            if (!customPackRaw) return DEFAULT_SENTENCES;
+
+            try {
+                let parsed = JSON.parse(customPackRaw);
+                let list = [];
+
+                if (Array.isArray(parsed)) {
+                    list = parsed;
+                } else if (parsed && Array.isArray(parsed.data)) {
+                    list = parsed.data;
+                } else if (parsed && Array.isArray(parsed.sentences)) {
+                    list = parsed.sentences;
+                } else if (parsed && typeof parsed === 'object') {
+                    for (let key in parsed) {
+                        if (Array.isArray(parsed[key])) {
+                            list = list.concat(parsed[key]);
+                        }
+                    }
+                }
+
+                if (list && list.length > 0) {
+                    return list;
+                }
+            } catch (e) {
+                console.error("Error parsing stored pack:", e);
+            }
+
+            return DEFAULT_SENTENCES;
+        }
+
         function loadTopicData(topicId) {
             currentTopicId = topicId;
             currentStageIndex = 0;
 
-            let customPackRaw = localStorage.getItem(`PACK_0003_en_${currentLang}`);
-            let sourceSentences = DEFAULT_SENTENCES;
+            let allSentences = getSentencesForLang(currentLang);
+            currentSentenceList = allSentences.filter(s => getTopicId(s) === topicId);
 
-            if (customPackRaw) {
-                try {
-                    let parsed = JSON.parse(customPackRaw);
-                    if (parsed && parsed.data && parsed.data.length > 0) {
-                        sourceSentences = parsed.data;
-                    }
-                } catch(e) {}
+            // Nếu gói từ Server thiếu chủ đề này, tự bổ sung từ DEFAULT_SENTENCES
+            if (currentSentenceList.length === 0) {
+                currentSentenceList = DEFAULT_SENTENCES.filter(s => getTopicId(s) === topicId);
             }
 
-            currentSentenceList = sourceSentences.filter(s => parseInt(s.topic_id) === topicId);
-
+            // Phòng ngừa lỗi cực hạn
             if (currentSentenceList.length === 0) {
-                currentSentenceList = sourceSentences.length > 0 ? sourceSentences : DEFAULT_SENTENCES;
+                currentSentenceList = DEFAULT_SENTENCES.slice(0, 5);
             }
 
             renderStage();
@@ -744,15 +861,7 @@
             let pct = Math.round(((currentStageIndex + 1) / currentSentenceList.length) * 100);
             document.getElementById('stage-progress').style.width = `${pct}%`;
 
-            let targetTrans = "";
-            if (item.trans && item.trans[currentLang]) {
-                targetTrans = item.trans[currentLang];
-            } else if (item[currentLang]) {
-                targetTrans = item[currentLang];
-            } else {
-                targetTrans = item.en;
-            }
-
+            let targetTrans = getTargetTranslation(item, currentLang);
             document.getElementById('target-sentence-text').innerText = targetTrans;
 
             let words = item.en.replace(/[.,?!]/g, '').split(' ');
@@ -890,7 +999,7 @@
             }
         }
 
-        /* Phát âm Tiếng Anh */
+        /* Audio & TTS Engine */
         function speakTarget() {
             const item = currentSentenceList[currentStageIndex];
             if (!item || !item.en) return;
@@ -990,12 +1099,12 @@
             });
         }
 
-        /* Server Sync */
+        /* ĐỒNG BỘ DỮ LIỆU SERVER CHUẨN XÁC THEO NGÔN NGỮ ĐANG CHỌN */
         async function syncWithServer(isManualClick = false) {
             const infoBox = document.getElementById('sync-info-box');
-            infoBox.innerHTML = "⏳ Đang kết nối kiểm tra dữ liệu từ Server...";
-
             const langPair = `en_${currentLang}`;
+            infoBox.innerHTML = `⏳ Đang kết nối kiểm tra dữ liệu từ Server (${langPair})...`;
+
             const clientVer = parseInt(localStorage.getItem(`VER_0003_${langPair}`) || "1");
             const apiUrl = `${APP_CONFIG.syncApiUrl}?app_token=${APP_CONFIG.appToken}&ngonngu=${currentLang}&pack_version=${clientVer}`;
 
@@ -1006,25 +1115,28 @@
                 if (data.status === "success") {
                     let packData = data.pack_data;
 
-                    if (data.has_update && packData && packData.data) {
+                    if (data.has_update && packData) {
                         localStorage.setItem(`PACK_0003_${langPair}`, JSON.stringify(packData));
-                        localStorage.setItem(`VER_0003_${langPair}`, data.pack_info.latest_version);
+                        let newVer = (data.pack_info && data.pack_info.latest_version) ? data.pack_info.latest_version : clientVer + 1;
+                        localStorage.setItem(`VER_0003_${langPair}`, newVer);
                         
                         updateLangBadge();
-                        infoBox.innerHTML = `✅ <strong>CẬP NHẬT THÀNH CÔNG!</strong><br>• Đã tải: <strong>${packData.data.length} câu</strong><br>• Phiên bản: <strong>v${data.pack_info.latest_version}</strong>`;
+                        
+                        let count = Array.isArray(packData) ? packData.length : (packData.data ? packData.data.length : 'mới');
+                        infoBox.innerHTML = `✅ <strong>CẬP NHẬT THÀNH CÔNG!</strong><br>• Cặp ngôn ngữ: <strong>${langPair}</strong><br>• Đã tải: <strong>${count} câu</strong><br>• Phiên bản: <strong>v${newVer}</strong>`;
                         
                         loadTopicData(currentTopicId);
-                        if (isManualClick) alert(`🎉 Đã đồng bộ thành công ${packData.data.length} câu hỏi mới từ Server!`);
+                        if (isManualClick) alert(`🎉 Đã đồng bộ thành công dữ liệu mới (${langPair}) từ Server!`);
                     } else {
                         infoBox.innerHTML = `✅ <strong>DỮ LIỆU ĐÃ MỚI NHẤT!</strong><br>• Cặp ngôn ngữ: <strong>${langPair}</strong><br>• Phiên bản: <strong>v${clientVer}</strong>`;
-                        if (isManualClick) alert("Bạn đang sử dụng bộ dữ liệu mới nhất!");
+                        if (isManualClick) alert(`Bạn đang sử dụng bộ dữ liệu mới nhất (${langPair})!`);
                     }
                 } else {
                     infoBox.innerHTML = `⚠️ ${data.message || 'Gói ngôn ngữ chưa được khởi tạo trên server.'}`;
                 }
             } catch (err) {
                 console.error("Sync Error:", err);
-                infoBox.innerHTML = `✅ <strong>ĐÃ SẴN SÀNG OFFLINE!</strong><br>• Cặp ngôn ngữ: <strong>${langPair}</strong>`;
+                infoBox.innerHTML = `✅ <strong>ĐÃ SẴN SÀNG OFFLINE!</strong><br>• Cặp ngôn ngữ: <strong>${langPair}</strong><br>• Đang sử dụng dữ liệu mặc định.`;
             }
         }
 
@@ -1053,7 +1165,6 @@
                         margin: 0,
                         isTesting: true
                     }).catch(err => {
-                        console.log("Adaptive Banner failed, trying standard BANNER:", err);
                         AdMob.showBanner({
                             adId: APP_CONFIG.bannerAdId,
                             adSize: 'BANNER',
