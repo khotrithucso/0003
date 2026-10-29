@@ -97,7 +97,7 @@
             max-width: 600px;
             width: 100%;
             margin: 0 auto;
-            padding-bottom: 75px; /* Tránh bị che bởi AdMob Banner dưới đáy */
+            padding-bottom: 75px;
         }
 
         .view-tab {
@@ -532,7 +532,7 @@
             </div>
 
             <div class="target-card">
-                <div class="target-text" id="target-sentence-text">Hôm nay bạn cảm thấy thế nào?</div>
+                <div class="target-text" id="target-sentence-text">Đang tải...</div>
                 <button class="speaker-btn" onclick="speakTarget()">🔊 Listen Audio</button>
             </div>
 
@@ -635,7 +635,7 @@
             { id: 10, name: "Study & School", icon: "🎓" }
         ];
 
-        /* BỘ CÂU HỎI MẶC ĐỊNH ĐẦY ĐỦ 5 CÂU X 10 CHỦ ĐỀ = 50 CÂU CHUẨN 11 NGÔN NGỮ */
+        /* BỘ CÂU HỎI MẶC ĐỊNH CHUẨN ĐA NGÔN NGỮ (5 CÂU X 10 CHỦ ĐỀ = 50 CÂU) */
         const DEFAULT_SENTENCES = [
             /* TOPIC 1 */
             { id: "s_01_001", topic_id: 1, en: "How are you feeling today?", translations: { vi: "Hôm nay bạn cảm thấy thế nào?", pt: "Como você está se sentindo hoje?", ko: "오늘 기분이 어떠신가요?", ja: "今日の気分はどうですか？", zh: "你今天感觉怎么样？", es: "¿Cómo te sientes hoy?", fr: "Comment vous sentez-vous aujourd'hui?", de: "Wie fühlst du dich heute?", ru: "Как вы себя чувствуете сегодня?", th: "วันนี้คุณรู้สึกอย่างไรบ้าง?", id: "Bagaimana perasaan Anda hari ini?" } },
@@ -696,14 +696,14 @@
             /* TOPIC 9 */
             { id: "s_09_001", topic_id: 9, en: "I enjoy listening to music in my free time.", translations: { vi: "Tôi thích nghe nhạc vào thời gian rảnh.", pt: "Gosto de ouvir música no meu tempo livre.", ko: "여가 시간에 음악 듣는 것을 좋아합니다.", ja: "自由な時間に音楽を聴くのが好きです。", zh: "我喜欢在空闲时间听音乐。", es: "Disfruto escuchar música en mi tiempo libre.", fr: "J'aime écouter de la musique pendant mon temps libre.", de: "Ich höre in meiner Freizeit gerne Musik.", ru: "Мне нравится слушать музыку в свободное время.", th: "ฉันชอบฟังเพลงในเวลาว่าง", id: "Saya suka mendengarkan musik di waktu luang." } },
             { id: "s_09_002", topic_id: 9, en: "Do you play football on weekends?", translations: { vi: "Bạn có đá bóng vào cuối tuần không?", pt: "Você joga futebol nos fins de semana?", ko: "주말에 축구를 하시나요?", ja: "週末にサッカーをしますか？", zh: "你周末踢足球吗？", es: "¿Juegas al fútbol los fines de semana?", fr: "Jouez-vous au football le week-end?", de: "Spielen Sie am Wochenende Fußball?", ru: "Вы играете в футбол по выходным?", th: "คุณเล่นฟุตบอลในวันเสาร์อาทิตย์ไหม?", id: "Apakah Anda bermain sepak bola di akhir pekan?" } },
-            { id: "s_09_003", topic_id: 9, en: "My favorite sport is swimming.", translations: { vi: "Môn thể thao yêu thích của tôi là bơi lội.", pt: "Meu esporte favorito é natação.", ko: "제가 가장 좋아하는 스포츠는 수영입니다.", ja: "私の好きなスポーツは水泳です。", zh: "我最喜欢的运动是游泳。", es: "Mi deporte favorito es la natación.", fr: "Mon sport préféré est la natation.", de: "Mein Lieblingssport ist Schwimmen.", ru: "Мой любимый вид спорта - плавание.", th: "กีฬาที่ฉันชอบที่สุดคือการว่ายน้ำ", id: "Olahraga favorit saya adalah berenang." } },
+            { id: "s_09_003", topic_id: 9, en: "My favorite sport is swimming.", translations: { vi: "Môn thể thao yêu thích của tôi là bơi lội.", pt: "Meu esporte favorito é natação.", ko: "제가 가장 좋아하는 스포츠는 수영입니다.", ja: "私の好きなスポーツは水泳です。", zh: "我最喜欢的运动是游泳。", es: "Mi deporte favorito es la natación.", fr: "Mon sport préféré est la natation.", de: "Ich höre in meiner Freizeit gerne Musik.", ru: "Мой любимый вид спорта - плавание.", th: "กีฬาที่ฉันชอบที่สุดคือการว่ายน้ำ", id: "Olahraga favorit saya adalah berenang." } },
             { id: "s_09_004", topic_id: 9, en: "I love taking photos when traveling.", translations: { vi: "Tôi thích chụp ảnh khi đi du lịch.", pt: "Adoro tirar fotos quando viajo.", ko: "여행할 때 사진 찍는 것을 좋아합니다.", ja: "旅行中に写真を撮るのが大好きです。", zh: "我喜欢在旅行时拍照。", es: "Me encanta tomar fotos cuando viajo.", fr: "J'adore prendre des photos quand je voyage.", de: "Ich liebe es auf Reisen Fotos zu machen.", ru: "Я люблю фотографировать в путешествиях.", th: "ฉันชอบถ่ายรูปเวลาไปเที่ยว", id: "Saya suka mengambil foto saat bepergian." } },
             { id: "s_09_005", topic_id: 9, en: "He likes playing video games with friends.", translations: { vi: "Cậu ấy thích chơi điện tử với bạn bè.", pt: "Ele gosta de jogar videogame com amigos.", ko: "그는 친구들과 비디오 게임 하는 것을 좋아합니다.", ja: "彼は友達とビデオゲームをするのが好きです。", zh: "他喜欢和朋友一起打游戏。", es: "A él le gusta jugar videojuegos con amigos.", fr: "Il aime jouer aux jeux vidéo avec des amis.", de: "Er spielt gerne Videospiele mit Freunden.", ru: "Ему нравится играть в видеоигры с друзьями.", th: "เขาชอบเล่นวิดีโอเกมกับเพื่อนๆ", id: "Dia suka bermain video game dengan teman-teman." } },
 
             /* TOPIC 10 */
             { id: "s_10_001", topic_id: 10, en: "Where is the main library located?", translations: { vi: "Thư viện chính nằm ở đâu?", pt: "Onde fica a biblioteca principal?", ko: "중앙 도서관은 어디에 있나요?", ja: "中央図書館はどこにありますか？", zh: "主图书馆在哪里？", es: "¿Dónde está ubicada la biblioteca principal?", fr: "Où se trouve la bibliothèque principale?", de: "Wo befindet sich die Hauptbibliothek?", ru: "Где находится главная библиотека?", th: "ห้องสมุดหลักตั้งอยู่ที่ไหน?", id: "Di mana letak perpustakaan utama?" } },
             { id: "s_10_002", topic_id: 10, en: "We have an English test tomorrow morning.", translations: { vi: "Chúng tôi có bài kiểm tra tiếng Anh vào sáng mai.", pt: "Temos um teste de inglês amanhã de manhã.", ko: "내일 아침에 영어 시험이 있습니다.", ja: "明日の朝、英語の試験があります。", zh: "我们明天早上有英语考试。", es: "Tenemos un examen de inglés mañana por la mañana.", fr: "Nous avons un test d'anglais demain matin.", de: "Wir haben morgen Früh einen Englischtest.", ru: "Завтра утром у нас тест по английскому.", th: "พวกเรามีสอบภาษาอังกฤษพรุ่งนี้เช้า", id: "Kami ada ujian bahasa Inggris besok pagi." } },
-            { id: "s_10_003", topic_id: 10, en: "Can you explain this math question to me?", translations: { vi: "Bạn có thể giải thích câu hỏi toán này cho tôi không?", pt: "Você pode me explicar esta questão de matemática?", ko: "이 수학 문제를 설명해 주시겠습니까?", ja: "この数学の問題を説明してもらえますか？", zh: "你能给我解释一下这道数学题吗？", es: "¿Puedes explicarme esta pregunta de matemáticas?", fr: "Pouvez-vous m'expliquer cette question de maths?", de: "Können Sie mir diese Matheaufgabe erklären?", ru: "Можешь объяснить мне эту математическую задачу?", th: "คุณช่วยอธิบายโจทย์การบ้านข้อนี้ให้ฉันฟังหน่อยได้ไหม?", id: "Bisakah Anda menjelaskan soal matematikaนี้ kepada saya?" } },
+            { id: "s_10_003", topic_id: 10, en: "Can you explain this math question to me?", translations: { vi: "Bạn có thể giải thích câu hỏi toán này cho tôi không?", pt: "Você pode me explicar esta questão de matemática?", ko: "이 수학 문제를 설명해 주시겠습니까?", ja: "この数学の問題を説明してもらえますか？", zh: "你能给我解释一下这道数学题吗？", es: "¿Puedes explicarme esta pregunta de matemáticas?", fr: "Pouvez-vous m'expliquer cette question de maths?", de: "Können Sie mir diese Matheaufgabe erklären?", ru: "Можешь объяснить мне эту математическую задачу?", th: "คุณช่วยอธิบายโจทย์การบ้านข้อนี้ให้ฉันฟังหน่อยได้ไหม?", id: "Bisakah Anda menjelaskan soal matematika ini kepada saya?" } },
             { id: "s_10_004", topic_id: 10, en: "I need to study for the final exam.", translations: { vi: "Tôi cần học bài cho kỳ thi cuối kỳ.", pt: "Preciso estudar para o exame final.", ko: "기말고사를 위해 공부해야 합니다.", ja: "期末試験のために勉強する必要があります。", zh: "我需要为期末考试复习。", es: "Necesito estudiar para el examen final.", fr: "Je dois réviser pour l'examen final.", de: "Ich muss für die Abschlussprüfung lernen.", ru: "Мне нужно готовиться к финальному экзамену.", th: "ฉันต้องอ่านหนังสือสำหรับสอบปลายภาค", id: "Saya harus belajar untuk ujian akhir." } },
             { id: "s_10_005", topic_id: 10, en: "What is your favorite subject at school?", translations: { vi: "Môn học yêu thích của bạn ở trường là gì?", pt: "Qual é a sua matéria favorita na escola?", ko: "학교에서 가장 좋아하는 과목은 무엇인가요?", ja: "学校で一番好きな教科は何ですか？", zh: "你在学校最喜欢的科目是什么？", es: "¿Cuál es tu asignatura favorita en la escuela?", fr: "Quelle est votre matière préférée à l'école?", de: "Was ist Ihr Lieblingsfach in der Schule?", ru: "Какой твой любимый предмет в школе?", th: "วิชาที่คุณชอบที่สุดในโรงเรียนคืออะไร?", id: "Apa mata pelajaran favorit Anda di sekolah?" } }
         ];
@@ -740,6 +740,7 @@
             }
         });
 
+        /* CHUYỂN TAB VÀ TỰ ĐỘNG NẠP LẠI MÀN HÌNH BÀI HỌC */
         function switchTab(tabName) {
             triggerAdCounter();
             playSoundFx('pop');
@@ -748,6 +749,11 @@
 
             document.getElementById(`nav-${tabName}`).classList.add('active');
             document.getElementById(`tab-${tabName}`).classList.add('active');
+
+            // ĐẢM BẢO QUAY LẠI MÀN CHƠI LÀ RE-RENDER NGAY THEO NGÔN NGỮ HIỆN TẠI
+            if (tabName === 'game') {
+                loadTopicData(currentTopicId);
+            }
         }
 
         function updateLangBadge() {
@@ -763,11 +769,12 @@
             currentLang = document.getElementById('select-lang').value;
             localStorage.setItem('APP_LANG', currentLang);
             updateLangBadge();
+            
+            // Nạp lại dữ liệu bài học ngay lập tức
             loadTopicData(currentTopicId);
             syncWithServer(false);
         }
 
-        /* HÀM TRÍCH XUẤT TOPIC ID LINH HOẠT TỪ MỌI DẠNG DỮ LIỆU */
         function getTopicId(item) {
             if (item.topic_id !== undefined && item.topic_id !== null) {
                 let tid = parseInt(item.topic_id);
@@ -784,17 +791,35 @@
             return 1;
         }
 
-        /* HÀM LẤY BẢN DỊCH CHUẨN XÁC THEO MỌI CẤU TRÚC JSON SERVER */
+        /* HÀM TRÍCH XUẤT CÂU DỊCH CHUẨN XÁC NGUYÊN TẮC KHÔNG LẪN TIẾNG VIỆT/TIẾNG HÀN */
         function getTargetTranslation(item, lang) {
             if (!item) return "";
+            
+            // 1. Kiểm tra từ điển translations chính thức
             if (item.translations && item.translations[lang]) return item.translations[lang];
             if (item.trans && typeof item.trans === 'object' && item.trans[lang]) return item.trans[lang];
+            
+            // 2. Kiểm tra thuộc tính ngôn ngữ trực tiếp (item.ko, item.vi...)
             if (item[lang]) return item[lang];
-            if (item.trans && typeof item.trans === 'string') return item.trans;
+
+            // 3. Nếu là gói tải từ server cho ngôn ngữ hiện tại
+            if (item.trans && typeof item.trans === 'string' && item.packLang === lang) {
+                return item.trans;
+            }
+
+            // 4. Tra cứu ngược bộ từ điển mặc định DEFAULT_SENTENCES theo ID hoặc chuỗi English
+            const defaultItem = DEFAULT_SENTENCES.find(d => d.id === item.id || (d.en && item.en && d.en.toLowerCase() === item.en.toLowerCase()));
+            if (defaultItem && defaultItem.translations && defaultItem.translations[lang]) {
+                return defaultItem.translations[lang];
+            }
+            if (defaultItem && defaultItem.translations && defaultItem.translations['vi']) {
+                return defaultItem.translations['vi'];
+            }
+
             return item.en || "";
         }
 
-        /* HÀM NẠP CÂU HỎI AN TOÀN TỪ LOCALSTORAGE HOẶC DEFAULT */
+        /* NẠP CÂU HỎI AN TOÀN THEO CẶP NGÔN NGỮ */
         function getSentencesForLang(lang) {
             let customPackRaw = localStorage.getItem(`PACK_0003_en_${lang}`);
             if (!customPackRaw) return DEFAULT_SENTENCES;
@@ -818,7 +843,8 @@
                 }
 
                 if (list && list.length > 0) {
-                    return list;
+                    // Gắn nhãn ngôn ngữ packLang cho gói vừa tải
+                    return list.map(item => ({ ...item, packLang: lang }));
                 }
             } catch (e) {
                 console.error("Error parsing stored pack:", e);
@@ -834,12 +860,10 @@
             let allSentences = getSentencesForLang(currentLang);
             currentSentenceList = allSentences.filter(s => getTopicId(s) === topicId);
 
-            // Nếu gói từ Server thiếu chủ đề này, tự bổ sung từ DEFAULT_SENTENCES
             if (currentSentenceList.length === 0) {
                 currentSentenceList = DEFAULT_SENTENCES.filter(s => getTopicId(s) === topicId);
             }
 
-            // Phòng ngừa lỗi cực hạn
             if (currentSentenceList.length === 0) {
                 currentSentenceList = DEFAULT_SENTENCES.slice(0, 5);
             }
@@ -861,6 +885,7 @@
             let pct = Math.round(((currentStageIndex + 1) / currentSentenceList.length) * 100);
             document.getElementById('stage-progress').style.width = `${pct}%`;
 
+            // Lấy câu dịch tương ứng ngôn ngữ đang chọn
             let targetTrans = getTargetTranslation(item, currentLang);
             document.getElementById('target-sentence-text').innerText = targetTrans;
 
